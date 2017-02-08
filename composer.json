@@ -43,11 +43,12 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimizess"
         ]
     },
     "config": {
-        "preferred-install": "dist",
+        "minimum-stability": "dev",
+        "prefer-stable" : true,
         "sort-packages": true
     }
 }
