@@ -35,7 +35,7 @@ public function companies()
 
 
 
-    public fucntion create()
+    public function create()
     {
     	return view ('companies.create');
     }

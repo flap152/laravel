@@ -12,6 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+         $this->call(UsersTableSeeder::class);
+         $this->call(ContactsTableSeeder::class);
+         factory(App\Company::class,3)->create();
 
         Eloquent::unguard();
 

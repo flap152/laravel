@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-<h1> Conmpany!! </h1>
+    <?php xdebug_break(); ?>
+<h1> Company!! </h1>
 
 
 @foreach ($companies as $company)

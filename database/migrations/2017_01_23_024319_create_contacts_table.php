@@ -25,6 +25,18 @@ class CreateContactsTable extends Migration
             $table->string('status');
             
         });
+
+        Schema::create('company_contact', function (Blueprint $table)
+        {
+            $table->integer('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            
+            $table->integer('contact_id')->unsigned()->index();
+            $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('cascade');
+            
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -34,6 +46,7 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('company_contact');
         Schema::dropIfExists('contacts');
     }
 }
