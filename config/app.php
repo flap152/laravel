@@ -165,6 +165,8 @@ return [
 
         Amsgames\LaravelShop\LaravelShopProvider::class,
 
+        Collective\Html\HtmlServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -229,6 +231,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Shop'      => Amsgames\LaravelShop\LaravelShopFacade::class,
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
