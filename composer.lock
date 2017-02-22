@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "04bcefe4fee431da4d1df0029cb15622",
+    "content-hash": "df4fb06a59ac5c64d10c4877d36d0beb",
     "packages": [
         {
             "name": "amsgames/laravel-shop",
-            "version": "v0.2.12",
+            "version": "dev-dev-v0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/amsgames/laravel-shop.git",
-                "reference": "883af2da405722f4eb0ca83ac78d039decef6d55"
+                "url": "https://github.com/flap152/laravel-shop.git",
+                "reference": "e17363be11ecbd730998065b4e48fc92a0bde8d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amsgames/laravel-shop/zipball/883af2da405722f4eb0ca83ac78d039decef6d55",
-                "reference": "883af2da405722f4eb0ca83ac78d039decef6d55",
+                "url": "https://api.github.com/repos/flap152/laravel-shop/zipball/e17363be11ecbd730998065b4e48fc92a0bde8d7",
+                "reference": "e17363be11ecbd730998065b4e48fc92a0bde8d7",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,6 @@
                     "Amsgames\\LaravelShop\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -62,7 +61,10 @@
                 "shopping cart",
                 "transactions"
             ],
-            "time": "2015-11-18T00:03:41+00:00"
+            "support": {
+                "source": "https://github.com/flap152/laravel-shop/tree/dev-v0.2"
+            },
+            "time": "2016-10-29 19:42:16"
         },
         {
             "name": "amsgames/laravel-shop-gateway-paypal",
@@ -2496,16 +2498,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.3.1",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "25c8de637ddf79567d721c1856616be01db7b960"
+                "reference": "e82de98cef0d6597b1b686be0b5813a3a4bb53c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/25c8de637ddf79567d721c1856616be01db7b960",
-                "reference": "25c8de637ddf79567d721c1856616be01db7b960",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/e82de98cef0d6597b1b686be0b5813a3a4bb53c5",
+                "reference": "e82de98cef0d6597b1b686be0b5813a3a4bb53c5",
                 "shasum": ""
             },
             "require": {
@@ -2558,7 +2560,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2017-02-20T12:54:53+00:00"
+            "time": "2017-02-22T12:27:33+00:00"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -4243,7 +4245,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "amsgames/laravel-shop": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
