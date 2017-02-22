@@ -165,6 +165,8 @@ return [
 
         Amsgames\LaravelShop\LaravelShopProvider::class,
 
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
         Collective\Html\HtmlServiceProvider::class,
 
         /*

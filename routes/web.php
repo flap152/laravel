@@ -23,7 +23,41 @@ Route::get('companies','CompaniesController@index');
 Route::get('companies/{id}','CompaniesController@show');
 Route::get('companies/create','CompaniesController@create');
 
+
 Route::get('/flap', function ()
 {
     return view('flap');
 });
+
+Route::get('/flap2', function ()
+{
+    return view('flap2');
+});
+
+Route::get('/flap3', function ()
+{
+    return view('flap3');
+});
+
+
+Route::resource('fmroorders','FmroorderController');
+
+
+
+
+/*
+// route to show our edit form
+Route::get('fmroorder/edit/{id}', array('as' => 'fmroorder.edit', function($id)
+{
+    // return our view and Nerd information
+    return View::make('fmroorder.edit') // FFLLAAPP: pulls app/views/nerd-edit.blade.php
+    ->with('fmroorder', \App\Fmroorder::find($id));
+}));
+
+// route to process the form
+Route::post('fmroorder/edit', function() {
+    // process our form
+});
+*/
+
+?>

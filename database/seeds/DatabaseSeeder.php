@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
          $this->call(ContactsTableSeeder::class);
          factory(App\Company::class,3)->create();
 
+        $this->call(FmroorderTableSeeder::class);
+
         Eloquent::unguard();
 
         $this->call('LaravelShopSeeder');

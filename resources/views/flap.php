@@ -6,6 +6,7 @@
 <h1>WELCOME to FLap's test page</h1>
 <?php
     echo('sadfsdfasdf asdf asdf asdf f');
+    phpinfo();
    // Artisan::call('db:seed');
     echo('sadfsdfasdf asdf asdf asdf f');
 ?>
