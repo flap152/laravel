@@ -22,12 +22,12 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
-        DB::table('users')->updateOrInsert([
+        /*DB::table('users')->updateOrInsert([
             'name' => "Frank1",
             'email' => 'flap_152@yahoo.ca',
             'password' => bcrypt('xA2ZYwy7BTmwD'),
         ]);
-
+*/
         // With factory (only override the column you want to set with a value)
         $user = factory(App\User::class)->make([
             'name' => "Frank2",
