@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 use Faker\Generator;
 
 class UsersTableSeeder extends Seeder
@@ -20,32 +21,43 @@ class UsersTableSeeder extends Seeder
             'name' => $fname . ' ' . $faker->lastName,
             'email' => $fname.'@example.com',
             'password' => bcrypt('secret'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        /*DB::table('users')->updateOrInsert([
+        DB::table('users')->updateOrInsert([
             'name' => "Frank1",
             'email' => 'flap_152@yahoo.ca',
             'password' => bcrypt('xA2ZYwy7BTmwD'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-*/
+
         // With factory (only override the column you want to set with a value)
-        $user = factory(App\User::class)->make([
+        factory(App\User::class)->create([
             'name' => "Frank2",
             'email' => 'flap_1522@yahoo.ca',
             'password' => bcrypt('xA2ZYwy7BTmwD'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        DB::table('users')->insert([
+
+        DB::table('users')->updateOrInsert([
             'name' => 'Nath',
             'email' => 'nath@processoft.com',
             'password' => bcrypt('zzzzzz'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         $fname = $faker->firstName;
-        DB::table('users')->insert ([
+        DB::table('users')->updateOrInsert ([
             'name' => $fname . ' ' . $faker->lastName,
             'email' => $fname.'@example.com',
             'password' => bcrypt('secret'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
 }
