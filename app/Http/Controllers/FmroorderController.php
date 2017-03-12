@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fmroorder;
+use App\Http\Requests\FmroorderRequest;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -10,6 +11,10 @@ use Redirect;
 use View;
 use Session;
 
+/**
+ * Class FmroorderController
+ * @package App\Http\Controllers
+ */
 class FmroorderController extends Controller
 {
     /**
@@ -38,39 +43,26 @@ class FmroorderController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * Store a newly created resource in storage
+     * @param FmroorderRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FmroorderRequest $request)
     {
         // validate
         // read more on validation at http://laravel.com/docs/validation
-        $rules = array(
-            'name'       => 'required',
-            'email'      => 'required|email',
-            'fmroorder_level' => 'required|numeric'
-        );
-        $validator = Validator::make(\Input::all(), $rules);
-
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('fmroorders/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
             // store
-            $fmroorder = new Fmroorder();
+        Fmroorder::create($request->all());
+            /*$fmroorder = new Fmroorder();
             $fmroorder->ServiceAddressStreet       = Input::get('ServiceAddressStreet');
             $fmroorder->SizeOfTheContainerToBeDelivered      = Input::get('SizeOfTheContainerToBeDelivered');
             $fmroorder->OrderNumber = Input::get('OrderNumber');
             $fmroorder->save();
-
+*/
             // redirect
             Session::flash('message', 'Successfully created order!');
-            return Redirect::to('fmroorders');
-        }
+            return redirect('fmroorders');
+     //   }
     }
 
     /**
@@ -105,36 +97,18 @@ class FmroorderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Fmroorder  $fmroorder
+     * @param FmroorderRequest|Request $request
+     * @param  \App\Fmroorder $fmroorder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fmroorder $fmroorder)
+    public function update(FmroorderRequest $request, Fmroorder $fmroorder)
     {
-        $rules = array(
-            'OrderNumber'       => 'required',
-            'ServiceAddressStreet'      => 'required',
-            'SizeOfTheContainerToBeDelivered' => 'required'
-        );
-        $validator = Validator::make(Input::all(), $rules);
 
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('fmroorders/' . $fmroorder->id . '/edit')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-            // store
-            //$fmroorder = F::find($id);
-            $fmroorder->OrderNumber       = Input::get('OrderNumber');
-            $fmroorder->ServiceAddressStreet      = Input::get('ServiceAddressStreet');
-            $fmroorder->SizeOfTheContainerToBeDelivered = Input::get('SizeOfTheContainerToBeDelivered');
-            $fmroorder->save();
+        $fmroorder->update($request->all());
 
             // redirect
-            Session::flash('message', 'Successfully updated fmroorder!');
-            return Redirect::to('fmroorders');
-        }
+        Session::flash('message', 'Successfully updated fmroorder!');
+        return Redirect::to('fmroorders');
     }
 
     /**
@@ -153,4 +127,159 @@ class FmroorderController extends Controller
         Session::flash('message', 'Successfully deleted the Order!');
         return Redirect::to('fmroorders');
     }
+
+    /**
+     * @param $post_fields
+     * @param $ch
+     */
+    private function getIt($post_fields, $ch) {
+        #global $ch;
+        # var_dump($post_fields);
+        # set fields in the POST
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query($post_fields) );
+        # echo http_build_query($post_fields);
+        # Send request.
+        $result = curl_exec($ch);
+        return $result;
+    }
+
+
+
+    /**
+     * @param Fmroorder $fmroorder
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function tofm($id)
+    {
+        $fmroorder = Fmroorder::findOrFail($id);
+        xdebug_break();
+        // echo ("qqqqqqqqqqqq");
+        $data = $fmroorder->toJson();
+        #echo($order->OrderNumber);
+        #echo($data);
+        $req_identifier = 'psoft_test'; // for test environment
+        $url='http://107.22.170.54/EXTgateway/Gateway.php';
+        #echo "debug, json data" . $data;
+        $ch = curl_init( $url );
+        curl_setopt($ch, CURLOPT_POST, 1);
+#set proper doc type
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('application/x-www-form-urlencoded; charset=UTF-8'));
+# Return response instead of printing.
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+# add order example
+        $fields = array( 'requestIdentifier' => $req_identifier,
+            'jsonData'=> $data,
+            'addRoOrder'=>'true',
+        );
+        $myRes = json_decode($this->getIt($fields, $ch) );
+
+        //echo('<br>sadfsdfasdf asdf asdf asdf f');
+        //xdebug_break();
+        $fmroorder->status = $myRes->status;
+        $fmroorder->save();
+
+        if ($myRes->status == "0") {
+            // redirect
+            Session::flash('message', 'Successfully sent to FleetMapper!');
+            return Redirect::to('fmroorders');
+
+        } else {
+
+            // redirect
+            Session::flash('message', 'Error sending to FleetMapper!:'.$myRes->status);
+            return Redirect::to('fmroorders');
+        }
+    }
+
+    public function getfmstatus($id)
+    {
+        $fmroorder = Fmroorder::findOrFail($id);
+        xdebug_break();
+        $data = '{"OrderNumber":'.$fmroorder->OrderNumber.'}';
+//        $data = json_encode($data);
+        #echo($order->OrderNumber);
+        #echo($data);
+        $req_identifier = 'psoft_test'; // for test environment
+        $url='http://107.22.170.54/EXTgateway/Gateway.php';
+
+        $ch = curl_init( $url );
+        curl_setopt($ch, CURLOPT_POST, 1);
+#set proper doc type
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('application/x-www-form-urlencoded; charset=UTF-8'));
+# Return response instead of printing.
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+// get the Roll-off order status
+        $fields = array( 'requestIdentifier' => $req_identifier,
+            'getRoOrderStatus'=>'true',
+            'jsonObject'=> $data,
+            'jsonData'=> $data,
+        );
+        $myRes = json_decode($this->getIt($fields, $ch) );
+
+        $fmroorder->status = $myRes->status;
+        $fmroorder->save();
+
+        if ($myRes->status == "0") {
+            // redirect
+            Session::flash('message', 'Success getting status from FleetMapper! '. json_encode($myRes-> result[0]));
+            return Redirect::to('fmroorders');
+
+        } else {
+
+            // redirect
+            Session::flash('message', 'Error getting status from FleetMapper!:'.$myRes->status);
+            return Redirect::to('fmroorders');
+        }
+    }
+
+    public function getfmclosedorders($id)
+    {
+        $fmroorder = Fmroorder::findOrFail($id);
+        xdebug_break();
+        $data = '{"OrderNumber":'.$fmroorder->OrderNumber.'}';
+//        $data = json_encode($data);
+        #echo($order->OrderNumber);
+        #echo($data);
+        $req_identifier = 'psoft_test'; // for test environment
+        $url='http://107.22.170.54/EXTgateway/Gateway.php';
+
+        $ch = curl_init( $url );
+        curl_setopt($ch, CURLOPT_POST, 1);
+#set proper doc type
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('application/x-www-form-urlencoded; charset=UTF-8'));
+# Return response instead of printing.
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+# add order example
+        $fields = array( 'requestIdentifier' => $req_identifier,
+            // 'jsonData'=> $data,
+            'getClosedRoOrders'=>'true',
+        );
+        $myRes = json_decode($this->getIt($fields, $ch) );
+
+        $fmroorder->status = $myRes->status;
+        $fmroorder->save();
+
+        if ($myRes->status == "0") {
+            // redirect
+            Session::flash('message', 'Success getting status from FleetMapper! '.$myRes->result);
+            return Redirect::to('fmroorders');
+
+        } else {
+
+            // redirect
+            Session::flash('message', 'Error getting status from FleetMapper!:'.$myRes->status);
+            return Redirect::to('fmroorders');
+        }
+    }
+
 }
+
+
+/*
+ *
+ *
+{"OrderNumber":"533957","OrderStatusId":"1","OrderCompletionTime":null,"DeliveredContainerName":null,"PickedUpContainerName":null,"DeliveredContainerSize":null,"ScaleTicketNumber":null,"LoadWeight":null,"DispatcherNotes":null,"VehicleName":null,"TypeOfWaste":"Mix","IsRecurrent":"0","OrderStartTime":null,"DumpsiteName":null}
+ * */

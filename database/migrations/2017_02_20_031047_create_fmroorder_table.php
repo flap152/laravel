@@ -33,8 +33,8 @@ class CreateFmroorderTable extends Migration
             $table->string('ServiceAddressCity');
             $table->string('ServiceAddressProvince');
             $table->string('ServiceAddressPostalCode');
-            $table->float('ServiceAddressLat',8,5);
-            $table->float('ServiceAddressLng',8,5);
+            $table->decimal('ServiceAddressLat',12,8)->nullable()->default(null);
+            $table->decimal('ServiceAddressLng',12,8)->nullable()->default(null);
             $table->integer('OperationType');
             $table->string('SizeOfTheContainerToBeDelivered')->nullable();
             $table->string('SizeOfTheContainerToBePickedUp')->nullable();
@@ -47,8 +47,8 @@ class CreateFmroorderTable extends Migration
             $table->string('DestinationAddressCity')->nullable();
             $table->string('DestinationAddressPostalCode')->nullable();
             $table->string('DestinationAddressProvince')->nullable();
-            $table->float('DestinationAddressLat',8,5)->nullable();
-            $table->float('DestinationAddressLng',8,5)->nullable();
+            $table->decimal('DestinationAddressLat',12,8)->nullable()->default(null);
+            $table->decimal('DestinationAddressLng',12,8)->nullable()->default(null);
             $table->string('Urgency')->nullable();
             $table->float('AmountToCollect')->nullable();
             $table->string('CompanyName')->nullable();
