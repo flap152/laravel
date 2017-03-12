@@ -29,8 +29,9 @@
         <tr>
             <td>ID</td>
             <td>OrderNumber</td>
+            <td>Latest FM Status</td>
             <td>ServiceAddressStreet</td>
-            <td>SizeOfTheContainerToBeDelivered</td>
+            <td>Size To Be Delivered</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -39,6 +40,7 @@
         <tr>
             <td>{{ $value->id }}</td>
             <td>{{ $value->OrderNumber }}</td>
+            <td>{{ $value->status }}</td>
             <td>{{ $value->ServiceAddressStreet }}</td>
             <td>{{ $value->SizeOfTheContainerToBeDelivered }}</td>
 
@@ -47,8 +49,7 @@
 
                 <!-- delete the Order (uses the destroy method DESTROY /fmroorders/{id} -->
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
-                <!-- delete the fmroorder (uses the destroy method DESTROY /fmroorders/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
+
             {{ Form::open(array('url' => 'fmroorders/' . $value->id, 'class' => 'pull-right')) }}
             {{ Form::hidden('_method', 'DELETE') }}
             {{ Form::submit('Delete this Order', array('class' => 'btn btn-warning')) }}
@@ -60,6 +61,10 @@
                 <!-- edit this Order (uses the edit method found at GET /fmroorders/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('fmroorders/' . $value->id . '/edit') }}">Edit this Order</a>
 
+                <!-- Send this Order to FleetMapper  -->
+                <a class="btn btn-small btn-info" href="{{ URL::to('fmroorders/' . $value->id . '/tofm') }}">Send to FM</a>
+               <!-- Get FleetMapper status for this order  -->
+                <a class="btn btn-small btn-info" href="{{ URL::to('fmroorders/' . $value->id . '/getfmstatus') }}">get FM status</a>
             </td>
         </tr>
     @endforeach

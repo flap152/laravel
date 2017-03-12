@@ -1,0 +1,17 @@
+//Example json data returned by getOrderStatus(spelling?) successful call
+{
+  "OrderNumber": "533957",
+  "OrderStatusId": "1",
+  "OrderCompletionTime": null,
+  "DeliveredContainerName": null,
+  "PickedUpContainerName": null,
+  "DeliveredContainerSize": null,
+  "ScaleTicketNumber": null,
+  "LoadWeight": null,
+  "DispatcherNotes": null,
+  "VehicleName": null,
+  "TypeOfWaste": "Mix",
+  "IsRecurrent": "0",
+  "OrderStartTime": null,
+  "DumpsiteName": null
+}

@@ -11,6 +11,7 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('contacts')->delete();
                DB::table('contacts')->insert([
             'first_name' => str_random(10),
             'last_name' => str_random(10),

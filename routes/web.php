@@ -40,7 +40,12 @@ Route::get('/flap3', function ()
 });
 
 
+Route::get('fmroorders/{id}/tofm', 'FmroorderController@tofm');
+Route::get('fmroorders/{id}/getfmstatus', 'FmroorderController@getfmstatus');
+
+
 Route::resource('fmroorders','FmroorderController');
+
 
 
 
