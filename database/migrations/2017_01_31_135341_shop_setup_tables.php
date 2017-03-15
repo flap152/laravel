@@ -10,11 +10,15 @@ class ShopSetupTables extends Migration
      * @return  void
      */
     public function up()
+    {  }
+
+
+    public function no_up()
     {
         // Create table for storing carts
         Schema::create('cart', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id');
             $table->timestamps();
             $table->foreign('user_id')
                 ->references('id')
@@ -125,11 +129,11 @@ class ShopSetupTables extends Migration
      */
     public function down()
     {
-        Schema::drop('transactions');
-        Schema::drop('orders');
-        Schema::drop('order_status');
-        Schema::drop('coupons');
-        Schema::drop('items');
-        Schema::drop('cart');
+        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_status');
+        Schema::dropIfExists('coupons');
+        Schema::dropIfExists('items');
+        Schema::dropIfExists('cart');
     }
 }
