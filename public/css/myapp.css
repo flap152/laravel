@@ -1,0 +1,33 @@
+#geoflap1, #geoflap2{
+    width: 400px;
+}
+
+a {
+    color: #4183C4;
+    text-decoration: none;
+}
+
+#examples a {
+    text-decoration: underline;
+}
+
+#geocomplete {
+   /* width: 200px*/
+    width: 75%
+
+}
+
+.map_canvas {
+    width: 400px;
+    height: 240px;
+    margin: 10px 20px 10px 0;
+}
+
+#multiple li {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.map_canvas {
+    float: right;
+}

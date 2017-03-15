@@ -12,10 +12,10 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "amsgames/laravel-shop": "dev-dev-v0.2",
         "doctrine/dbal": "^2.5",
         "laravel/framework": "5.3.*",
-        "laravelcollective/html": "^5.3.0"
+        "laravelcollective/html": "^5.3.0",
+        "twbs/bootstrap": "^3.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.2",

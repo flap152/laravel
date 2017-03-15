@@ -163,7 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        Amsgames\LaravelShop\LaravelShopProvider::class,
+        //Amsgames\LaravelShop\LaravelShopProvider::class,
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
@@ -232,7 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Shop'      => Amsgames\LaravelShop\LaravelShopFacade::class,
+        //'Shop'      => Amsgames\LaravelShop\LaravelShopFacade::class,
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,

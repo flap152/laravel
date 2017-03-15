@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-    <?php xdebug_break(); ?>
+    <?php //xdebug_break();
+	?>
 <h1> Company!! </h1>
 
 

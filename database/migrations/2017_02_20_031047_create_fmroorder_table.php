@@ -17,6 +17,7 @@ class CreateFmroorderTable extends Migration
         Schema::create('fmroorder', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('status')->default(0);
+            $table->boolean('isInFM')->default(false);
             $table->string('OrderNumber')->unique();
             $table->string('VendorPoNumber')->nullable();
             $table->string('CustomerPoNumber')->nullable();
@@ -33,8 +34,8 @@ class CreateFmroorderTable extends Migration
             $table->string('ServiceAddressCity');
             $table->string('ServiceAddressProvince');
             $table->string('ServiceAddressPostalCode');
-            $table->decimal('ServiceAddressLat',12,8)->nullable()->default(null);
-            $table->decimal('ServiceAddressLng',12,8)->nullable()->default(null);
+            $table->string('ServiceAddressLat')->nullable()->default(null);
+            $table->string('ServiceAddressLng')->nullable()->default(null);
             $table->integer('OperationType');
             $table->string('SizeOfTheContainerToBeDelivered')->nullable();
             $table->string('SizeOfTheContainerToBePickedUp')->nullable();
@@ -47,9 +48,9 @@ class CreateFmroorderTable extends Migration
             $table->string('DestinationAddressCity')->nullable();
             $table->string('DestinationAddressPostalCode')->nullable();
             $table->string('DestinationAddressProvince')->nullable();
-            $table->decimal('DestinationAddressLat',12,8)->nullable()->default(null);
-            $table->decimal('DestinationAddressLng',12,8)->nullable()->default(null);
-            $table->string('Urgency')->nullable();
+            $table->string('DestinationAddressLat')->nullable()->default(null);
+            $table->string('DestinationAddressLng')->nullable()->default(null);
+            $table->string('Urgency')->nullable()->default(1);
             $table->float('AmountToCollect')->nullable();
             $table->string('CompanyName')->nullable();
             $table->string('EndCustomerId')->nullable();

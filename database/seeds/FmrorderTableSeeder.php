@@ -25,10 +25,10 @@ class FmroorderTableSeeder extends Seeder
             'VendorPoNumber'=> $uniqueID,
             'CustomerPoNumber'=> $uniqueID,
             'CustomerName'=>'Construction '. $faker->company,
-            'CustomerBillingAddressStreet'=>null,
-            'CustomerBillingAddressCity'=>null,
-            'CustomerBillingAddressProvince'=>null,
-            'CustomerBillingAddressPostalCode'=>null,
+            'CustomerBillingAddressStreet'=>$faker->randomNumber(4) . ' ' . $faker->streetName ,
+            'CustomerBillingAddressCity'=>$faker->city ,
+            'CustomerBillingAddressProvince'=>"Quebec",
+            'CustomerBillingAddressPostalCode'=>$faker->postcode,
             'CustomerContactFirstName'=>$faker->firstName,
             'CustomerContactLastName'=>$faker->lastName,
             'CustomerContactPhoneNumber'=>$faker->phoneNumber,
@@ -60,6 +60,8 @@ class FmroorderTableSeeder extends Seeder
             'CompanyName'=>null,
             'EndCustomerId'=>521,
             'IsRecurrent'=>0,
+            'created_at'=>\Carbon\Carbon::now(),
+            'updated_at'=>\Carbon\Carbon::now(),
         ]);
 
 

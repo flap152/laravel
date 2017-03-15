@@ -4,6 +4,44 @@
 </head>
 <body>
 <h1>WELCOME to FLap's 2nd test page</h1>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h6>datetimepicker1</h6>
+
+        <div class="form-group">
+            <div class="input-group date" id="datetimepicker1">
+                <input type="text" class="form-control" />	<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+            </div>
+        </div>
+        <h6>datetimepicker2</h6>
+
+        <input type="text" class="form-control" id="datetimepicker2" />
+    </div>
+</div>
+
+
+
+
+
+<script>
+    $(window).load(function(){
+            $('#datetimepicker1').datetimepicker();
+            $('#datetimepicker2').datetimepicker();
+        }
+    );
+
+</script>
+
 <?php
 
 function getIt($post_fields, $ch) {
@@ -43,7 +81,7 @@ use App\Fmroorder;
             'jsonData'=> $data,
             'addRoOrder'=>'true',
         );
-        getIt($fields, $ch);
+        //getIt($fields, $ch);
 
 
 
@@ -51,5 +89,8 @@ use App\Fmroorder;
     }
     echo('<br>sadfsdfasdf asdf asdf asdf f');
 ?>
+
+
+
 </body>
 </html>

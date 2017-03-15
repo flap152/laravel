@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fmroorder;
+use App\Fmroorderresult;
 use App\Http\Requests\FmroorderRequest;
 use Illuminate\Http\Request;
 use Validator;
@@ -20,7 +21,7 @@ class FmroorderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -34,7 +35,7 @@ class FmroorderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -45,7 +46,7 @@ class FmroorderController extends Controller
     /**
      * Store a newly created resource in storage
      * @param FmroorderRequest $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|Redirect
      */
     public function store(FmroorderRequest $request)
     {
@@ -53,12 +54,6 @@ class FmroorderController extends Controller
         // read more on validation at http://laravel.com/docs/validation
             // store
         Fmroorder::create($request->all());
-            /*$fmroorder = new Fmroorder();
-            $fmroorder->ServiceAddressStreet       = Input::get('ServiceAddressStreet');
-            $fmroorder->SizeOfTheContainerToBeDelivered      = Input::get('SizeOfTheContainerToBeDelivered');
-            $fmroorder->OrderNumber = Input::get('OrderNumber');
-            $fmroorder->save();
-*/
             // redirect
             Session::flash('message', 'Successfully created order!');
             return redirect('fmroorders');
@@ -69,12 +64,11 @@ class FmroorderController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Fmroorder  $fmroorder
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Fmroorder $fmroorder)
     {
         //$fmroorder = Fmroorder::find($id)
-
         // show the view and pass the fmroorder to it
         return View::make('fmroorders.show')
             ->with('fmroorder', $fmroorder);
@@ -85,7 +79,7 @@ class FmroorderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Fmroorder  $fmroorder
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Fmroorder $fmroorder)
     {
@@ -94,18 +88,16 @@ class FmroorderController extends Controller
             ->with('fmroorder', $fmroorder);
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param FmroorderRequest|Request $request
-     * @param  \App\Fmroorder $fmroorder
-     * @return \Illuminate\Http\Response
+     * @param FmroorderRequest $request
+     * @param Fmroorder $fmroorder
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(FmroorderRequest $request, Fmroorder $fmroorder)
     {
 
         $fmroorder->update($request->all());
-
             // redirect
         Session::flash('message', 'Successfully updated fmroorder!');
         return Redirect::to('fmroorders');
@@ -115,14 +107,13 @@ class FmroorderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Fmroorder  $fmroorder
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function destroy(Fmroorder $fmroorder)
     {
         // delete
         //$fmroorder = Fm::find($id);
         $fmroorder->delete();
-
         // redirect
         Session::flash('message', 'Successfully deleted the Order!');
         return Redirect::to('fmroorders');
@@ -131,6 +122,7 @@ class FmroorderController extends Controller
     /**
      * @param $post_fields
      * @param $ch
+     * @return string
      */
     private function getIt($post_fields, $ch) {
         #global $ch;
@@ -144,21 +136,17 @@ class FmroorderController extends Controller
     }
 
 
-
     /**
-     * @param Fmroorder $fmroorder
+     * @param $id
      * @return \Illuminate\Http\RedirectResponse
+     * @internal param Fmroorder $fmroorder
      */
     public function tofm($id)
     {
         $fmroorder = Fmroorder::findOrFail($id);
-        xdebug_break();
-        // echo ("qqqqqqqqqqqq");
         $data = $fmroorder->toJson();
-        #echo($order->OrderNumber);
-        #echo($data);
-        $req_identifier = 'psoft_test'; // for test environment
-        $url='http://107.22.170.54/EXTgateway/Gateway.php';
+        $req_identifier = config('fleetmapper.robridge.req_identifier');
+        $url = config('fleetmapper.robridge.url');
         #echo "debug, json data" . $data;
         $ch = curl_init( $url );
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -174,34 +162,35 @@ class FmroorderController extends Controller
         );
         $myRes = json_decode($this->getIt($fields, $ch) );
 
-        //echo('<br>sadfsdfasdf asdf asdf asdf f');
-        //xdebug_break();
         $fmroorder->status = $myRes->status;
         $fmroorder->save();
 
         if ($myRes->status == "0") {
-            // redirect
             Session::flash('message', 'Successfully sent to FleetMapper!');
+            $fmroorder->isInFM = true;
+            $fmroorder->save();
             return Redirect::to('fmroorders');
-
         } else {
-
-            // redirect
             Session::flash('message', 'Error sending to FleetMapper!:'.$myRes->status);
             return Redirect::to('fmroorders');
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @internal Fmroorder $fmroorder
+     * @internal Fmroorderresult $fmroorderresult
+     * @internal string $ordernumber
+     */
     public function getfmstatus($id)
     {
         $fmroorder = Fmroorder::findOrFail($id);
-        xdebug_break();
-        $data = '{"OrderNumber":'.$fmroorder->OrderNumber.'}';
-//        $data = json_encode($data);
-        #echo($order->OrderNumber);
-        #echo($data);
-        $req_identifier = 'psoft_test'; // for test environment
-        $url='http://107.22.170.54/EXTgateway/Gateway.php';
+        $ordernumber = $fmroorder->OrderNumber;
+      //  xdebug_break();
+        $data = '{"OrderNumber":'.$ordernumber.'}';
+        $req_identifier = config('fleetmapper.robridge.req_identifier');
+        $url = config('fleetmapper.robridge.url');
 
         $ch = curl_init( $url );
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -217,18 +206,22 @@ class FmroorderController extends Controller
             'jsonData'=> $data,
         );
         $myRes = json_decode($this->getIt($fields, $ch) );
-
         $fmroorder->status = $myRes->status;
+
+
         $fmroorder->save();
 
         if ($myRes->status == "0") {
-            // redirect
             Session::flash('message', 'Success getting status from FleetMapper! '. json_encode($myRes-> result[0]));
+           // var_dump( (array) $myRes->result[0] );
+            $fmroorderresult =  Fmroorderresult::updateOrCreate(['OrderNumber'=>$ordernumber], (array)($myRes-> result[0]));
+            //$fmroorderresult =  new Fmroorderresult((array)($myRes-> result[0]));
+           //$fmroorderresult->OrderNumber = $fmroorder->OrderNumber;
+            //$fmroorderresult->save();
+            //$fmroorder->orderResult->associate($fmroorderresult);
+            $fmroorder->save();
             return Redirect::to('fmroorders');
-
         } else {
-
-            // redirect
             Session::flash('message', 'Error getting status from FleetMapper!:'.$myRes->status);
             return Redirect::to('fmroorders');
         }
@@ -237,13 +230,10 @@ class FmroorderController extends Controller
     public function getfmclosedorders($id)
     {
         $fmroorder = Fmroorder::findOrFail($id);
-        xdebug_break();
+        //xdebug_break();
         $data = '{"OrderNumber":'.$fmroorder->OrderNumber.'}';
-//        $data = json_encode($data);
-        #echo($order->OrderNumber);
-        #echo($data);
-        $req_identifier = 'psoft_test'; // for test environment
-        $url='http://107.22.170.54/EXTgateway/Gateway.php';
+        $req_identifier = config('fleetmapper.robridge.req_identifier');
+        $url = config('fleetmapper.robridge.url');
 
         $ch = curl_init( $url );
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -263,23 +253,30 @@ class FmroorderController extends Controller
         $fmroorder->save();
 
         if ($myRes->status == "0") {
-            // redirect
             Session::flash('message', 'Success getting status from FleetMapper! '.$myRes->result);
             return Redirect::to('fmroorders');
-
         } else {
-
-            // redirect
             Session::flash('message', 'Error getting status from FleetMapper!:'.$myRes->status);
             return Redirect::to('fmroorders');
         }
     }
 
 }
-
-
+/*
+ * 510 - Does not exist (on get status)
+ * 506 - Container error on exchange?
+ * 515 - Invalid Lat/Lng
+ * 377 - Out of Zone Lat Long
+ * 1048 Missing required field
+ *  525
+ *  */
 /*
  *
+ *
+ * Order status
+ * 1 - pending
+ * 2 - assigned
+ * 3- started
  *
 {"OrderNumber":"533957","OrderStatusId":"1","OrderCompletionTime":null,"DeliveredContainerName":null,"PickedUpContainerName":null,"DeliveredContainerSize":null,"ScaleTicketNumber":null,"LoadWeight":null,"DispatcherNotes":null,"VehicleName":null,"TypeOfWaste":"Mix","IsRecurrent":"0","OrderStartTime":null,"DumpsiteName":null}
  * */

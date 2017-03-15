@@ -17,10 +17,14 @@ class DatabaseSeeder extends Seeder
          factory(App\Company::class,3)->create();
 
         $this->call(FmroorderTableSeeder::class);
+        $this->call(FmroorderTableSeeder::class);
+        $this->call(FmroorderTableSeeder::class);
+        $this->call(FmroorderTableSeeder::class);
+        $this->call(FmroorderTableSeeder::class);
 
         Eloquent::unguard();
 
-        $this->call('LaravelShopSeeder');
+        //$this->call('LaravelShopSeeder');
 
         Eloquent::reguard();
          

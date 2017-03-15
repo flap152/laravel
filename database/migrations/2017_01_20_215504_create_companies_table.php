@@ -39,7 +39,9 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('company_contact');
         Schema::dropIfExists('companies');
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    @include('fmroorders.toppart')
+
 
     <h1>FLAP Create Order </h1>
 
