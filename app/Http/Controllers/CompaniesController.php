@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 
+/**
+ * Class CompaniesController
+ * @package App\Http\Controllers
+ */
 class CompaniesController extends Controller
 {
     //
@@ -24,14 +28,8 @@ class CompaniesController extends Controller
 
     	return  view('companies.show', compact ('company'));
     }
-/**
- * Un User peut avoir plusieurs companies
- * @return  \Illuminate\Database\Eloquent\Relations\HasMany
- */
-public function companies()
-{
-	#return $this->hasMany('App\Company');
-}
+
+
 
 
 

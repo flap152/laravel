@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\View;
 
 class FmroorderresultController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +52,7 @@ class FmroorderresultController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Fmroorderresult $fmroorderresult
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show( Fmroorderresult $fmroorderresult)
     {

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use SoftDeletes;
 use App\Fmroorderresult;
@@ -19,6 +20,25 @@ class Fmroorder extends \Eloquent
      * @var string
      */
     protected $table = 'fmroorder';
+
+    protected static $operationTypes = [
+        '0' => 'Undefined',
+        '1' => 'Delivery',
+        '2' => 'Pickup',
+        '3' => 'Exchange',
+        '4' => 'EmptyAndReturn',
+        '5' => 'Move',
+    ];
+
+    public static function getOperationTypes()
+    {
+        return self::$operationTypes;
+    }
+
+   public function operationTypeLabel()
+    {
+        return $this->getOperationTypes()[$this->OperationType ];
+    }
 
 
     public function orderResult (){
@@ -38,7 +58,11 @@ class Fmroorder extends \Eloquent
      *
      * @var array
      */
-    protected $fillable = ['OrderNumber','VendorPoNumber','CustomerPoNumber','CustomerName',
+    protected $fillable = [
+        'OrderNumber',
+        'VendorPoNumber',
+        'CustomerPoNumber',
+        'CustomerName',
         'CustomerBillingAddressStreet',
         'CustomerBillingAddressCity',
         'CustomerBillingAddressProvince',

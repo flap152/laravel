@@ -18,7 +18,12 @@ use Session;
  */
 class FmroorderController extends Controller
 {
-    /**
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
@@ -26,7 +31,7 @@ class FmroorderController extends Controller
     public function index()
     {
         // get all the fmroorders
-        $fmroorders = Fmroorder::all();
+        $fmroorders = Fmroorder::all()->load('orderResult');
 
         // load the view and pass the fmroorders
         return View::make('fmroorders.index')->with('fmroorders', $fmroorders);

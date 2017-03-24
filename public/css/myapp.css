@@ -31,3 +31,6 @@ a {
 .map_canvas {
     float: right;
 }
+.btn {
+    padding: 0px;
+}

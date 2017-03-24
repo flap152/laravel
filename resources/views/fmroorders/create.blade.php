@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <h1>FLAP Create Order </h1>
+    <h1>Create Order </h1>
 
     @include('errors/list')
     {!! Form::open(['url' => 'fmroorders'])  !!}

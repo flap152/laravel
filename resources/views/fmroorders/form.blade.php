@@ -1,37 +1,39 @@
-
+<?php /** @var \App\Fmroorder $fmroorder */?>
 <table>
     <tr>
-        <th>{{ Form::label('OrderNumber', 'OrderNumber') }}</th>
-        <th>{{ Form::label('VendorPoNumber', 'VendorPoNumber') }}</th>
-        <th>{{ Form::label('CustomerPoNumber', 'CustomerPoNumber') }}</th>
-        <th>{{ Form::label('OperationType', 'OperationType') }}</th>
-        <th>{{ Form::label('RequestedFromTime', 'RequestedFromTime') }}</th>
-        <th>{{ Form::label('RequestedToTime', 'RequestedToTime') }}</th>
-        <th>{{ Form::label('AmountToCollect', 'AmountToCollect') }}</th>
+        <th>{{ Form::label('OrderNumber', 'Order Number') }}</th>
+        <th>{{ Form::label('VendorPoNumber', 'Vendor Po Number') }}</th>
+        <th>{{ Form::label('CustomerPoNumber', 'Customer Po Number') }}</th>
+        <th>{{ Form::label('OperationType', 'Operation') }}</th>
+        <th>{{ Form::label('RequestedFromTime', 'Requested From') }}</th>
+        <th>{{ Form::label('RequestedToTime', 'Requested To') }}</th>
+        <th>{{ Form::label('AmountToCollect', 'Amount To Collect') }}</th>
     </tr>
     <tr>
         <td> {{ Form::text('OrderNumber', null, array('class' => 'form-control')) }}</td>
         <td>{{ Form::text('VendorPoNumber', null, array('class' => 'form-control')) }}</td>
         <td>{{ Form::text('CustomerPoNumber', null, array('class' => 'form-control')) }}</td>
-        <td> {{ Form::select('OperationType', array('0' => 'Select an OperationType', '2' => 'Pickup', '1' => 'Delivery', '3' => 'Exchange', '4' => 'Empty & Return', '5' => 'Move'), null, array('class' => 'form-control')) }}</td>
-        <td> <div style="position: relative">{{ Form::datetime('RequestedFromTime', null, array('class' => 'form-control')) }} </div> </td>
-        <td> <div style="position: relative">{{ Form::datetime('RequestedToTime', null, array('class' => 'form-control')) }}</div> </td>
+        <td> {{ Form::select('OperationType', App\Fmroorder::getOperationTypes() ,  isset($fmroorder) ? $fmroorder->OperationType : null, array('class' => 'form-control')) }}</td>
+        <td> <div style="position: relative">{{ Form::datetime('RequestedFromTime', Carbon\Carbon::yesterday()->addHour(5) , array('class' => 'form-control')) }} </div> </td>
+        <td> <div style="position: relative">{{ Form::datetime('RequestedToTime', Carbon\Carbon::yesterday()->addHour(19), array('class' => 'form-control')) }}</div> </td>
         <td>{{ Form::number('AmountToCollect', 0, array('class' => 'form-control','step'=>'0.01','pattern'=>'[0-9]+([\.,][0-9]+)?')) }}</td>
     </tr>
 </table>
 
 <script>             $(function() {
-        dtFrom = $('input#RequestedFromTime.form-control')[0].value;
-        dtTo = $('input#RequestedToTime.form-control')[0].value;
+/*
+        var dtFrom = $('input#RequestedFromTime.form-control')[0].value;
+        var dtTo = $('input#RequestedToTime.form-control')[0].value;
+*/
+        //var dtFrom = new Date().setHours(5,0,0,0);
+        var dtTo = $('input#RequestedToTime.form-control')[0].value;
         $('input#RequestedFromTime.form-control').datetimepicker({
             //useCurrent: false, //Important! See issue #1075
-            format : 'YYYY-MM-DD HH:mm:ss',
-            defaultDate : dtFrom
+            format : 'YYYY-MM-DD HH:mm:ss'
         });
         $('input#RequestedToTime.form-control').datetimepicker({
             // useCurrent: false, //Important! See issue #1075
-            format : 'YYYY-MM-DD HH:mm:ss',
-            defaultDate : dtTo
+            format : 'YYYY-MM-DD HH:mm:ss'
         });
         $('input#RequestedFromTime.form-control').on("dp.change", function (e) {
            // $('input#RequestedToTime.form-control').data("DateTimePicker").minDate(e.date);
@@ -45,7 +47,7 @@
 
 <table>
     <tr>
-        <th>{{ Form::label('CustomerName', 'CustomerName') }}</th>
+        <th>{{ Form::label('Customer Name', 'CustomerName') }}</th>
         <th>{{ Form::label('CustomerContactFirstName', 'Contact: First Name') }}</th>
         <th>{{ Form::label('CustomerContactLastName', 'Last Name') }}</th>
         <th>{{ Form::label('CustomerContactPhoneNumber', 'Phone') }}</th>
@@ -73,15 +75,15 @@
 <div class="form-group">
 <table>
     <tr>
-        <th>{{ Form::label('SizeOfTheContainerToBeDelivered', 'SizeOfTheContainerToBeDelivered') }}</th>
-        <th>{{ Form::label('SizeOfTheContainerToBePickedUp', 'SizeOfTheContainerToBePickedUp') }}</th>
-        <th>{{ Form::label('NameOfTheContainerToBePickedUp', 'NameOfTheContainerToBePickedUp') }}</th>
+        <th>{{ Form::label('SizeOfTheContainerToBeDelivered','Size To Deliver') }}</th>
+        <th>{{ Form::label('SizeOfTheContainerToBePickedUp', 'Size To Pick Up') }}</th>
+        <th>{{ Form::label('NameOfTheContainerToBePickedUp', 'Container ToPick Up') }}</th>
         <th>{{ Form::label('TypeOfWaste', 'TypeOfWaste') }}</th>
     </tr>
     <tr>
-        <td> {{ Form::select('SizeOfTheContainerToBeDelivered', array('0' => 'Select a Size', '8' => '8', '12' => '12', '20' => '20', '40' => '40'), null, array('class' => 'form-control')) }}</td>
-        <td> {{ Form::select('SizeOfTheContainerToBePickedUp', array('0' => 'Select a Size', '8' => '8', '12' => '12', '20' => '20', '40' => '40'), null, array('class' => 'form-control')) }}</td>
-        <td> {{ Form::text('NameOfTheContainerToBePickedUp', NULL, array('class' => 'form-control')) }}</td>
+        <td> {{ Form::select('SizeOfTheContainerToBeDelivered', array('' => 'Select a Size', '8' => '8', '12' => '12', '20' => '20', '40' => '40'), null, array('class' => 'form-control')) }}</td>
+        <td> {{ Form::select('SizeOfTheContainerToBePickedUp', array('' => 'Select a Size', '8' => '8', '12' => '12', '20' => '20', '40' => '40'), null, array('class' => 'form-control')) }}</td>
+        <td> {{ Form::text('NameOfTheContainerToBePickedUp', 'UNKNOWN', array('class' => 'form-control')) }}</td>
         <td> {{ Form::text('TypeOfWaste', null, array('class' => 'form-control')) }}</td>
     </tr>
 </table>

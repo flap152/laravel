@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Look! I'm CRUDding</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container" style="width: inherit;max-width: inherit">
+@extends('app')
 
-    <?php
-    //xdebug_break();
-    ?>
-
+@section('content')
 <h1>All the fmroorderresults</h1>
 
 <!-- will be used to show any messages -->
@@ -67,6 +57,4 @@
     </tbody>
 </table>
 
-</div>
-</body>
-</html>
+@stop

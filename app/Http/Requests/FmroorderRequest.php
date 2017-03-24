@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Fmroorder;
 
 class FmroorderRequest extends FormRequest
 {
@@ -23,13 +24,63 @@ class FmroorderRequest extends FormRequest
      */
     public function rules()
     {
+
+
         $rules = [
             'OrderNumber'       => 'required|numeric',
             'ServiceAddressStreet'      => 'required',
-            'SizeOfTheContainerToBeDelivered' => 'required|numeric',
+            'CustomerName'=> 'required',
+            'CustomerContactFirstName'=> 'required',
+            'CustomerContactLastName'=> 'required',
+            'CustomerContactPhoneNumber'=> 'required',
+
+            'SizeOfTheContainerToBeDelivered' => 'required_if:OperationType,1,3,4,5 |numeric|min:1',
+            'SizeOfTheContainerToBePickedUp' => 'required_if:OperationType,2,3,4,5 |numeric|min:1',
+            'NameOfTheContainerToBePickedUp'=> 'required_if:OperationType,2,3,4,5',
+            'OperationType'=> 'required',
+            'RequestedFromTime'=> 'date|required|after:yesterday',
+            'RequestedToTime'=> 'date|required|after:RequestedFromTime',
 
         ];
 
         return $rules;
     }
 }
+
+/*       'OrderNumber',
+        'VendorPoNumber',
+        'CustomerPoNumber',
+        'CustomerName',
+        'CustomerBillingAddressStreet',
+        'CustomerBillingAddressCity',
+        'CustomerBillingAddressProvince',
+        'CustomerBillingAddressPostalCode',
+        'CustomerContactFirstName',
+        'CustomerContactLastName',
+        'CustomerContactPhoneNumber',
+        'CustomerContactEmailAddress',
+        'ServiceAddressStreet',
+        'ServiceAddressCity',
+        'ServiceAddressProvince',
+        'ServiceAddressPostalCode',
+        'ServiceAddressLat',
+        'ServiceAddressLng',
+        'OperationType',
+        'SizeOfTheContainerToBeDelivered',
+        'SizeOfTheContainerToBePickedUp',
+        'NameOfTheContainerToBePickedUp',
+        'TypeOfWaste',
+        'RequestedFromTime',
+        'RequestedToTime',
+        'DriverNotes',
+        'DestinationAddressStreet',
+        'DestinationAddressCity',
+        'DestinationAddressPostalCode',
+        'DestinationAddressProvince',
+        'DestinationAddressLat',
+        'DestinationAddressLng',
+        'Urgency',
+        'AmountToCollect',
+        'CompanyName',
+        'EndCustomerId',
+        'IsRecurrent'*/

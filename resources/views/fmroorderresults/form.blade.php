@@ -43,4 +43,8 @@
     </tr>
 </table>
 
-{{ Form::submit($submitButtonText, array('class' => 'btn btn-primary')) }}
+<script>
+    document.write('<a href="' + document.referrer + '">Go Back</a>');
+    //{ Form::submit($submitButtonText, array('class' => 'btn btn-primary')) }}
+</script>
+

@@ -93,33 +93,20 @@
                 $("#{{$addressType}}geoflap1").bind("geocode:result",  function(event, result) {
                 console.log(result);
                 $('input[name={{$addressType}}AddressStreet].form-control')[0].value = result.formatted_address.split(',')[0];
-                /*                $('#{{$addressType}}test1').text(result.formatted_address);
-                $('#{{$addressType}}test2').text(result.geometry.location.toString());
-                var res = $.grep(result.address_components, function(e){ return e.types[0] === "street_number"; })[0].short_name;
-                res = res + " " + $.grep(result.address_components, function(e){ return e.types[0] === "route"; })[0].short_name;
-                $('input#{{$addressType}}AddressStreet.form-control')[0].value = res;
-                res =  $.grep(result.address_components, function(e){ return e.types[0] === "locality"; })[0].short_name;
-                $('input#{{$addressType}}AddressCity.form-control')[0].value = res;
-                res = $.grep(result.address_components, function(e){ return e.types[0] === "administrative_area_level_1"; })[0].short_name;
-                $('input#{{$addressType}}AddressProvince.form-control')[0].value = res;
-                res = $.grep(result.address_components, function(e){ return e.types[0] === "postal_code"; })[0].short_name;
-                $('input#{{$addressType}}AddressPostalCode.form-control')[0].value = res;
-                $('input#{{$addressType}}AddressLat.form-control')[0].value = result.geometry.location.lat().toFixed(8);
-                $('input#{{$addressType}}AddressLng.form-control')[0].value = result.geometry.location.lng().toFixed(8);
-                 */
-            });
+                           });
 
 
                 $("#{{$addressType}}geoflap1").bind("geocode:dragged", function (event, latLng) {
-                // $("input[name=lat]").val(latLng.lat());
+                    $('[name*="{{$addressType}}AddressLat"]')[0].value = latLng.lat().toFixed(8);
+                    $('[name*="{{$addressType}}AddressLng"]')[0].value = latLng.lng().toFixed(8);
                 // $("input[name=lng]").val(latLng.lng());
 
                 //$("#reset").show();
                 //$("#apply").show();
                 //$("#newFind").show();
                 //$("#markerPos").text("Marker moved: " + latLng.lat().toFixed(8) + "," + latLng.lng().toFixed(5)).show();
-                $('input#lat.form-control')[0].value = latLng.lat().toFixed(8);
-                    $('input#lng.form-control')[0].value = latLng.lng().toFixed(8);
+                //$('input#lat.form-control')[0].value = latLng.lat().toFixed(8);
+                   // $('input#lng.form-control')[0].value = latLng.lng().toFixed(8);
             });
 
 
