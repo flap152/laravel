@@ -16,14 +16,14 @@ class UsersTableSeeder extends Seeder
         // use the factory to create a Faker\Generator instance
         $faker = Faker\Factory::create();
 
-        $fname = $faker->firstName;
+/*        $fname = $faker->firstName;
         DB::table('users')->insert([
             'name' => $fname . ' ' . $faker->lastName,
             'email' => $fname.'@example.com',
             'password' => bcrypt('secret'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
+        ]);*/
 
         DB::table('users')->updateOrInsert([
             'name' => "Frank1",
@@ -35,30 +35,38 @@ class UsersTableSeeder extends Seeder
 
         // With factory (only override the column you want to set with a value)
         factory(App\User::class)->create([
-            'name' => "Frank2",
-            'email' => 'flap_1522@yahoo.ca',
-            'password' => bcrypt('xA2ZYwy7BTmwD'),
+            'name' => "Jeannette Tardif",
+            'email' => 'jtardif@projetaa.com',
+            'password' => bcrypt('Jea000))'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
 
         DB::table('users')->updateOrInsert([
-            'name' => 'Nath',
-            'email' => 'nath@processoft.com',
-            'password' => bcrypt('zzzzzz'),
+            'name' => 'Stephane Turchetta',
+            'email' => 'sturchetta@projetaa.com',
+            'password' => bcrypt('prismic'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        $fname = $faker->firstName;
+        DB::table('users')->updateOrInsert([
+            'name' => 'Stephanie Campagna',
+            'email' => 'scampagna@projetaa.com',
+            'password' => bcrypt('camp1992'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+/*        $fname = $faker->firstName;
         DB::table('users')->updateOrInsert ([
             'name' => $fname . ' ' . $faker->lastName,
             'email' => $fname.'@example.com',
             'password' => bcrypt('secret'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
+        ]);*/
     }
 }
 
