@@ -25,6 +25,35 @@ class Fmroorderresult extends Model
      */
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];
 
+    protected static $statusCodes = [
+        '0' => 'Unknown',
+        '1' => 'Pending',
+        '2' => 'Assigned',
+        '3' => 'Started',
+        '4' => 'Completed',
+        '5' => 'Cancelled',
+        '6' => 'Cancelled by customer',
+        '7' => 'cancelled for obstacle (car, fence)',
+        '8' => 'Cancelled for weather conditions',
+        '9' => 'Cancelled for no payment',
+        '10' => 'Cancelled for other reason',
+        '11' => 'Request to re-invoice',
+    ];
+
+
+    public static function getStatusCodes()
+    {
+        return self::$statusCodes;
+    }
+
+    public function orderStatusLabel()
+    {
+        return $this->getStatusCodes()[$this->OrderStatusId ];
+    }
+
+
+
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

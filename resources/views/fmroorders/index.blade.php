@@ -37,11 +37,15 @@
             <td>{{ $value->CustomerName }}</td>
             <td>{{ $value->operationTypeLabel() }}</td>
             <td>{{ $value->RequestedFromTime }}</td>
-            <td>{{ $value->status }}</td>
+            @if ($value->orderResult)
+                <td>{{ $value->orderResult->orderStatusLabel() }}</td>
+            @else
+                <td></td>
+            @endif
             <td>{{ $value->updated_at }}</td>
             <td>{{ $value->ServiceAddressStreet }}</td>
-            <td>{{ $value->SizeOfTheContainerToBeDelivered }}</td>
             <td>{{ $value->SizeOfTheContainerToBePickedUp }}</td>
+            <td>{{ $value->SizeOfTheContainerToBeDelivered }}</td>
             <td>{{ $value->created_at }}</td>
 
             <!-- we will also add show, edit, and delete buttons -->

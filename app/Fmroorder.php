@@ -35,7 +35,7 @@ class Fmroorder extends \Eloquent
         return self::$operationTypes;
     }
 
-   public function operationTypeLabel()
+    public function operationTypeLabel()
     {
         return $this->getOperationTypes()[$this->OperationType ];
     }

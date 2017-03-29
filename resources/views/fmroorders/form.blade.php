@@ -14,8 +14,14 @@
         <td>{{ Form::text('VendorPoNumber', null, array('class' => 'form-control')) }}</td>
         <td>{{ Form::text('CustomerPoNumber', null, array('class' => 'form-control')) }}</td>
         <td> {{ Form::select('OperationType', App\Fmroorder::getOperationTypes() ,  isset($fmroorder) ? $fmroorder->OperationType : null, array('class' => 'form-control')) }}</td>
+        @if(isset($fmroorder))
+        <td> <div style="position: relative">{{ Form::datetime('RequestedFromTime', null, array('class' => 'form-control')) }} </div> </td>
+        <td> <div style="position: relative">{{ Form::datetime('RequestedToTime', null, array('class' => 'form-control')) }}</div> </td>
+        @else
         <td> <div style="position: relative">{{ Form::datetime('RequestedFromTime', Carbon\Carbon::yesterday()->addHour(5) , array('class' => 'form-control')) }} </div> </td>
         <td> <div style="position: relative">{{ Form::datetime('RequestedToTime', Carbon\Carbon::yesterday()->addHour(19), array('class' => 'form-control')) }}</div> </td>
+        @endif
+
         <td>{{ Form::number('AmountToCollect', 0, array('class' => 'form-control','step'=>'0.01','pattern'=>'[0-9]+([\.,][0-9]+)?')) }}</td>
     </tr>
 </table>
@@ -83,7 +89,11 @@
     <tr>
         <td> {{ Form::select('SizeOfTheContainerToBeDelivered', array('' => 'Select a Size', '8' => '8', '12' => '12', '20' => '20', '40' => '40'), null, array('class' => 'form-control')) }}</td>
         <td> {{ Form::select('SizeOfTheContainerToBePickedUp', array('' => 'Select a Size', '8' => '8', '12' => '12', '20' => '20', '40' => '40'), null, array('class' => 'form-control')) }}</td>
-        <td> {{ Form::text('NameOfTheContainerToBePickedUp', 'UNKNOWN', array('class' => 'form-control')) }}</td>
+        @if(isset($fmroorder))
+            <td> {{ Form::text('NameOfTheContainerToBePickedUp', null, array('class' => 'form-control')) }}</td>
+        @else
+            <td> {{ Form::text('NameOfTheContainerToBePickedUp', 'INCONNU', array('class' => 'form-control')) }}</td>
+        @endif
         <td> {{ Form::text('TypeOfWaste', null, array('class' => 'form-control')) }}</td>
     </tr>
 </table>

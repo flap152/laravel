@@ -38,7 +38,7 @@ class FmroorderRequest extends FormRequest
             'SizeOfTheContainerToBePickedUp' => 'required_if:OperationType,2,3,4,5 |numeric|min:1',
             'NameOfTheContainerToBePickedUp'=> 'required_if:OperationType,2,3,4,5',
             'OperationType'=> 'required',
-            'RequestedFromTime'=> 'date|required|after:yesterday',
+            'RequestedFromTime'=> 'date|required|after:today',
             'RequestedToTime'=> 'date|required|after:RequestedFromTime',
 
         ];

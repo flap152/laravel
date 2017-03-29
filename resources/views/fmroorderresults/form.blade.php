@@ -1,9 +1,9 @@
+<?php /** @var \App\Fmroorderresult $fmroorderresult */?>
 
 <table>
     <tr>
         <th>{{ Form::label('OrderNumber', 'OrderNumber') }}</th>
-        <th>{{ Form::label('OrderStatusId', 'StatusId', array('title' => '4 for completed, 5 for cancelled, 6 for cancelled by customer, 7 for obstacle (car,fence), 8 for weather conditions (snow,ice), ' .
-            '9 for no payment, 10 for other, 11 for request to reinvoice')) }}</th>
+        <th>{{ Form::label('OrderStatusId', 'Status') }}</th>
         <th>{{ Form::label('OrderStartTime', 'StartTime') }}</th>
         <th>{{ Form::label('OrderCompletionTime', 'Completion Time') }}</th>
         <th>{{ Form::label('VehicleName', 'VehicleName') }}</th>
@@ -12,8 +12,7 @@
     </tr>
     <tr>
         <td> {{ Form::text('OrderNumber', null, array('class' => 'form-control')) }}</td>
-        <td>{{ Form::text('OrderStatusId', null, array('class' => 'form-control' , 'title' => '4 for completed, 5 for cancelled, 6 for cancelled by customer, 7 for obstacle (car,fence), 8 for weather conditions (snow,ice), ' .
-            '9 for no payment, 10 for other, 11 for request to reinvoice')) }}</td>
+        <td>{{ Form::text('OrderStatusLabel', $fmroorderresult->orderStatusLabel() ,  array('class' => 'form-control')) }}</td>
         <td>{{ Form::text('OrderStartTime', null, array('class' => 'form-control')) }}</td>
         <td>{{ Form::text('OrderCompletionTime', null, array('class' => 'form-control')) }}</td>
         <td>{{ Form::text('VehicleName', null, array('class' => 'form-control')) }}</td>

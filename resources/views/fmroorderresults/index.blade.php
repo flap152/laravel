@@ -1,7 +1,9 @@
 @extends('app')
 
+<?php /** @var \App\Fmroorderresult $value */?>
+
 @section('content')
-<h1>All the fmroorderresults</h1>
+<h1>All the FM Order Statuses</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -30,7 +32,7 @@
     @foreach($fmroorderresults as $key => $value)
         <tr>
             <td> {{ $value->OrderNumber }}</td>
-            <td>{{ $value->OrderStatusId }}</td>
+            <td>{{ $value->orderStatusLabel() }}</td>
             <td>{{ $value->OrderStartTime }}</td>
             <td>{{ $value->OrderCompletionTime }}</td>
             <td>{{ $value->DeliveredContainerName }}</td>
