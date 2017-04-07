@@ -31,8 +31,8 @@ class FmroorderController extends Controller
     public function index()
     {
         // get all the fmroorders
-        $fmroorders = Fmroorder::all()->load('orderResult');
-
+        $fmroorders = Fmroorder::with('orderResult')->paginate(15);
+        //dd($fmroorders);
         // load the view and pass the fmroorders
         return View::make('fmroorders.index')->with('fmroorders', $fmroorders);
     }

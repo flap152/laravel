@@ -4,7 +4,8 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Fmroorderresult;
 
 
@@ -12,7 +13,7 @@ use App\Fmroorderresult;
  * Class Fmroorder
  * @package App
  */
-class Fmroorder extends \Eloquent
+class Fmroorder extends Model
 {
     /**
      * The table associated with the model.
@@ -20,6 +21,16 @@ class Fmroorder extends \Eloquent
      * @var string
      */
     protected $table = 'fmroorder';
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('ordering', function(Builder $builder) {
+            $builder->orderBy('created_at', 'desc');
+        });
+    }
+
+
 
     protected static $operationTypes = [
         '0' => 'Undefined',
