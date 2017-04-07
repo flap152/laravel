@@ -141,7 +141,7 @@ class FmroorderController extends Controller
     }
 
 
-    /**
+     /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      * @internal param Fmroorder $fmroorder
@@ -192,7 +192,7 @@ class FmroorderController extends Controller
     {
         $fmroorder = Fmroorder::findOrFail($id);
         $ordernumber = $fmroorder->OrderNumber;
-      //  xdebug_break();
+        //  xdebug_break();
         $data = '{"OrderNumber":'.$ordernumber.'}';
         $req_identifier = config('fleetmapper.robridge.req_identifier');
         $url = config('fleetmapper.robridge.url');
@@ -218,10 +218,10 @@ class FmroorderController extends Controller
 
         if ($myRes->status == "0") {
             Session::flash('message', 'Success getting status from FleetMapper! '. json_encode($myRes-> result[0]));
-           // var_dump( (array) $myRes->result[0] );
+            // var_dump( (array) $myRes->result[0] );
             $fmroorderresult =  Fmroorderresult::updateOrCreate(['OrderNumber'=>$ordernumber], (array)($myRes-> result[0]));
             //$fmroorderresult =  new Fmroorderresult((array)($myRes-> result[0]));
-           //$fmroorderresult->OrderNumber = $fmroorder->OrderNumber;
+            //$fmroorderresult->OrderNumber = $fmroorder->OrderNumber;
             //$fmroorderresult->save();
             //$fmroorder->orderResult->associate($fmroorderresult);
             $fmroorder->save();
@@ -232,11 +232,15 @@ class FmroorderController extends Controller
         }
     }
 
-    public function getfmclosedorders($id)
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     * @internal App\Fmroorderresult $fmorderresult
+     */
+    public function getfmclosedorders()
     {
-        $fmroorder = Fmroorder::findOrFail($id);
         //xdebug_break();
-        $data = '{"OrderNumber":'.$fmroorder->OrderNumber.'}';
+        //$data = '{"OrderNumber":'.$fmroorder->OrderNumber.'}';
         $req_identifier = config('fleetmapper.robridge.req_identifier');
         $url = config('fleetmapper.robridge.url');
 
@@ -253,17 +257,28 @@ class FmroorderController extends Controller
             'getClosedRoOrders'=>'true',
         );
         $myRes = json_decode($this->getIt($fields, $ch) );
-
-        $fmroorder->status = $myRes->status;
-        $fmroorder->save();
+        //dd($myRes);
+        //$fmroorder->status = $myRes->status;
+        //$fmroorder->save();
 
         if ($myRes->status == "0") {
-            Session::flash('message', 'Success getting status from FleetMapper! '.$myRes->result);
-            return Redirect::to('fmroorders');
+            Session::flash('message', 'Success getting closed orders from FleetMapper! ');
         } else {
             Session::flash('message', 'Error getting status from FleetMapper!:'.$myRes->status);
             return Redirect::to('fmroorders');
         }
+
+        foreach ( $myRes->result as $fmorderresult) {
+            try {
+                if (Fmroorder::where('OrderNumber', $fmorderresult->OrderNumber)->count() > 0 ) {
+                    Fmroorderresult::updateOrCreate(['OrderNumber' => $fmorderresult->OrderNumber], (array)$fmorderresult);
+                }
+            }catch(Exception $e){
+                //echo $e->getMessage();
+            }
+        }
+        return Redirect::to('fmroorders');
+
     }
 
 }

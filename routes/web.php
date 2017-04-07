@@ -42,6 +42,7 @@ Route::get('/flap3', function ()
 
 
 Route::get('fmroorders/{id}/tofm', 'FmroorderController@tofm');
+Route::get('getfmclosedorders', 'FmroorderController@getfmclosedorders');
 Route::get('fmroorders/{id}/getfmstatus', 'FmroorderController@getfmstatus');
 Route::get('fmroorders/{id}/fmroorderresult', 'FmroorderresultController@show');
 
