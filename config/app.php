@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,10 @@ return [
          * Package Service Providers...
          */
 
-        //
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
+        Reportico\Reportico\ReporticoServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,6 +180,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //Iber\Generator\ModelGeneratorProvider::class,
+
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
 
     ],
 
@@ -225,6 +232,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
