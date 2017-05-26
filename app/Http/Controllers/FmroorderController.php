@@ -182,6 +182,19 @@ class FmroorderController extends Controller
     }
 
     /**
+     * @internal Fmroorder $fmroorder
+     * @internal Fmroorders[] $fmroorder
+     */
+    public function getallfmstatuses()
+    {
+        $fmroorders = Fmroorder::with('orderResult')->get();
+        foreach ($fmroorder in $fmroorders) {
+            this->getfmstatus($fmroorder->id);
+        }
+        return Redirect::to('fmroorders');
+    }
+
+    /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      * @internal Fmroorder $fmroorder
