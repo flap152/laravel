@@ -39,11 +39,11 @@ Route::get('/flap3', function ()
 {
     return view('flap3');
 });
+Route::get('fmroorders/getallfmstatuses', 'FmroorderController@getallfmstatuses');
 
 
 Route::get('fmroorders/{id}/tofm', 'FmroorderController@tofm');
 Route::get('fmroorders/{id}/getfmstatus', 'FmroorderController@getfmstatus');
-Route::get('fmroorders/getallfmstatuses', 'FmroorderController@getallfmstatuses');
 Route::get('fmroorders/{id}/fmroorderresult', 'FmroorderresultController@show');
 
 
