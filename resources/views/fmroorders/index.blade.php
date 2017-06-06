@@ -39,10 +39,12 @@
             <td>{{ $value->RequestedFromTime }}</td>
             @if ($value->orderResult)
                 <td>{{ $value->orderResult->orderStatusLabel() }}</td>
+                <td>{{ $value->orderResult->updated_at }}</td>
             @else
                 <td></td>
+                <td></td>
             @endif
-            <td>{{ $value->updated_at }}</td>
+
             <td>{{ $value->ServiceAddressStreet }}</td>
             <td>{{ $value->SizeOfTheContainerToBePickedUp }}</td>
             <td>{{ $value->SizeOfTheContainerToBeDelivered }}</td>

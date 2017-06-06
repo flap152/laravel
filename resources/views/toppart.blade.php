@@ -6,7 +6,9 @@
         <li><a href="{{ URL::to('fmroorders') }}">View All Orders</a></li>
         <li><a href="{{ URL::to('fmroorders/create') }}">Create a Order</a>
         <li><a href="{{ URL::to('fmroorderresults') }}">View All Results</a></li>
-        <li><a href="{{ URL::to('getfmclosedorders') }}">Get all closed orders</a></li>
+        <!--li><a href="{{ URL::to('getfmclosedorders') }}">Get all closed orders</a></li-->
+        <li><a href="{{ URL::to('getallfmstatuses') }}">Refresh all FM statuses</a></li>
+        <li><a href="{{ URL::to('about') }}"> About </a></li>
     </ul>
     <!-- Right Side Of Navbar -->
     <ul class="nav navbar-nav navbar-right">
@@ -21,6 +23,7 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ URL::to('about') }}"> About </a></li>
                     <li>
                         <a href="{{ url('/logout') }}"
                            onclick="event.preventDefault();

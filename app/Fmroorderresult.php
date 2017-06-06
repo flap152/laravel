@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use \App\Fmroorder;
 
 /**
@@ -12,13 +13,17 @@ use \App\Fmroorder;
 class Fmroorderresult extends Model
 {
 
+    use SoftDeletes;
+    public $timestamps = true;
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'fmroorderresult';
-    /**
+
+   /**
      * The attributes that should be mutated to dates.
      *
      * @var array
@@ -50,7 +55,6 @@ class Fmroorderresult extends Model
     {
         return $this->getStatusCodes()[$this->OrderStatusId ];
     }
-
 
 
 

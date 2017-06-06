@@ -15,12 +15,16 @@ use App\Fmroorderresult;
  */
 class Fmroorder extends Model
 {
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'fmroorder';
+
+    public $timestamps = true;
 
     protected static function boot()
     {
@@ -62,7 +66,7 @@ class Fmroorder extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
     /**
      * The attributes that are mass assignable.

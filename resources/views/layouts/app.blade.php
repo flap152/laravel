@@ -70,6 +70,12 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/about') }}"
+                                           About
+                                        </a>
+
+                                    </li>
                                 </ul>
                             </li>
                         @endif

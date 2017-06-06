@@ -19,6 +19,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/about', function ()
+{
+    return view('about');
+});
 
 Route::get('companies','CompaniesController@index');
 Route::get('companies/{id}','CompaniesController@show');
@@ -43,6 +47,7 @@ Route::get('/flap3', function ()
 
 Route::get('fmroorders/{id}/tofm', 'FmroorderController@tofm');
 Route::get('getfmclosedorders', 'FmroorderController@getfmclosedorders');
+Route::get('getallfmstatuses', 'FmroorderController@getallfmstatuses');
 Route::get('fmroorders/{id}/getfmstatus', 'FmroorderController@getfmstatus');
 Route::get('fmroorders/{id}/fmroorderresult', 'FmroorderresultController@show');
 
