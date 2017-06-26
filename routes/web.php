@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
+//Used as example
 Route::get('companies','CompaniesController@index');
 Route::get('companies/{id}','CompaniesController@show');
 Route::get('companies/create','CompaniesController@create');

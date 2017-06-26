@@ -188,8 +188,8 @@ class FmroorderController extends Controller
     public function getallfmstatuses()
     {
         $fmroorders = Fmroorder::with('orderResult')->get();
-        foreach ($fmroorder in $fmroorders) {
-            this->getfmstatus($fmroorder->id);
+        foreach ($fmroorders as $fmroorder) {
+            $this->getfmstatus($fmroorder->id);
         }
         return Redirect::to('fmroorders');
     }
