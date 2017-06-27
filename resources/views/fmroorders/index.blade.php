@@ -50,9 +50,6 @@
 
             <!-- we will also add show, edit, and delete buttons -->
             <td>
-
-
-
                 <!-- show the Order (uses the show method found at GET /fmroorders/{id} -->
                 <a class="btn btn-small btn-success" style="" href="{{ URL::to('fmroorders/' . $value->id) }}">Show</a>
                 @if(! $value->isInFM)
@@ -75,7 +72,10 @@
                     @endif
                <!-- Get FleetMapper status for this order  -->
                 <a class="btn btn-small btn-info" style="" href="{{ URL::to('fmroorders/' . $value->id . '/getfmstatus') }}">Update FM status</a>
-
+                <!--Show Transit button if operation type is pickup-->
+                @if($value->operationTypeLabel() == 'Pickup')
+                    <a class="btn btn-small btn-danger" style="" href="{{ URL::to('fmroorders/' . $value->id . '/createRelayOrder') }}">Transit</a>
+                @endif
             </td>
         </tr>
     @endforeach

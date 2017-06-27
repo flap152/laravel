@@ -30,7 +30,14 @@ class Fmroorder extends Model
         });
     }
 
+    public function replicate(array $except = null){
+        /*Override method replicate() from Illuminate\Database\Eloquent\Model
+          Set status and isInFm to 0*/
 
+        $defaults = array('status', 'isInFM');
+        $except = $except ? array_unique(array_merge($except, $defaults)) : $defaults;
+        return parent::replicate($except);
+    }
 
     protected static $operationTypes = [
         '0' => 'Undefined',
@@ -54,8 +61,7 @@ class Fmroorder extends Model
 
     public function orderResult (){
         return $this->hasOne('App\Fmroorderresult','OrderNumber','OrderNumber');
-}
-
+    }
 
     /**
      * The attributes that should be mutated to dates.

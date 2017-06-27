@@ -47,6 +47,7 @@ Route::get('fmroorders/getallfmstatuses', 'FmroorderController@getallfmstatuses'
 Route::get('fmroorders/{id}/tofm', 'FmroorderController@tofm');
 Route::get('fmroorders/{id}/getfmstatus', 'FmroorderController@getfmstatus');
 Route::get('fmroorders/{id}/fmroorderresult', 'FmroorderresultController@show');
+Route::get('fmroorders/{id}/createRelayOrder', 'FmroorderController@createRelayOrder');
 
 
 Route::resource('fmroorders','FmroorderController');
