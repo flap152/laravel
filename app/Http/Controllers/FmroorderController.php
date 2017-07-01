@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use View;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class FmroorderController
@@ -22,6 +23,7 @@ class FmroorderController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -73,6 +75,42 @@ class FmroorderController extends Controller
     {
         //expect to load from app/resource/views/fmroorders/create.blade.php
         return View::make('fmroorders.create');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Fmroorder  $fmroorder
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function createRelayOrder($id){
+
+        //Get max value of all OrderNumber + 1
+        $newOrderNumber = 1 + DB::table('fmroorder')->max('OrderNumber');
+
+        /*If in transit, replicate row of $id from fmroorder
+        Change fmroorderNew->OrderNumber to newOrderNumber
+        Change fmroorderNew->VenderPoNumber to fmroorder->OrderNumber;
+        Change ServiceAddress to a new one
+        Save changes and redirect to edit form
+        */
+        $fmroorder = Fmroorder::find($id);
+
+        $fmroorderNew = $fmroorder->replicate();
+
+        $fmroorderNew->OrderNumber = $newOrderNumber;
+        $fmroorderNew->VendorPoNumber = $fmroorder->OrderNumber;
+        $fmroorderNew->ServiceAddressStreet = '166 Boulevard Industriel';
+        $fmroorderNew->ServiceAddressCity = 'Châteauguay';
+        $fmroorderNew->ServiceAddressProvince = 'Québec';
+        $fmroorderNew->ServiceAddressPostalCode = 'J6J 4Z2';
+        $fmroorderNew->ServiceAddressLat = '45.3613328';
+        $fmroorderNew->ServiceAddressLng = '-73.7007288';
+
+        $fmroorderNew->save();
+
+        return View::make('fmroorders.edit')
+            ->with('fmroorder', $fmroorderNew);
     }
 
     /**
@@ -128,7 +166,6 @@ class FmroorderController extends Controller
      */
     public function update(FmroorderRequest $request, Fmroorder $fmroorder)
     {
-
         $fmroorder->update($request->all());
             // redirect
         Session::flash('message', 'Successfully updated fmroorder!');
@@ -206,6 +243,19 @@ class FmroorderController extends Controller
             Session::flash('message', 'Error sending to FleetMapper!:'.$myRes->status);
             return Redirect::to('fmroorders');
         }
+    }
+
+    /**
+     * @internal Fmroorder $fmroorder
+     * @internal Fmroorders[] $fmroorder
+     */
+    public function getallfmstatuses()
+    {
+        $fmroorders = Fmroorder::with('orderResult')->get();
+        foreach ($fmroorders as $fmroorder) {
+            $this->getfmstatus($fmroorder->id);
+        }
+        return Redirect::to('fmroorders');
     }
 
     /**

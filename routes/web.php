@@ -24,6 +24,8 @@ Route::get('/about', function ()
     return view('about');
 });
 
+
+//Used as example
 Route::get('companies','CompaniesController@index');
 Route::get('companies/{id}','CompaniesController@show');
 Route::get('companies/create','CompaniesController@create');
@@ -43,6 +45,7 @@ Route::get('/flap3', function ()
 {
     return view('flap3');
 });
+Route::get('fmroorders/getallfmstatuses', 'FmroorderController@getallfmstatuses');
 
 
 Route::get('fmroorders/{id}/tofm', 'FmroorderController@tofm');
@@ -50,6 +53,7 @@ Route::get('getfmclosedorders', 'FmroorderController@getfmclosedorders');
 Route::get('getallfmstatuses', 'FmroorderController@getallfmstatuses');
 Route::get('fmroorders/{id}/getfmstatus', 'FmroorderController@getfmstatus');
 Route::get('fmroorders/{id}/fmroorderresult', 'FmroorderresultController@show');
+Route::get('fmroorders/{id}/createRelayOrder', 'FmroorderController@createRelayOrder');
 
 
 Route::resource('fmroorders','FmroorderController');
