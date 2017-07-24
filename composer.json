@@ -23,7 +23,12 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.4",
+        "behat/behat": "^3.3",
+        "behat/mink": "^1.7",
+        "behat/mink-extension": "^2.2",
+        "benconstable/phpspec-laravel": "^3.0",
         "fzaninotto/faker": "~1.6",
+        "laracasts/behat-laravel-extension": "^1.0",
         "laravel/browser-kit-testing": "^1.0",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7",
