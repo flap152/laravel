@@ -1,5 +1,4 @@
 @extends ('backend.layouts.app')
-
 @section ('title', trans('labels.backend.access.users.management'))
 
 @section('after-styles')
@@ -28,8 +27,8 @@
                 <table id="users-table" class="table table-condensed table-hover">
                     <thead>
                     <tr>
-                        <th>{{ trans('labels.backend.access.users.table.last_name') }}</th>
                         <th>{{ trans('labels.backend.access.users.table.first_name') }}</th>
+                        <th>{{ trans('labels.backend.access.users.table.last_name') }}</th>
                         <th>{{ trans('labels.backend.access.users.table.email') }}</th>
                         <th>{{ trans('labels.backend.access.users.table.confirmed') }}</th>
                         <th>{{ trans('labels.backend.access.users.table.roles') }}</th>

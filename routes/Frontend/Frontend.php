@@ -4,7 +4,9 @@
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
  */
-Route::get('/', 'FrontendController@index')->name('index');
+
+//Route::get('/', 'FrontendController@index')->name('index');
+Route::get('/', 'VehiculeController@index')->name('index');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
@@ -30,4 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
          */
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
     });
+
+    Route::get('/vehicules', 'VehiculeController@index');
+    Route::get('/documents', 'DocumentController@index');
+    Route::get('/vehicules/{id}/documents', 'DocumentController@showVehiculeDocuments');
 });

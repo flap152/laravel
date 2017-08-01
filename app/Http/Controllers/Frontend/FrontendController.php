@@ -9,11 +9,11 @@ use App\Http\Controllers\Controller;
  */
 class FrontendController extends Controller
 {
-    /**
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
+        //return view('frontend.index');
+        //Réactiver page d'accueil en multi application
+
         return view('frontend.index');
     }
 
