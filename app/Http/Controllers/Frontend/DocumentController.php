@@ -26,7 +26,9 @@ class DocumentController extends Controller
 
         xdebug_break();
 
-        $documents = Document::with('vehicule')->where('vehicule_id', '=', $id)->get();
+        $documents = Document::with('vehicule')->where('vehicule_id', '=', $id)
+            ->orderBy('document_date', 'desc')
+            ->get();
 
         return view('frontend.biblio.documents')->with(array('documents' => $documents));
     }
