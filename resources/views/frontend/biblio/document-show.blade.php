@@ -11,14 +11,12 @@
                     <table class="table table-responsive" id="documentTable">
                         <th>ID</th>
                         <th>Titre</th>
-                        <th>ID Véhicule</th>
                         <th>Nom Véhicule</th>
                         <th>Date Document</th>
                         @foreach($documents as $document)
                             <tr>
                                 <td>{{$document->id}}</td>
                                 <td>{{$document->title}}</td>
-                                <td>{{$document->vehicule_id}}</td>
                                 <td>{{$document->vehicule->name}}</td>
                                 <td>{{$document->document_date}}</td>
                             </tr>

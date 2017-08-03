@@ -131,4 +131,18 @@ return [
 
         'welcome_to' => 'Bienvenue sur :place',
     ],
+    'biblio' => [
+        'vehicules' => [
+            'vehicules_list_title' => 'Véhicules',
+            'vehicules_name' => 'Nom Véhicule',
+            'vehicules_id' => 'ID',
+        ],
+        'documents' => [
+            'documents_list_title' => 'Documents',
+            'documents_id' => 'ID',
+            'documents_title' => 'Titre',
+            'documents_vehicule_name' => 'Nom Véhicule',
+            'documents_date_document' => 'Date'
+        ]
+    ],
 ];

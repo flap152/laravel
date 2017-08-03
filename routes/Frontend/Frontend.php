@@ -35,6 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'VehiculeController@index')->name('index');
     Route::get('/vehicules', 'VehiculeController@index');
     Route::get('/documents', 'DocumentController@index');
-    Route::get('/vehicule/{id}/documents', 'DocumentController@showVehiculeDocuments');
-    Route::get('/vehicule/{vehiculeId}/document/{id}', 'DocumentController@showVehiculeDocument');
+    Route::get('/vehicule/{id}/documents', 'DocumentController@listVehiculeDocuments');
+    Route::get('/vehicule/{vehiculeId}/document/{id}', 'DocumentController@showThisDocument');
 });

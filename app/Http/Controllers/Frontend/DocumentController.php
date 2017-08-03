@@ -22,17 +22,17 @@ class DocumentController extends Controller
         return view('frontend.biblio.documents-list')->with(array('documents' => $documents));
     }
 
-    public function showVehiculeDocuments($vehiculeId){
+    public function listVehiculeDocuments($vehiculeId){
 
         $documents = Document::with('vehicule')
             ->where('vehicule_id', '=', $vehiculeId)
             ->orderBy('document_date', 'desc')
             ->get();
 
-        return view('frontend.biblio.document-show')->with('documents', $documents);
+        return view('frontend.biblio.documents-list')->with('documents', $documents);
     }
 
-    public function showVehiculeDocument($vehiculeId, $id){
+    public function showThisDocument($vehiculeId, $id){
 
         $document = Document::with('vehicule')
             ->where('vehicule_id', '=', $vehiculeId)

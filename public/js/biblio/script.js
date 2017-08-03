@@ -1,22 +1,28 @@
 $(document).ready(function(){
 
-    $('#vehiculeTable tr').on('click', function (){
+    onClickRowTable('vehiculeTable');
 
-        var tableRow = $(this);
-        var tableTd = tableRow.children();
-        var vehiculeId = tableTd.eq(0).text();
+    onClickRowTable('documentTable');
 
-        location.href = '/vehicule/' + vehiculeId + '/documents';
-    });
+    function onClickRowTable(tableId){
 
-    $('#documentTable tr').on('click', function(){
+        $('#' + tableId + ' tr').on('click', function(){
 
-        var tableRow = $(this);
-        var tableTd = tableRow.children('td');
-        var vehiculeId = tableTd.eq(2).html();
+            //Récupérer la rangée cliquée
+            //Récupérer l'input hidden ainsi que sa valeur (le lien)
+            var row = $(this);
+            var input = row.find('input');
+            var document = input.val();
 
-        var documentId = tableTd.eq(0).html();
+            //S'il n'y a pas d'input hidden, rester sur la même page
+            // sinon rediriger vers le lien de la valeur du champ hidden
 
-        location.href = '/vehicule/' + vehiculeId + '/document/' + documentId;
-    });
+            if(input.length !== 1){
+                location.href = window.location.pathname;
+            }
+            else{
+                location.href = document;
+            }
+        });
+    }
 });
