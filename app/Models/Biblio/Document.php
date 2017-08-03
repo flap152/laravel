@@ -13,12 +13,14 @@ class Document extends Model
      */
     protected $table;
 
+
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['title', 'document_date'];
+    protected $fillable = ['title', 'document_date', 'link'];
 
     public function Vehicule(){
 
@@ -29,4 +31,9 @@ class Document extends Model
 
         return $this->hasOne('DocumentType');
     }
+
+    public function getURL(){
+        return "/flap3/" . $this->id;
+    }
+
 }

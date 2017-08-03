@@ -9,7 +9,9 @@
 namespace App\Models\Biblio;
 
 
-class DocumentType
+use Illuminate\Database\Eloquent\Model;
+
+class DocumentType extends Model
 {
     /**
      * The attributes that are mass assignable.
