@@ -77,8 +77,8 @@
                     }
                 },
                 columns: [
-                    {data: 'last_name', name: '{{config('access.users_table')}}.last_name'},
                     {data: 'first_name', name: '{{config('access.users_table')}}.first_name'},
+                    {data: 'last_name', name: '{{config('access.users_table')}}.last_name'},
                     {data: 'email', name: '{{config('access.users_table')}}.email'},
                     {data: 'confirmed', name: '{{config('access.users_table')}}.confirmed'},
                     {data: 'roles', name: '{{config('access.roles_table')}}.name', sortable: false},

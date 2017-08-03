@@ -62,8 +62,8 @@ class RegisterController extends Controller
         } else {
             access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password')));
             event(new UserRegistered(access()->user()));
-
-            return redirect($this->redirectPath());
         }
+        
+        return redirect($this->redirectPath());
     }
 }

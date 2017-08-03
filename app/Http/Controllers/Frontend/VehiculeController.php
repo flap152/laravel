@@ -11,6 +11,6 @@ class VehiculeController extends Controller
 
         $vehicules = Vehicule::with('documents')->get();
 
-        return view('frontend.biblio.vehicule')->with('vehicules', $vehicules);
+        return view('frontend.biblio.vehicules-list')->with('vehicules', $vehicules);
     }
 }
