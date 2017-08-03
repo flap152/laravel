@@ -47,6 +47,7 @@
         <!-- Scripts -->
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}
+        {!! Html::script('/js/biblio/script.js') !!}
         @yield('after-scripts')
 
         @include('includes.partials.ga')

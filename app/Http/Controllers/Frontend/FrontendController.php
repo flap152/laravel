@@ -20,8 +20,8 @@ class FrontendController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function macros()
+    /*public function macros()
     {
         return view('frontend.macros');
-    }
+    }*/
 }

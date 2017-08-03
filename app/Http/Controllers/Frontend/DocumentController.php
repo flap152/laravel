@@ -19,17 +19,26 @@ class DocumentController extends Controller
 
         $documents = Document::all();
 
-        return view('frontend.biblio.documents')->with(array('documents' => $documents));
+        return view('frontend.biblio.documents-list')->with(array('documents' => $documents));
     }
 
-    public function showVehiculeDocuments($id){
+    public function showVehiculeDocuments($vehiculeId){
 
-        xdebug_break();
-
-        $documents = Document::with('vehicule')->where('vehicule_id', '=', $id)
+        $documents = Document::with('vehicule')
+            ->where('vehicule_id', '=', $vehiculeId)
             ->orderBy('document_date', 'desc')
             ->get();
 
-        return view('frontend.biblio.documents')->with(array('documents' => $documents));
+        return view('frontend.biblio.document-show')->with('documents', $documents);
+    }
+
+    public function showVehiculeDocument($vehiculeId, $id){
+
+        $document = Document::with('vehicule')
+            ->where('vehicule_id', '=', $vehiculeId)
+            ->where('id', '=', $id)
+            ->get();
+
+        return view('frontend.biblio.document-show')->with('documents', $document);
     }
 }

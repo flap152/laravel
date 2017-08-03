@@ -224,7 +224,7 @@ class UserRepository extends BaseRepository
         $user = $this->findByConfirmationToken($token);
 
         if ($user->confirmed == 1) {
-            throw new GeneralException(trans('exceptions.frontend.auth.confirmation.already_confirmed'));
+            throw new GeneralException(trans('exceptions.frontend.auth.confirmation.success'));
         }
 
         if ($user->confirmation_code == $token) {
