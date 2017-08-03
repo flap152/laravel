@@ -29,3 +29,8 @@ Route::post('/flap2', function () {
     return response()->isOk();
     //return view('frontend/flap2');
 });
+
+
+
+
+Route::get('/flap3/{id}', 'DocumentController@showThisDocument');

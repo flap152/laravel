@@ -41,4 +41,27 @@ class DocumentController extends Controller
 
         return view('frontend.biblio.document-show')->with('documents', $document);
     }
+
+    public function showThisDocument($id){
+
+        $document = Document::with('vehicule')->find($id);
+
+        // Servir le PDF
+        $filename = 'Doc' . $document->id . ".pdf";
+        $filename =  'biblio/'. $filename ;
+        $path = storage_path($filename);
+
+
+
+        return response(file_get_contents($path))
+            ->header('Content-Type','application/pdf')
+            ->header('Content-Disposition', 'inline; filename="'.$filename.'"');
+
+        /*   return Response::make(file_get_contents($path), 200, [
+               'Content-Type' => 'application/pdf',
+               'Content-Disposition' => 'inline; filename="'.$filename.'"'
+           ]);
+   */
+        //return view('frontend.biblio.documents')->with(array('documents' => $documents));
+    }
 }
