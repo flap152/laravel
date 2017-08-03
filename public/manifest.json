@@ -1,0 +1,15 @@
+{
+  "short_name": "boilerplate",
+  "name": "boilerplate",
+  "icons": [
+    {
+      "src": "tile.png",
+      "sizes": "558x558",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#cb1a38"
+}

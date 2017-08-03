@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <link rel="manifest" href="/manifest.json">
+
         <title>@yield('title', app_name())</title>
 
         <!-- Meta -->
@@ -31,6 +33,19 @@
             window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
             ]); ?>
+
+// PWA service worker support - taken from https://justmegareth.com/2017-07-15-progressive-web-app-in-laravel/
+            if ('serviceWorker' in navigator && 'PushManager' in window) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
         </script>
     </head>
     <body id="app-layout">
