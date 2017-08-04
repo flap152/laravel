@@ -11,6 +11,7 @@ namespace App\Models\Biblio;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class DocumentType extends Model
 {
     /**
@@ -19,4 +20,9 @@ class DocumentType extends Model
      * @var array
      */
     protected $fillable = ['title'];
+
+    public function documents()
+    {
+        return $this->hasMany('App\Biblio\Document');
+    }
 }

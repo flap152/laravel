@@ -47,15 +47,17 @@ class DocumentController extends Controller
         $document = Document::with('vehicule')->find($id);
 
         // Servir le PDF
-        $filename = 'Doc' . $document->id . ".pdf";
-        $filename =  'biblio/'. $filename ;
-        $path = storage_path($filename);
+
+        //$filename = 'Doc' . $document->id . ".pdf";
+        //$filename =  'biblio/'. $filename ;
+        //$path = storage_path($filename);
+        $path = $document->localpath;
 
 
 
         return response(file_get_contents($path))
             ->header('Content-Type','application/pdf')
-            ->header('Content-Disposition', 'inline; filename="'.$filename.'"');
+            ->header('Content-Disposition', 'inline; filename="'.$path.'"');
 
         /*   return Response::make(file_get_contents($path), 200, [
                'Content-Type' => 'application/pdf',

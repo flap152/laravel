@@ -3,6 +3,7 @@ namespace App\Models\Biblio;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Biblio\Vehicule;
+use App\Models\Biblio\DocumentType;
 
 class Document extends Model
 {
@@ -11,8 +12,7 @@ class Document extends Model
      *
      * @var string
      */
-    protected $table;
-
+    //protected $table;
 
 
     /**
@@ -20,20 +20,21 @@ class Document extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'document_date', 'link'];
+    //protected $fillable = ['title', 'document_date', 'link','document_type_id'];
+    protected $guarded = [];
 
-    public function Vehicule(){
+    public function vehicule(){
 
-        return $this->belongsTo('App\Models\Biblio\Vehicule');
+        return $this->belongsTo('App\Models\Biblio\Vehicule','vehicule_id');
     }
 
-    public function DocumentType(){
+    public function document_type(){
 
-        return $this->hasOne('DocumentType');
+        return $this->belongsTo('App\Models\Biblio\DocumentType','document_type_id');
     }
 
     public function getURL(){
-        return "/flap3/" . $this->id;
+        return "/flap3/" . $this->link;
     }
 
 }
