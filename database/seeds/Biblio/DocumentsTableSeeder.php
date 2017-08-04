@@ -39,7 +39,7 @@ class DocumentsTableSeeder extends Seeder
             ),
             array(
                 'title' => 'formulaire inspection3',
-                'document_type_id' => 3,
+                'document_type_id' => 2,
                 'vehicule_id' => 3,
                 'user_id' => 3,
                 'document_date' => date('Y-m-d h:m:s'),
@@ -48,7 +48,7 @@ class DocumentsTableSeeder extends Seeder
             ),
             array(
                 'title' => 'formulaire inspection4',
-                'document_type_id' => 4,
+                'document_type_id' => 1,
                 'vehicule_id' => 4,
                 'user_id' => 1,
                 'document_date' => date('Y-m-d h:m:s'),
@@ -57,7 +57,7 @@ class DocumentsTableSeeder extends Seeder
             ),
             array(
                 'title' => 'formulaire inspection5',
-                'document_type_id' => 5,
+                'document_type_id' => 2,
                 'vehicule_id' => 1,
                 'user_id' => 2,
                 'document_date' => date('Y-m-d h:m:s'),
@@ -66,7 +66,7 @@ class DocumentsTableSeeder extends Seeder
             ),
             array(
                 'title' => 'formulaire inspection6',
-                'document_type_id' => 6,
+                'document_type_id' => 1,
                 'vehicule_id' => 2,
                 'user_id' => 3,
                 'document_date' => date('Y-m-d h:m:s'),
@@ -75,7 +75,7 @@ class DocumentsTableSeeder extends Seeder
             ),
             array(
                 'title' => 'formulaire inspection7',
-                'document_type_id' => 7,
+                'document_type_id' => 2,
                 'vehicule_id' => 3,
                 'user_id' => 1,
                 'document_date' => date('Y-m-d h:m:s'),
@@ -84,7 +84,7 @@ class DocumentsTableSeeder extends Seeder
             ),
             array(
                 'title' => 'formulaire inspection8',
-                'document_type_id' => 8,
+                'document_type_id' => 1,
                 'vehicule_id' => 4,
                 'user_id' => 2,
                 'document_date' => date('Y-m-d h:m:s'),

@@ -33,19 +33,24 @@ Route::group(['middleware'=>'api'],function() {
         $docName = $subjectPieces[0];
         $unitName = $subjectPieces[1];
         $docTime = $subjectPieces[2];
-        $docType = App\Models\Biblio\DocumentType::firstOrCreate(['title' => $docName],['title' => $docName]);
-        $camion = Vehicule::firstOrCreate(['name' => $unitName], ['name' => $unitName]);
+        $docType = new DocumentType;
+        $docType->firstOrCreate(['title' => $docName],['title' => $docName])->save();
+        $camion = new Vehicule; $camion->firstOrCreate(['name' => $unitName], ['name' => $unitName])->save();
+        Log::info('received email docType:' . serialize($docType));//. $_REQUEST);
+        Log::info('received email camion:' . serialize($camion));//. $_REQUEST);
 
         foreach ($parsed->attachments as $attachment) {
             //$attachment;
             $doc = new Document;
-            $doc->DocumentType()->save($docType);
-            $doc->Vehicule()->save($camion);
-            Log::info('received email parse b:' . serialize($attachment));//. $_REQUEST);
-            $doc->save();
+            $doc->document_type_id = 1; // $docType->id;
+            $doc->vehicule_id = 1; //$camion-> id;
+            $doc->title = $docName;
+            $doc->document_date = \Carbon\Carbon::now();
+             Log::info('received email pa    rse b:' . serialize($attachment));//. $_REQUEST);
+            Log::info('received email doc:' . serialize($doc));//. $_REQUEST);
             $filename = $attachment['name'];
             Log::info('received email parse c:' . serialize($attachment));//. $_REQUEST);
-            $filename =  'biblio/'. $filename ;
+            $filename =  'biblio/'. $doc->document_date->format('Ymd-hms'). $filename  ;
             $doc->localpath  =storage_path($filename);
             $doc->save();
            Log::info('received email parse ddd:' . $attachment['name']);//. $_REQUEST);
