@@ -5,13 +5,13 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>{{trans('strings.biblio.documents.documents_list_title')}}</h3>
+                    <h3>{{trans('strings.biblio.documents.documents_list_title')}} <i class="fa fa-file-pdf-o"></i></h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-responsive" id="documentTable">
                         <th>{{trans('strings.biblio.documents.documents_id')}}</th>
                         <th>{{trans('strings.biblio.documents.documents_title')}}</th>
-                        <th>{{trans('strings.biblio.documents.documents_vehicule_name')}}</th>
+                        <th>{{trans('strings.biblio.vehicules.vehicules_name')}}</th>
                         <th>{{trans('strings.biblio.documents.documents_date_document')}}</th>
                         @foreach($documents as $doc)
                             <tr>
@@ -19,7 +19,7 @@
                                 <td>{{$doc->title}}</td>
                                 <td>{{$doc->vehicule->name}}</td>
                                 <td>{{$doc->document_date}}</td>
-                                <input type="hidden" name="documentRow" value="/vehicule/{{$doc->vehicule_id}}/document/{{$doc->id}}"/>
+                                <input type="hidden" name="documentRow" value="/documents/{{$doc->id}}"/>
                             </tr>
                         @endforeach
                     </table>

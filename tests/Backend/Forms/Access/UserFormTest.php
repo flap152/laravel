@@ -65,7 +65,7 @@ class UserFormTest extends BrowserKitTestCase
              ->type($password, 'password_confirmation')
              ->seeIsChecked('status')
              ->seeIsChecked('confirmed')
-             ->dontSeeIsChecked('confirmation_email')
+             ->seeIsChecked('confirmation_email')
              ->check('assignees_roles[2]')
              ->check('assignees_roles[3]')
              ->press('Create')
@@ -93,7 +93,7 @@ class UserFormTest extends BrowserKitTestCase
         // Make sure our notifications are sent
         Notification::fake();
 
-        // Create any needed resources
+        //Create any needed resources
         $faker = Faker\Factory::create();
         $firstName = $faker->firstName;
         $lastName = $faker->lastName;
@@ -101,39 +101,32 @@ class UserFormTest extends BrowserKitTestCase
         $password = $faker->password(8);
 
         $this->actingAs($this->admin)
-             ->visit('/admin/access/user/create')
-             ->type($firstName, 'first_name')
-             ->type($lastName, 'last_name')
-             ->type($email, 'email')
-             ->type($password, 'password')
-             ->type($password, 'password_confirmation')
-             ->seeIsChecked('status')
-             ->uncheck('confirmed')
-             ->check('confirmation_email')
-             ->check('assignees_roles[2]')
-             ->check('assignees_roles[3]')
-             ->press('Create')
-             ->seePageIs('/admin/access/user')
-             ->see('The user was successfully created.')
-             ->seeInDatabase(config('access.users_table'),
-                 [
-                     'first_name' => $firstName,
-                     'last_name' => $lastName,
-                     'email' => $email,
-                     'status' => 1,
-                     'confirmed' => 0,
-                 ])
-             ->seeInDatabase(config('access.role_user_table'), ['user_id' => 4, 'role_id' => 2])
-             ->seeInDatabase(config('access.role_user_table'), ['user_id' => 4, 'role_id' => 3]);
+            ->visit('/admin/access/user/create')
+            ->type($firstName, 'first_name')
+            ->type($lastName, 'last_name')
+            ->type($email, 'email')
+            ->type($password, 'password')
+            ->type($password, 'password_confirmation')
+            ->seeIsChecked('status')
+            ->uncheck('confirmed')
+            ->check('confirmation_email')
+            ->check('assignees_roles[2]')
+            ->check('assignees_roles[3]')
+            ->press('Create')
+            ->seePageIs('/admin/access/user')
+            ->see('The user was successfully created.')
+            ->seeInDatabase(config('access.users_table'),
+            [
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'email' => $email,
+                'status' => 1,
+                'confirmed' => 0,
+            ])
+            ->seeInDatabase(config('access.role_user_table'),['user_id' => 4, 'role_id' => 2])
+            ->seeInDatabase(config('access.role_user_table'), ['user_id' => 4, 'role_id' => 3]);
 
-        // Get the user that was inserted into the database
-        $user = User::where('email', $email)->first();
 
-        // Check that the user was sent the confirmation email
-        Notification::assertSentTo([$user],
-            UserNeedsConfirmation::class);
-
-        Event::assertDispatched(UserCreated::class);
     }
 
     public function testCreateUserFailsIfEmailExists()

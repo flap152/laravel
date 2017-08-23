@@ -23,6 +23,6 @@ class DocumentType extends Model
 
     public function documents()
     {
-        return $this->hasMany('App\Biblio\Document');
+        return $this->hasMany(Document::class);
     }
 }

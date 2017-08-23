@@ -15,7 +15,7 @@ class Vehicule extends Model
 
     public function documents(){
 
-        return $this->hasMany('App\Models\Biblio\Document');
+        return $this->hasMany(Document::class);
     }
     /**
      * @param array $attributes

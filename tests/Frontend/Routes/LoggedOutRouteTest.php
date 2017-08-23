@@ -28,10 +28,10 @@ class LoggedOutRouteTest extends BrowserKitTestCase
     /**
      * Test the macro page works.
      */
-    public function testMacroPage()
+   /* public function testMacroPage()
     {
         $this->visit('/macros')->see('Macro Examples');
-    }
+    }*/
 
     public function testContactPage()
     {

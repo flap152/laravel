@@ -133,16 +133,17 @@ return [
     ],
     'biblio' => [
         'vehicules' => [
-            'vehicules_list_title' => 'Véhicules',
+            'vehicules_list_title' => 'Liste des véhicules',
             'vehicules_name' => 'Nom Véhicule',
             'vehicules_id' => 'ID',
         ],
         'documents' => [
-            'documents_list_title' => 'Documents',
+            'documents_list_title' => 'Liste des documents',
             'documents_id' => 'ID',
             'documents_title' => 'Titre',
-            'documents_vehicule_name' => 'Nom Véhicule',
-            'documents_date_document' => 'Date'
+            'documents_user' => 'Utilisateur',
+            'documents_date_document' => 'Date',
+            'documents_attachment' => 'Pièce Jointe'
         ]
     ],
 ];

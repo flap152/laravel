@@ -24,6 +24,7 @@ class DocumentsTableSeeder extends Seeder
                 'vehicule_id' => 1,
                 'user_id' => 1,
                 'document_date' => date('Y-m-d h:m:s'),
+                'localpath' => 'lien',
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
 
@@ -33,6 +34,7 @@ class DocumentsTableSeeder extends Seeder
                 'document_type_id' => 2,
                 'vehicule_id' => 2,
                 'user_id' => 2,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
@@ -42,6 +44,7 @@ class DocumentsTableSeeder extends Seeder
                 'document_type_id' => 2,
                 'vehicule_id' => 3,
                 'user_id' => 3,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                  'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
@@ -51,6 +54,7 @@ class DocumentsTableSeeder extends Seeder
                 'document_type_id' => 1,
                 'vehicule_id' => 4,
                 'user_id' => 1,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
@@ -60,6 +64,7 @@ class DocumentsTableSeeder extends Seeder
                 'document_type_id' => 2,
                 'vehicule_id' => 1,
                 'user_id' => 2,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
@@ -69,6 +74,7 @@ class DocumentsTableSeeder extends Seeder
                 'document_type_id' => 1,
                 'vehicule_id' => 2,
                 'user_id' => 3,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
@@ -78,6 +84,7 @@ class DocumentsTableSeeder extends Seeder
                 'document_type_id' => 2,
                 'vehicule_id' => 3,
                 'user_id' => 1,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()
@@ -85,8 +92,9 @@ class DocumentsTableSeeder extends Seeder
             array(
                 'title' => 'formulaire inspection8',
                 'document_type_id' => 1,
-                'vehicule_id' => 4,
+                'vehicule_id' => 3,
                 'user_id' => 2,
+                'localpath' => 'lien',
                 'document_date' => date('Y-m-d h:m:s'),
                 'updated_at' => Carbon\Carbon::now(),
                 'created_at' => Carbon\Carbon::now()

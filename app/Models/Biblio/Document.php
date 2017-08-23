@@ -20,21 +20,20 @@ class Document extends Model
      *
      * @var array
      */
-    //protected $fillable = ['title', 'document_date', 'link','document_type_id'];
     protected $guarded = [];
 
     public function vehicule(){
 
-        return $this->belongsTo('App\Models\Biblio\Vehicule','vehicule_id');
+        return $this->belongsTo(Vehicule::class);
     }
 
     public function document_type(){
 
-        return $this->belongsTo('App\Models\Biblio\DocumentType','document_type_id');
+        return $this->belongsTo(DocumentType::class);
     }
 
     public function getURL(){
-        return "/flap3/" . $this->link;
+        return "/pj/" . $this->id;
     }
 
 }

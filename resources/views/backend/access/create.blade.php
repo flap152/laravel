@@ -79,14 +79,15 @@
                     </div><!--col-lg-1-->
                 </div><!--form control-->
 
-                @if (! config('access.users.requires_approval'))
+                @if (true)
+                    <!--! config('access.users.requires_approval')-->
                     <div class="form-group">
                         <label class="col-lg-2 control-label">{{ trans('validation.attributes.backend.access.users.send_confirmation_email') }}<br/>
-                            <small>{{ trans('strings.backend.access.users.if_confirmed_off') }}</small>
+                            <!--<small>{{ trans('strings.backend.access.users.if_confirmed_off') }}</small>-->
                         </label>
 
                         <div class="col-lg-1">
-                            {{ Form::checkbox('confirmation_email', '1') }}
+                            {{ Form::checkbox('confirmation_email', '1', 'checked') }}
                         </div><!--col-lg-1-->
                     </div><!--form control-->
                 @endif

@@ -1,4 +1,5 @@
 <?php
+namespace App;
 Class SendgridParse {
 
     private function parseEmailAddress($raw) {

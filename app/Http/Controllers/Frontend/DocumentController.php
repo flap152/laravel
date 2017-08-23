@@ -10,11 +10,10 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Biblio\Document;
-use App\Models\Biblio\Vehicule;
-
 
 class DocumentController extends Controller
 {
+    //Lister tous les documents
     public function index(){
 
         $documents = Document::all();
@@ -22,6 +21,7 @@ class DocumentController extends Controller
         return view('frontend.biblio.documents-list')->with(array('documents' => $documents));
     }
 
+    //Lister les documents par véhicule
     public function listVehiculeDocuments($vehiculeId){
 
         $documents = Document::with('vehicule')
@@ -29,41 +29,35 @@ class DocumentController extends Controller
             ->orderBy('document_date', 'desc')
             ->get();
 
+        if($documents->count() == 1){
+
+            return redirect()->action('Frontend\DocumentController@show', ['id' => $documents->first()->id]);
+        }
+
         return view('frontend.biblio.documents-list')->with('documents', $documents);
     }
 
-    public function showThisDocument($vehiculeId, $id){
-
-        $document = Document::with('vehicule')
-            ->where('vehicule_id', '=', $vehiculeId)
-            ->where('id', '=', $id)
-            ->get();
-
-        return view('frontend.biblio.document-show')->with('documents', $document);
-    }
-
-    public function showThisDocument($id){
+    public function show($id){
 
         $document = Document::with('vehicule')->find($id);
+        
+        return view('frontend.biblio.document-show')->with('document', $document);
+    }
+
+    public function showAttachment($id){
+
+        $document = Document::find($id);
 
         // Servir le PDF
 
-        //$filename = 'Doc' . $document->id . ".pdf";
-        //$filename =  'biblio/'. $filename ;
-        //$path = storage_path($filename);
+        if(!stripos($document->localpath, '/home')){
+
+            //return abort(404, 'Le fichier n\'existe pas');
+        }
         $path = $document->localpath;
-
-
 
         return response(file_get_contents($path))
             ->header('Content-Type','application/pdf')
             ->header('Content-Disposition', 'inline; filename="'.$path.'"');
-
-        /*   return Response::make(file_get_contents($path), 200, [
-               'Content-Type' => 'application/pdf',
-               'Content-Disposition' => 'inline; filename="'.$filename.'"'
-           ]);
-   */
-        //return view('frontend.biblio.documents')->with(array('documents' => $documents));
     }
 }

@@ -12,7 +12,7 @@ class FrontendController extends Controller
     public function index()
     {
         //return view('frontend.index');
-        //Réactiver page d'accueil en multi application
+        //TODO: Réactiver page d'accueil en multi application
 
         return view('frontend.index');
     }

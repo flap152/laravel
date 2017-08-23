@@ -60,6 +60,8 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
+        $app->loadEnvironmentFrom('.env.testing');
+
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
@@ -92,6 +94,8 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
     public function tearDown()
     {
+        DB::connection('mysql')->statement('DROP DATABASE IF EXISTS ' . env('DB_DATABASE', 'boilerplate'));
+        
         $this->beforeApplicationDestroyed(function () {
             DB::disconnect();
         });
