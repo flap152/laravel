@@ -14,4 +14,11 @@ $(document).ready(function(){
             location.href = lien;
         });
     }
+    $('.panel.panel-default.text-center').on('click', function(){
+        var panel = $(this);
+
+        var lien = panel.find('a').attr('href');
+
+        location.href = lien;
+    });
 });

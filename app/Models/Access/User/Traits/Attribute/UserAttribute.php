@@ -115,6 +115,20 @@ trait UserAttribute
     }
 
     /**
+     * @return boolean
+     */
+    public function isAllowed(){
+
+        if($this->isConfirmed() && $this->isActive()){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
      * @return string
      */
     public function getFullNameAttribute()

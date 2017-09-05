@@ -12,8 +12,15 @@ return [
     */
 
     '404' => [
-        'title'       => 'Page Not Found',
-        'description' => 'Sorry, but the page you were trying to view does not exist.',
+        'page_not_found' => [
+            'title'       => 'Page Not Found',
+            'description' => 'Sorry, but the page you were trying to view does not exist.',
+        ],
+
+        'file_not_found' => [
+            'title' => 'File Not Found',
+            'description' => 'Sorry, but an error occured when you were trying to access the file.'
+        ],
     ],
 
     '503' => [

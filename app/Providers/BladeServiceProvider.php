@@ -29,5 +29,10 @@ class BladeServiceProvider extends ServiceProvider
         Blade::directive('langRTL', function () {
             return "<?php if (session()->has('lang-rtl')): ?>";
         });
+
+        Blade::directive('debug', function(){
+
+            return "<?php if (config('app.debug','true') === true) : ?>";
+        });
     }
 }

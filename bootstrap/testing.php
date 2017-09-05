@@ -11,5 +11,3 @@ $connection = new PDO("{$driver}:host={$host}", $username, $password);
 $connection->query("DROP DATABASE IF EXISTS ".$database);
 
 $connection->query("CREATE DATABASE ".$database);
-
-require('autoload.php');

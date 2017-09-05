@@ -5,17 +5,21 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>{{trans('strings.biblio.documents.documents_list_title')}} <i class="fa fa-file-pdf-o"></i></h3>
+                    <h3>{{trans('strings.biblio.documents.list_title')}} <i class="fa fa-file-pdf-o"></i></h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-responsive" id="documentTable">
-                        <th>{{trans('strings.biblio.documents.documents_id')}}</th>
-                        <th>{{trans('strings.biblio.documents.documents_title')}}</th>
-                        <th>{{trans('strings.biblio.vehicules.vehicules_name')}}</th>
-                        <th>{{trans('strings.biblio.documents.documents_date_document')}}</th>
+                        @debug
+                            <th>{{trans('strings.biblio.documents.id')}}</th>
+                        @endif
+                        <th>{{trans('strings.biblio.documents.title')}}</th>
+                        <th>{{trans('strings.biblio.vehicules.name')}}</th>
+                        <th>{{trans('strings.biblio.documents.document_date')}}</th>
                         @foreach($documents as $doc)
                             <tr>
-                                <td>{{$doc->id}}</td>
+                                @debug
+                                    <td>{{$doc->id}}</td>
+                                @endif
                                 <td>{{$doc->title}}</td>
                                 <td>{{$doc->vehicule->name}}</td>
                                 <td>{{$doc->document_date}}</td>

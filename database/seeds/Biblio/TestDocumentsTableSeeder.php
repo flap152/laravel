@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Database\DisableForeignKeys;
 use Illuminate\Support\Facades\DB;
 
-class DocumentsTableSeeder extends Seeder
+class TestDocumentsTableSeeder extends Seeder
 {
     use DisableForeignKeys;
     /**

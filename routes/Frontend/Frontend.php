@@ -14,7 +14,7 @@ use App\Models\Biblio\Vehicule;
  * All route names are prefixed with 'frontend.'.
  */
 
-//Route::get('/', 'FrontendController@index')->name('index');
+Route::get('/', 'FrontendController@index')->name('index');
 //Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
@@ -23,8 +23,8 @@ Route::group(['middleware'=>'api'],function() {
     Route::post('/emailparse', function (Request $request) {
         $uri = $request->path();
         $parsed = new SendgridParse();
-        Log::info('received email parsea:'. $uri);//. $_REQUEST);
-        // Le email est sensé être ititré "docname - unit name - timestamp"
+        Log::info('received email parsea:'. $parsed->subject);//. $parsed->subject);
+        // Le email est sensé être ititré "docname -- unit name -- timestamp"
         $subjectPieces = explode(" -- ", $parsed->subject);
         if (!$subjectPieces){
             //TODO: le délimiteur n'a pas été reconnu
@@ -39,13 +39,13 @@ Route::group(['middleware'=>'api'],function() {
         $camion = Vehicule::firstOrCreate(['name' => $unitName], ['name' => $unitName]);
 
         foreach($parsed->attachments as $attachment){
+
             //$attachment
             $doc = new Document;
-
             $doc->document_type()->associate($docType);
             $doc->vehicule()->associate($camion);
             $doc->title = $docName;
-            $doc->document_date = \Carbon\Carbon::now();
+            $doc->document_date = Carbon\Carbon::now();
 
             Log::info('received email pa    rse b:' . serialize($attachment));//. $_REQUEST);
             Log::info('received email doc:' . serialize($doc));//. $_REQUEST);
@@ -64,8 +64,6 @@ Route::group(['middleware'=>'api'],function() {
             move_uploaded_file($attachment['tmp_name'],storage_path($filename));
             Log::info('received email parse saved file:'. $filename  );//. $_REQUEST);
         }
-
-        return response('REUSSI1');
     });
     Route::get('/emailparse', function () {
         \Illuminate\Support\Facades\Log::info('received email parse:');// . $_REQUEST);
@@ -94,8 +92,6 @@ Route::group(['middleware' => 'auth'], function () {
          */
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
     });
-
-    Route::get('/', 'VehiculeController@index')->name('index');
     Route::get('/vehicules', 'VehiculeController@index');
     Route::get('/documents', 'DocumentController@index');
     Route::get('/vehicules/{id}/documents','DocumentController@listVehiculeDocuments');

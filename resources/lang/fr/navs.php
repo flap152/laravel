@@ -20,9 +20,8 @@ return [
 
     'frontend' => [
         'contact' => 'Contact',
-        'dashboard' => 'Tableau de bord',
+        'dashboard' => 'Portail',
         'login'     => 'Connexion',
-        'macros'    => 'Macros',
         'register'  => "S'enregistrer",
 
         'user' => [

@@ -39,12 +39,12 @@ return [
 
         'log-viewer' => [
             'main'      => 'Consulter les logs',
-            'dashboard' => 'Tableau de bord',
+            'dashboard' => 'Portail',
             'logs'      => 'Logs',
         ],
 
         'sidebar' => [
-            'dashboard' => 'Tableau de bord',
+            'dashboard' => 'Portail',
             'general'   => 'Général',
             'system'    => 'Système',
         ],

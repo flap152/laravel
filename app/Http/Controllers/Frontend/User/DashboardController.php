@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Biblio\Document;
+use App\Models\Biblio\Vehicule;
 
 /**
  * Class DashboardController.
@@ -14,6 +16,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('frontend.user.dashboard');
+        $documents = Document::with('vehicule')->get();
+        return view('frontend.layouts.dashboard')->with('documents', $documents);
     }
 }

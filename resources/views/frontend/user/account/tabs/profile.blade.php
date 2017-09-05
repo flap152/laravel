@@ -1,15 +1,15 @@
 <table class="table table-striped table-hover">
     <tr>
-        <th>{{ trans('labels.frontend.user.profile.avatar') }}</th>
-        <td><img src="{{ $logged_in_user->picture }}" class="user-profile-image" /></td>
-    </tr>
-    <tr>
         <th>{{ trans('labels.frontend.user.profile.name') }}</th>
         <td>{{ $logged_in_user->name }}</td>
     </tr>
     <tr>
         <th>{{ trans('labels.frontend.user.profile.email') }}</th>
         <td>{{ $logged_in_user->email }}</td>
+    </tr>
+    <tr>
+        <th>{{trans('strings.frontend.user.last_logged_in')}}</th>
+        <td>{{$logged_in_user->last_logged_in}}</td>
     </tr>
     <tr>
         <th>{{ trans('labels.frontend.user.profile.created_at') }}</th>

@@ -67,6 +67,7 @@ return [
                     'email'          => 'Email',
                     'id'             => 'ID',
                     'last_updated'   => 'Mise à jour',
+                    'last_logged_in' => 'Dernière connexion',
                     'first_name'     => 'Prénom',
                     'last_name'      => 'Nom',
                     'no_deactivated' => "Pas d'utilisateurs désactivés",
@@ -113,41 +114,15 @@ return [
         ],
 
         'contact' => [
-            'box_title' => 'Contact Us',
-            'button' => 'Send Information',
+            'box_title' => 'Contactez-nous',
+            'button' => 'Envoyer information',
         ],
 
         'passwords' => [
-            'forgot_password'                 => 'Avez-vous oublié votre mot de passe&nbsp;?',
+            'forgot_password'                 => 'Mot de passe oublié ?',
             'reset_password_box_title'        => 'Réinitialisation du mot de passe',
             'reset_password_button'           => 'Réinitialiser le mot de passe',
             'send_password_reset_link_button' => 'Envoyer le lien de réinitialisation',
-        ],
-
-        'macros' => [
-            'country' => [
-                'alpha'   => 'Pays Alpha Codes',
-                'alpha2'  => 'Pays Alpha 2 Codes',
-                'alpha3'  => 'Pays Alpha 3 Codes',
-                'numeric' => 'Pays Numéros Codes',
-            ],
-
-            'macro_examples' => 'Exemples de macros',
-
-            'state' => [
-                'mexico' => 'Mexico State List',
-                'us'     => [
-                    'us'       => 'US States',
-                    'outlying' => 'US Outlying Territories',
-                    'armed'    => 'US Armed Forces',
-                ],
-            ],
-
-            'territories' => [
-                'canada' => 'Canada Province & Territories List',
-            ],
-
-            'timezone' => 'Fuseau horaire',
         ],
 
         'user' => [

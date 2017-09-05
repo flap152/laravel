@@ -23,7 +23,7 @@ return [
         ],
 
         'dashboard' => [
-            'title'   => 'Tableau de bord administrateur',
+            'title'   => 'Portail des administrateurs',
             'welcome' => 'Bienvenue',
         ],
 
@@ -32,7 +32,6 @@ return [
             'are_you_sure'        => 'Etes-vous sûr?',
             'boilerplate_link'    => 'Laravel 5 Boilerplate',
             'continue'            => 'Continuer',
-            'member_since'        => 'Membre depuis',
             'minutes'             => ' minutes',
             'search_placeholder'  => 'Rechercher...',
             'timeout'             => 'Vous avez été automatiquement déconnecté pour cause d\'inactivité pendant ',
@@ -72,7 +71,7 @@ return [
 
     'emails' => [
         'auth' => [
-            'account_confirmed' => 'Your account has been confirmed.',
+            'account_confirmed' => 'Votre compte a été confirmé.',
             'error'                   => 'Oups!',
             'greeting'                => 'Bonjour!',
             'regards'                 => 'Salutations,',
@@ -88,8 +87,8 @@ return [
         ],
 
         'contact' => [
-            'email_body_title' => 'You have a new contact form request: Below are the details:',
-            'subject' => 'A new :app_name contact form submission!',
+            'email_body_title' => 'Vous avez une nouvelle demande de formulaire de contact: Voici les détails:',
+            'subject' => 'Une nouvelle soumission de formulaire de contact :app_name!',
         ],
     ],
 
@@ -123,27 +122,34 @@ return [
         ],
 
         'user' => [
-            'change_email_notice' => 'If you change your e-mail you will be logged out until you confirm your new e-mail address.',
-            'email_changed_notice' => 'You must confirm your new e-mail address before you can log in again.',
+            'change_email_notice' => "Si vous changez votre email, vous serez déconnecté jusqu'à ce que vous confirmez votre nouvelle addresse.",
+            'email_changed_notice' => 'Vous devez confirmer votre nouvelle addresse email avant de vous connecter.',
             'profile_updated'  => 'Profil modifié avec succès.',
             'password_updated' => 'Mot de passe modifié avec succès.',
+            'last_logged_in' => 'Dernière connexion :'
         ],
 
         'welcome_to' => 'Bienvenue sur :place',
     ],
     'biblio' => [
         'vehicules' => [
-            'vehicules_list_title' => 'Liste des véhicules',
-            'vehicules_name' => 'Nom Véhicule',
-            'vehicules_id' => 'ID',
+            'list_title' => 'Liste des véhicules',
+            'name' => 'Nom Véhicule',
+            'id' => 'ID'
         ],
         'documents' => [
-            'documents_list_title' => 'Liste des documents',
-            'documents_id' => 'ID',
-            'documents_title' => 'Titre',
-            'documents_user' => 'Utilisateur',
-            'documents_date_document' => 'Date',
-            'documents_attachment' => 'Pièce Jointe'
+            'list_title' => 'Liste des rapports C-TPAT',
+            'id' => 'ID',
+            'title' => 'Titre',
+            'user' => 'Utilisateur',
+            'document_date' => 'Date',
+            'attachment' => 'Pièce jointe'
         ]
+    ],
+
+    'copyrights' => [
+        'all_right_reserved' => '&copy; Tous droits réservés',
+        'powered_by' => 'conception ',
+        'disclaimer' => ''
     ],
 ];

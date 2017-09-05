@@ -39,12 +39,12 @@ return [
 
         'log-viewer' => [
             'main'      => 'Log Viewer',
-            'dashboard' => 'Dashboard',
+            'dashboard' => 'Portal',
             'logs'      => 'Logs',
         ],
 
         'sidebar' => [
-            'dashboard' => 'Dashboard',
+            'dashboard' => 'Portal',
             'general'   => 'General',
             'system'    => 'System',
         ],

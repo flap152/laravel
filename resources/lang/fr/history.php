@@ -25,11 +25,11 @@ return [
         ],
         'users' => [
             'changed_password'    => 'a modifié le mot de passe de l\'utilisateur',
-            'confirmed' => 'confirmed user',
+            'confirmed' => 'utilisateur confirmé',
             'created'             => 'a créé l\'utilisateur',
             'deactivated'         => 'a désactivé l\'utilisateur',
             'deleted'             => 'a effacé l\'utilisateur',
-            'deleted_social'      => 'deleted social account',
+            'deleted_social'      => 'supprimé le compte social',
             'permanently_deleted' => 'a définitivement effacé l\'utilisateur',
             'updated'             => 'a mis à jour l\'utilisateur',
             'unconfirmed' => 'un-confirmed user',

@@ -1,0 +1,1 @@
+Ce fichier assure la création du répertoire biblio au déploiement.

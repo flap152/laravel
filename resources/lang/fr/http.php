@@ -12,8 +12,15 @@ return [
     */
 
     '404' => [
-        'title'       => 'Page introuvable',
-        'description' => "Désolé, cette page n'existe pas.",
+        'page_not_found' => [
+            'title'       => 'Page introuvable',
+            'description' => "Désolé, cette page n'existe pas.",
+        ],
+
+        'file_not_found' => [
+            'title' => 'Fichier introuvable',
+            'description' => 'Désolé, le fichier que vous avez demandé n\'existe pas'
+        ],
     ],
 
     '503' => [

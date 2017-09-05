@@ -63,7 +63,7 @@ return [
         /*
          * Whether or not the users email can be changed on the edit profile screen
          */
-        'change_email' => false,
+        'change_email' => true,
 
         /*
          * Whether or not new users need to be approved by an administrator before logging in

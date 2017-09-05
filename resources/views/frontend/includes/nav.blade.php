@@ -7,8 +7,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-            {{ link_to_route('frontend.index', app_name(), [], ['class' => 'navbar-brand']) }}
         </div><!--navbar-header-->
 
         <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
@@ -54,5 +52,15 @@
                 <li>{{ link_to_route('frontend.contact', trans('navs.frontend.contact'), [], ['class' => active_class(Active::checkRoute('frontend.contact')) ]) }}</li>
             </ul>
         </div><!--navbar-collapse-->
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <a href="{{url('/')}}"><img src="img/frontend/traqc.png" class="center-block"/></a>
+            </div>
+            @if($logged_in_user)
+            <div class="col-md-3 col-sm-4 col-md-push-1 col-sm-push-1">
+                <img src="img/frontend/projetdemolition.png" class="center-block"/>
+            </div>
+            @endif
+        </div>
     </div><!--container-->
 </nav>

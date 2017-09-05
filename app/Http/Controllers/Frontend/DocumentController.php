@@ -16,24 +16,24 @@ class DocumentController extends Controller
     //Lister tous les documents
     public function index(){
 
-        $documents = Document::all();
+        $documents = Document::paginate(2);
 
         return view('frontend.biblio.documents-list')->with(array('documents' => $documents));
     }
 
     //Lister les documents par véhicule
-    public function listVehiculeDocuments($vehiculeId){
-
+    public function listVehiculeDocuments($vehiculeId)
+    {
         $documents = Document::with('vehicule')
-            ->where('vehicule_id', '=', $vehiculeId)
-            ->orderBy('document_date', 'desc')
-            ->get();
+                     ->where('vehicule_id', '=', $vehiculeId)
+                     ->orderBy('document_date', 'desc')
+                     ->get();
 
         if($documents->count() == 1){
 
-            return redirect()->action('Frontend\DocumentController@show', ['id' => $documents->first()->id]);
+            return redirect()->action('Frontend\DocumentController@show', ['id' => $vehiculeId]);
         }
-
+        
         return view('frontend.biblio.documents-list')->with('documents', $documents);
     }
 
@@ -50,10 +50,11 @@ class DocumentController extends Controller
 
         // Servir le PDF
 
-        if(!stripos($document->localpath, '/home')){
+        if(!file_exists($document->localpath)){
 
-            //return abort(404, 'Le fichier n\'existe pas');
+            abort(404,trans('http.404.file_not_found.description'));
         }
+
         $path = $document->localpath;
 
         return response(file_get_contents($path))

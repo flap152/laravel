@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Listeners\Frontend\Auth;
+use Carbon\Carbon;
 
 /**
  * Class UserEventListener.
@@ -13,6 +14,9 @@ class UserEventListener
     public function onLoggedIn($event)
     {
         \Log::info('User Logged In: '.$event->user->full_name);
+
+        $event->user->last_logged_in = Carbon::now();
+        $event->user->save();
     }
 
     /**

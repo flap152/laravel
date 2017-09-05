@@ -15,6 +15,7 @@ return [
 
     'failed'        => 'These credentials do not match our records.',
     'general_error' => 'You do not have access to do that.',
+    'view_page' => 'Sorry, but you cannot access this page.',
     'socialite'     => [
         'unacceptable' => ':provider is not an acceptable login type.',
     ],

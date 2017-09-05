@@ -23,7 +23,7 @@ return [
         ],
 
         'dashboard' => [
-            'title'   => 'Administrative Dashboard',
+            'title'   => 'Administrative Portal',
             'welcome' => 'Welcome',
         ],
 
@@ -127,24 +127,24 @@ return [
             'email_changed_notice' => 'You must confirm your new e-mail address before you can log in again.',
             'profile_updated'  => 'Profile successfully updated.',
             'password_updated' => 'Password successfully updated.',
+            'last_logged_in' => 'Latest connection :'
         ],
 
         'welcome_to' => 'Welcome to :place',
     ],
     'biblio' => [
-
         'vehicules' => [
-            'vehicules_list_title' => 'Vehicules',
-            'vehicules_name' => 'Vehicule Name',
-            'vehicules_id' => 'ID',
+            'list_title' => 'Vehicules List',
+            'name' => 'Vehicule Name',
+            'id' => 'ID'
         ],
         'documents' => [
-            'documents_list_title' => 'Documents',
-            'documents_id' => 'ID',
-            'documents_title' => 'Title',
-            'documents_user' => 'User',
-            'documents_date_document' => 'Date',
-            'documents_attachment' => 'Attachment'
+            'list_title' => 'Reports list C-TPAT',
+            'id' => 'ID',
+            'title' => 'Title',
+            'user' => 'User',
+            'document_date' => 'Date',
+            'attachment' => 'Attachment'
         ]
     ],
 ];

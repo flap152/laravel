@@ -11,8 +11,8 @@ class BiblioTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(VehiculesTableSeeder::class);
-        $this->call(DocumentsTableSeeder::class);
-        $this->call(DocumentTypesTableSeeder::class);
+        $this->call(TestVehiculesTableSeeder::class);
+        $this->call(TestDocumentsTableSeeder::class);
+        $this->call(TestDocumentTypesTableSeeder::class);
     }
 }

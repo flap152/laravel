@@ -56,22 +56,21 @@ class LoggedOutFormTest extends BrowserKitTestCase
         $password = $faker->password(8);
 
         $this->visit('/register')
-             ->type($firstName, 'first_name')
-             ->type($lastName, 'last_name')
-             ->type($email, 'email')
-             ->type($password, 'password')
-             ->type($password, 'password_confirmation')
-             ->press('Register')
-             ->see('Dashboard')
-             ->seePageIs('/')
-             ->seeInDatabase(config('access.users_table'),
-                 [
-                     'email' => $email,
-                     'first_name' => $firstName,
-                     'last_name' => $lastName,
-                     'confirmed' => 1,
-                 ]);
-
+            ->type($firstName, 'first_name')
+            ->type($lastName, 'last_name')
+            ->type($email, 'email')
+            ->type($password, 'password')
+            ->type($password, 'password_confirmation')
+            ->press('Register')
+            ->see('Dashboard')
+            ->seePageIs('/dashboard')
+            ->seeInDatabase(config('access.users_table'),
+                [
+                    'email' => $email,
+                    'first_name' => $firstName,
+                    'last_name' => $lastName,
+                    'confirmed' => 1,
+                ]);
         Event::assertDispatched(UserRegistered::class);
     }
 
@@ -95,7 +94,7 @@ class LoggedOutFormTest extends BrowserKitTestCase
         $password = $faker->password(8);
 
         $this->visit('/register')
-            ->type($firstName, 'first_name')
+            ->type($firstName,'first_name')
             ->type($lastName, 'last_name')
             ->type($email, 'email')
             ->type($password, 'password')
@@ -111,10 +110,7 @@ class LoggedOutFormTest extends BrowserKitTestCase
                     'last_name' => $lastName,
                     'confirmed' => 0,
                 ]);
-
-        // Get the user that was inserted into the database
         $user = User::where('email', $email)->first();
-
         Notification::assertSentTo([$user], UserNeedsConfirmation::class);
         Event::assertDispatched(UserRegistered::class);
     }
@@ -191,22 +187,22 @@ class LoggedOutFormTest extends BrowserKitTestCase
 
         //User Test
         $this->visit('/login')
-             ->type($this->user->email, 'email')
-             ->type('1234', 'password')
-             ->press('Login')
-             ->seePageIs('/dashboard')
-             ->see($this->user->email);
+            ->type($this->user->email, 'email')
+            ->type('1234', 'password')
+            ->press('Login')
+            ->seePageIs('/dashboard')
+            ->see($this->user->email);
 
         Auth::logout();
 
         //Admin Test
         $this->visit('/login')
-             ->type($this->admin->email, 'email')
-             ->type('1234', 'password')
-             ->press('Login')
-             ->seePageIs('/admin/dashboard')
-             ->see($this->admin->name)
-             ->see('Access Management');
+            ->type($this->admin->email, 'email')
+            ->type('1234', 'password')
+            ->press('Login')
+            ->seePageIs('/dashboard')
+            ->see($this->admin->name)
+            ->see('Administration');
 
         Event::assertDispatched(UserLoggedIn::class);
     }

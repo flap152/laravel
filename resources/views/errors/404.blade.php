@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{ trans('http.404.title') }}</title>
+    <title>{{trans('http.404.title')}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
@@ -52,8 +52,14 @@
     </style>
 </head>
 <body>
-<h1>{{ trans('http.404.title') }}</h1>
-<p>{{ trans('http.404.description') }}</p>
+@if($exception->getMessage() === trans('http.404.file_not_found.description'))
+<h4>{{trans('http.404.file_not_found.title')}}</h4>
+<p>{{trans('http.404.file_not_found.description')}}</p>
+@else
+<h4>{{trans('http.404.page_not_found.title')}}</h4>
+<p>{{trans('http.404.page_not_found.description')}}</p>
+@endif
+<a href="{{URL::previous()}}">Back</a>
 </body>
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

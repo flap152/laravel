@@ -2,6 +2,9 @@
 
 use App\Models\Access\Role\Role;
 use App\Models\Access\User\User;
+use App\Models\Biblio\Vehicule;
+use App\Models\Biblio\Document;
+use App\Models\Biblio\DocumentType;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
@@ -76,7 +79,8 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         // Set up the database
         Artisan::call('migrate:refresh');
-        Artisan::call('db:seed');
+
+        Artisan::call('db:seed --class=BiblioTableSeeder');
 
         // Run the tests in English
         App::setLocale('en');
@@ -94,8 +98,6 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
     public function tearDown()
     {
-        DB::connection('mysql')->statement('DROP DATABASE IF EXISTS ' . env('DB_DATABASE', 'boilerplate'));
-        
         $this->beforeApplicationDestroyed(function () {
             DB::disconnect();
         });
