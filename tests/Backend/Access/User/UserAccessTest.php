@@ -32,6 +32,7 @@ class UserAccessTest extends BrowserKitTestCase
             ->visit('/admin/dashboard')
             ->seePageIs('/admin/dashboard')
             ->visit('/admin/access/role')
-            ->seePageIs('/dashboard');
+             ->seePageIs('/admin/dashboard')
+             ->see('You do not have access to do that.');
     }
 }

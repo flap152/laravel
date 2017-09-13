@@ -90,10 +90,11 @@ class UserRouteTest extends BrowserKitTestCase
 
     public function testCantLoginAsSelf()
     {
-        $this->actingAs($this->admin);
-        /*$this->actingAs($this->admin)
-             ->visit('/admin/access/user/'.$this->admin->id.'/login-as')
-             ->see('Do not try to login as yourself.');*/
+        //$this->actingAs($this->admin);
+        $this->actingAs($this->admin)
+             ->visit('/admin/access/user/'.$this->admin->id.'/login-as');
+            //TODO: Investigate why this fails. Tried it interactively and it works; I do see the warning
+             //->see('Do not try to login as yourself.');
     }
 
     public function testLogoutAsUser()

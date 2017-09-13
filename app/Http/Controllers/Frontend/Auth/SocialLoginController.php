@@ -71,17 +71,19 @@ class SocialLoginController extends Controller
         }
 
         if (is_null($user) || ! isset($user)) {
-            return redirect()->route(homeRoute())->withFlashDanger(trans('exceptions.frontend.auth.unknown'));
+            return redirect()->route('frontend.index')->withFlashDanger(trans('exceptions.frontend.auth.unknown'));
         }
 
         // Check to see if they are active.
         if (! $user->isActive()) {
-            throw new GeneralException(trans('exceptions.frontend.auth.deactivated'));
+            return redirect()->route('frontend.index')->withFlashDanger(trans('exceptions.frontend.auth.deactivated'));
+
+//            throw new GeneralException(trans('exceptions.frontend.auth.deactivated'));
         }
 
         // Account approval is on
         if ($user->isPending()) {
-            throw new GeneralException(trans('exceptions.frontend.auth.confirmation.pending'));
+            return redirect()->route('frontend.index')->withFlashDanger(trans('exceptions.frontend.auth.confirmation.pending'));
         }
 
         // User has been successfully created or already exists

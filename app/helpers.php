@@ -103,11 +103,12 @@ if (! function_exists('homeRoute')) {
      */
     function homeRoute()
     {
-        if(auth()->check()) {
+        if (access()->allow('view-backend')) {
+            return 'admin.dashboard';
+        }
+        elseif (auth()->check()) {
             return 'frontend.user.dashboard';
         }
-        else{
-            return 'frontend.index';
-        }
-    }
+        return 'frontend.index';
+    };
 }

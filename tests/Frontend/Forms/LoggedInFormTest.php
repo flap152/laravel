@@ -51,8 +51,8 @@ class LoggedInFormTest extends BrowserKitTestCase
                  ->type($this->user->last_name.'_'.$rand, 'last_name')
                  ->type('2_'.$this->user->email, 'email')
                  ->press('update-profile')
-                 ->seePageIs('/account')
-                 ->see('Profile successfully updated.')
+                 ->seePageIs('/login') //When email is changed and email confirm is on, the user is logged out and taken to the login page
+                 //->see('Profile successfully updated.')
                  ->seeInDatabase(config('access.users_table'),
                      [
                          'email' => '2_'.$this->user->email,
