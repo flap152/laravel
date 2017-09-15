@@ -159,6 +159,8 @@ trait UserAttribute
      */
     public function getEditButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
         return '<a href="'.route('admin.access.user.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.general.crud.edit').'"></i></a> ';
     }
 
@@ -167,6 +169,8 @@ trait UserAttribute
      */
     public function getChangePasswordButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
         return '<a href="'.route('admin.access.user.change-password', $this).'" class="btn btn-xs btn-info"><i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.access.users.change_password').'"></i></a> ';
     }
 
@@ -217,6 +221,8 @@ trait UserAttribute
      */
     public function getDeleteButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
         if ($this->id != access()->id() && $this->id != 1) {
             return '<a href="'.route('admin.access.user.destroy', $this).'"
                  data-method="delete"
@@ -234,6 +240,8 @@ trait UserAttribute
      */
     public function getRestoreButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
         return '<a href="'.route('admin.access.user.restore', $this).'" name="restore_user" class="btn btn-xs btn-info"><i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.access.users.restore_user').'"></i></a> ';
     }
 
@@ -242,6 +250,8 @@ trait UserAttribute
      */
     public function getDeletePermanentlyButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
         return '<a href="'.route('admin.access.user.delete-permanently', $this).'" name="delete_user_perm" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.access.users.delete_permanently').'"></i></a> ';
     }
 
@@ -250,9 +260,11 @@ trait UserAttribute
      */
     public function getLoginAsButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
         /*
-         * If the admin is currently NOT spoofing a user
-         */
+             * If the admin is currently NOT spoofing a user
+             */
         if (! session()->has('admin_user_id') || ! session()->has('temp_user_id')) {
             //Won't break, but don't let them "Login As" themselves
             if ($this->id != access()->id()) {
@@ -270,6 +282,9 @@ trait UserAttribute
      */
     public function getClearSessionButtonAttribute()
     {
+        // no button if not admin
+        if (! access()->hasRole(1)) return '';
+
         if ($this->id != access()->id() && config('session.driver') == 'database') {
             return '<a href="'.route('admin.access.user.clear-session', $this).'"
 			 	 data-trans-button-cancel="'.trans('buttons.general.cancel').'"

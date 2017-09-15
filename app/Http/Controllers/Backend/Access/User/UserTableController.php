@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend\Access\User;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Facades\Datatables;
 use App\Repositories\Backend\Access\User\UserRepository;
-use App\Http\Requests\Backend\Access\User\ManageUserRequest;
+use App\Http\Requests\Backend\Access\User\BarelyManageUserRequest;
 
 /**
  * Class UserTableController.
@@ -30,7 +30,7 @@ class UserTableController extends Controller
      *
      * @return mixed
      */
-    public function __invoke(ManageUserRequest $request)
+    public function __invoke(BarelyManageUserRequest $request)
     {
         return Datatables::of($this->users->getForDataTable($request->get('status'), $request->get('trashed')))
         ->escapeColumns(['first_name', 'last_name', 'email'])

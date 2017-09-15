@@ -4,6 +4,7 @@ namespace App\Services\Access;
 
 use App\Events\Frontend\Auth\UserLoggedIn;
 use App\Events\Frontend\Auth\UserLoggedOut;
+use App\Events\Backend\Access\User\UserLoggedInAs;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
@@ -68,7 +69,11 @@ class Access
      */
     public function loginUsingId($id)
     {
+        //TODO: Trouver une string multilingue existante pour inconnu
+        $tempusername = ( $this->user() ? $this->user()->full_name : "Inconnu");
         $logged_in = auth()->loginUsingId($id);
+
+        event(new UserLoggedInAs( $this->user(),$tempusername));
         event(new UserLoggedIn($this->user()));
 
         return $logged_in;

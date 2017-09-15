@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Access\User;
 
+use App\Http\Requests\Backend\Access\User\BarelyManageUserRequest;
 use App\Models\Access\User\User;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Access\User\UserRepository;
@@ -30,7 +31,7 @@ class UserStatusController extends Controller
      *
      * @return mixed
      */
-    public function getDeactivated(ManageUserRequest $request)
+    public function getDeactivated(BarelyManageUserRequest $request)
     {
         return view('backend.access.deactivated');
     }
@@ -40,7 +41,7 @@ class UserStatusController extends Controller
      *
      * @return mixed
      */
-    public function getDeleted(ManageUserRequest $request)
+    public function getDeleted(BarelyManageUserRequest $request)
     {
         return view('backend.access.deleted');
     }
@@ -52,7 +53,7 @@ class UserStatusController extends Controller
      *
      * @return mixed
      */
-    public function mark(User $user, $status, ManageUserRequest $request)
+    public function mark(User $user, $status, BarelyManageUserRequest $request)
     {
         $this->users->mark($user, $status);
 

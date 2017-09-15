@@ -45,6 +45,13 @@ class RoleTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'name'       => 'AppAdmin',
+                'all'        => false,
+                'sort'       => 4,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ];
 
         DB::table(config('access.roles_table'))->insert($roles);

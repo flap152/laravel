@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Listeners\Backend\Access\User;
+use App\Events\Backend\Access\User\UserLoggedInAs;
 
 /**
  * Class UserEventListener.
@@ -26,6 +27,25 @@ class UserEventListener
                 'user_link' => ['admin.access.user.show', $event->user->full_name, $event->user->id],
             ])
             ->log();
+    }
+
+    /**
+ * @param UserLoggedInAs $event
+ */
+    public function onLoggedInAs($event)
+    {
+        history()->withType($this->history_slug)
+            ->withEntity($event->user->id)
+            //->withText('trans("history.backend.users.loggedinas")  //TODO: add in fr and en strings
+            ->withText('User '. $event->impersonator . 'logged in as User <strong>{user}</strong>') //
+            ->withIcon('check')
+            ->withClass('bg-green')
+            ->withAssets([
+                'user_link' => ['admin.access.user.show', $event->user->full_name, $event->user->id],
+            ])
+            ->log();
+
+        \Log::info('User: '. $event->impersonator . ' logged In as: '.$event->user->full_name);
     }
 
     /**
@@ -205,6 +225,11 @@ class UserEventListener
         $events->listen(
             \App\Events\Backend\Access\User\UserCreated::class,
             'App\Listeners\Backend\Access\User\UserEventListener@onCreated'
+        );
+
+        $events->listen(
+            \App\Events\Backend\Access\User\UserLoggedInAs::class,
+            'App\Listeners\Backend\Access\User\UserEventListener@onLoggedInAs'
         );
 
         $events->listen(
