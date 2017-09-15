@@ -6,7 +6,7 @@ use App\Models\Access\User\User;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Access\User\UserRepository;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
-use App\Http\Requests\Backend\Access\User\ManageUserRequest;
+use App\Http\Requests\Backend\Access\User\BarelyManageUserRequest;
 
 /**
  * Class UserConfirmationController.
@@ -32,7 +32,7 @@ class UserConfirmationController extends Controller
      *
      * @return mixed
      */
-    public function sendConfirmationEmail(User $user, ManageUserRequest $request)
+    public function sendConfirmationEmail(User $user, BarelyManageUserRequest $request)
     {
         // Shouldn't allow users to confirm their own accounts when the application is set to manual confirmation
         if (config('access.users.requires_approval')) {
@@ -50,7 +50,7 @@ class UserConfirmationController extends Controller
      *
      * @return mixed
      */
-    public function confirm(User $user, ManageUserRequest $request)
+    public function confirm(User $user, BarelyManageUserRequest $request)
     {
         $this->users->confirm($user);
 
@@ -63,7 +63,7 @@ class UserConfirmationController extends Controller
      *
      * @return mixed
      */
-    public function unconfirm(User $user, ManageUserRequest $request)
+    public function unconfirm(User $user, BarelyManageUserRequest $request)
     {
         $this->users->unconfirm($user);
 

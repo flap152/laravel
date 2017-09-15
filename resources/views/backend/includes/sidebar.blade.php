@@ -39,7 +39,7 @@
 
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
 
-            @role(1)
+            @permissions('confirm-users')
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -52,6 +52,8 @@
                     @endif
                 </a>
 
+
+
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/access/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
                     <li class="{{ active_class(Active::checkUriPattern('admin/access/user*')) }}">
                         <a href="{{ route('admin.access.user.index') }}">
@@ -63,7 +65,8 @@
                             @endif
                         </a>
                     </li>
-
+            @endauth
+            @permissions('manage-roles')
                     <li class="{{ active_class(Active::checkUriPattern('admin/access/role*')) }}">
                         <a href="{{ route('admin.access.role.index') }}">
                             <i class="fa fa-circle-o"></i>

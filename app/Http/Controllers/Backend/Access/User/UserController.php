@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Access\User;
 
+use App\Http\Requests\Backend\Access\User\BarelyManageUserRequest;
 use App\Models\Access\User\User;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Access\Role\RoleRepository;
@@ -40,7 +41,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(ManageUserRequest $request)
+    public function index(BarelyManageUserRequest $request)
     {
         return view('backend.access.index');
     }
@@ -86,7 +87,7 @@ class UserController extends Controller
      *
      * @return mixed
      */
-    public function show(User $user, ManageUserRequest $request)
+    public function show(User $user, BarelyManageUserRequest $request)
     {
         return view('backend.access.show')
             ->withUser($user);
