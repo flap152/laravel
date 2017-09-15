@@ -59,8 +59,9 @@
     <div class="container">
         @include('includes.partials.messages')
         @yield('content')
-        <footer class="fixed-bottom">
-            <a href="http://"></a>
+        <footer class="fixed-bottom text-center">
+            <a href="https://processoft.com/"><img src="/img/frontend/processoftgris.jpg"></a>
+            <p>{{date('Y')}} {{trans('strings.copyrights.all_right_reserved')}}</p>
         </footer>
     </div><!--container-->
 </div><!--app-->

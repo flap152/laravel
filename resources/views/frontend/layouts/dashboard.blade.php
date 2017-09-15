@@ -51,15 +51,11 @@
                         </div>
                         <div class="col-md-8 col-md-pull-4 col-sm-8 col-sm-pull-4">
                             <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    @include('frontend.tile', ['tile_title' => trans('strings.biblio.documents.list_title'), 'icon' => 'fa fa-file-pdf-o','texte' => 'Description du module', 'lien' => '/vehicules'])
-                                    @include('frontend.tile', ['tile_title' => 'Bon de travail', 'icon' => 'fa fa-list-alt', 'texte' => 'À venir', 'lien' => '/workorder-projet'])
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    @include('frontend.tile', ['tile_title' => 'Prise de commande roll-off', 'icon' => 'fa fa-list-alt', 'texte' => 'Description du module', 'lien' => 'http://pro-jet.processoft.com'])
-                                    @include('frontend.tile', ['tile_title' => 'Feuille de temps', 'icon' => '', 'texte' => 'À venir', 'lien' => '/vehicules'])
-                                    {{--@include('frontend.tile', ['tile_title' => 'Traqc', 'icon' => 'fa fa-map-marker','texte' => 'Description du module', 'lien' => 'http://traqc.processoft.com'])--}}
-                                </div>
+                                @foreach($moduletile as $module)
+                                    <div class="col-lg-6 col-sm-6">
+                                        @include('frontend.tile', ['tile_title' => $module->title, 'lien' => $module->link, 'icon' => $module->icon, 'texte' => $module->description])
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -78,7 +74,8 @@
                 labels: ["L", 'Ma', 'Me', 'J', 'V', 'S', 'D'],
                 datasets: [{
                     label: '# of documents',
-                    data: [1,5,10,10,4,8,19,2]
+                    data: [1,5,10,10,4,8,19,2],
+                    backgroundColor: "#0085A1"
                 }]
             }
         });

@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>{{trans('strings.biblio.documents.list_title')}}</h3>
+                    <h3>{{trans('strings.biblio.documents.list_title')}} <i class="fa fa-file-pdf-o"></i></h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-responsive" id="documentTable">
