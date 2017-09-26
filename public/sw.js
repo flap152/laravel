@@ -153,7 +153,7 @@ workboxSW.precache(fileManifest);
 
 
 workboxSW.router.registerRoute(
-    'https://[a-zA-Z0-9-_\.]*/pj/(.*)',
+    '/pj/(.*)',
     workboxSW.strategies.cacheFirst({
         cacheName: 'pjs',
         cacheExpiration: {
@@ -164,7 +164,7 @@ workboxSW.router.registerRoute(
 );
 
 workboxSW.router.registerRoute(
-    'https://[a-zA-Z0-9-_.]*/documents/(.*)',
+    '/documents/(.*)',
     workboxSW.strategies.cacheFirst({
         cacheName: 'pjs',
         cacheExpiration: {
@@ -175,7 +175,7 @@ workboxSW.router.registerRoute(
 );
 
 workboxSW.router.registerRoute(
-    'https://[a-zA-Z0-9-_.]*/login',
+    '/login',
     workboxSW.strategies.networkOnly({
   })
 );
@@ -193,7 +193,7 @@ workboxSW.router.registerRoute(
 
 
 workboxSW.router.registerRoute(
-    'https://[^/]*/login',
+    '/login',
     workboxSW.strategies.networkOnly({
     })
 );
