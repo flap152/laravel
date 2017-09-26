@@ -66,7 +66,7 @@
                 dom: 'lfrtip',
                 processing: false,
                 serverSide: true,
-                autoWidth: false,
+                autoWidth: true,
                 ajax: {
                     url: '{{ route("admin.access.user.get") }}',
                     type: 'post',

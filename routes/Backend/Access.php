@@ -12,9 +12,7 @@ Route::group([
     /*
      * User Management
      */
-    Route::group([
-        'middleware' => 'access.routeNeedsRole:1',
-    ], function () {
+    Route::group(['middleware' => 'access.routeNeedsRole:1'],function () {
         Route::group(['namespace' => 'User'], function () {
             /*
              * For DataTables
@@ -59,6 +57,8 @@ Route::group([
 
                 // Session
                 Route::get('clear-session', 'UserSessionController@clearSession')->name('user.clear-session');
+
+                Route::get('edit', 'UserController@edit')->name('user.edit');
             });
 
 
