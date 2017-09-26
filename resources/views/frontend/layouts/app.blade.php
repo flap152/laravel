@@ -105,8 +105,8 @@
                 documentlist.forEach(function(document) {
                         console.log('we should load document id:'+document);
 
-                        fetchAndLog('https://flapdev1.ngrok.io/pj/'+document);
-                        fetchAndLog('https://flapdev1.ngrok.io/documents/'+document);
+                        fetchAndLog( '{{config('app.url')}}' + '/pj/'+document);
+                        fetchAndLog('{{config('app.url')}}' +'/documents/'+document);
 
                     }
                 );
