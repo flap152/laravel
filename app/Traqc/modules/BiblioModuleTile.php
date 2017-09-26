@@ -23,7 +23,7 @@ class BiblioModuleTile extends ModuleTile
         $this->title = "Biblio";
         $this->icon = 'fa fa-file-pdf-o';
         $this->link = '/vehicules';
-        $this->description = $this->getLatest5Documents();
+        $this->description = 'à venir'; //$this->getLatest5Documents();
     }
 
     public function getLatest5Documents(){

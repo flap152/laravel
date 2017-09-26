@@ -12,7 +12,7 @@ class DashboardComposer
     {
         $documents = BiblioModuleTile::getLatest30DaysDocuments();
 
-        echo $documents;
+        //echo $documents;
 
         $view->with('moduletile', Traqc::modules());
     }

@@ -153,7 +153,7 @@ workboxSW.precache(fileManifest);
 
 
 workboxSW.router.registerRoute(
-    'https://laravel.dev/pj/(.*)',
+    'https://[a-zA-Z0-9-_\.]*/pj/(.*)',
     workboxSW.strategies.cacheFirst({
         cacheName: 'pjs',
         cacheExpiration: {
@@ -164,7 +164,7 @@ workboxSW.router.registerRoute(
 );
 
 workboxSW.router.registerRoute(
-    'https://laravel.dev/documents/(.*)',
+    'https://[a-zA-Z0-9-_.]*/documents/(.*)',
     workboxSW.strategies.cacheFirst({
         cacheName: 'pjs',
         cacheExpiration: {
@@ -175,7 +175,7 @@ workboxSW.router.registerRoute(
 );
 
 workboxSW.router.registerRoute(
-    'https://laravel.dev/login',
+    'https://[a-zA-Z0-9-_.]*/login',
     workboxSW.strategies.networkOnly({
   })
 );
@@ -193,7 +193,7 @@ workboxSW.router.registerRoute(
 
 
 workboxSW.router.registerRoute(
-    'https://laravel.dev/login',
+    'https://[^/]*/login',
     workboxSW.strategies.networkOnly({
     })
 );
