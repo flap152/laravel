@@ -1,0 +1,11 @@
+web_addr: 0.0.0.0:4040
+tunnels:
+  httpbin:
+    proto: http
+    addr: 80
+    subdomain: flapdev1
+    bind_tls: false
+  demo:
+    proto: tls
+    addr: 443
+    subdomain: flapdev1
