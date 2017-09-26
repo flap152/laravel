@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Yajra\Datatables\Facades\Datatables;
 use App\Repositories\Backend\Access\User\UserRepository;
 use App\Http\Requests\Backend\Access\User\BarelyManageUserRequest;
+use App\Http\Requests\Backend\Access\User\ManageUserRequest;
 
 /**
  * Class UserTableController.
