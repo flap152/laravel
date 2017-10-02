@@ -37,7 +37,7 @@ class UserController extends Controller
     }
 
     /**
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -83,7 +83,7 @@ class UserController extends Controller
 
     /**
      * @param User              $user
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */

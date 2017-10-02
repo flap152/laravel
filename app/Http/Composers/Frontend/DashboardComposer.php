@@ -3,17 +3,21 @@ namespace App\Http\Composers\Frontend;
 
 use App\Traqc\modules\BiblioModuleTile;
 use App\Traqc\Traqc;
-use Carbon\Carbon;
 use Illuminate\View\View;
 
 class DashboardComposer
 {
+    /**
+     * @param View $view
+     */
     public function compose(View $view)
     {
-        $documents = BiblioModuleTile::getLatest30DaysDocuments();
+        $moduleTile = Traqc::modules();
 
-        //echo $documents;
+        $docs = BiblioModuleTile::getLatest7DaysDocuments();
 
-        $view->with('moduletile', Traqc::modules());
+        $keys = array_keys($docs);
+        
+        $view->with(compact('moduleTile', 'docs', 'keys'));
     }
 }

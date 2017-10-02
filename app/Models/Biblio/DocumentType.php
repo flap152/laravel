@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Loriane
- * Date: 2017-07-27
- * Time: 15:02
- */
 
 namespace App\Models\Biblio;
 
@@ -21,6 +15,9 @@ class DocumentType extends Model
      */
     protected $fillable = ['title'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function documents()
     {
         return $this->hasMany(Document::class);

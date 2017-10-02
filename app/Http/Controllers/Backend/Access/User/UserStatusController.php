@@ -27,7 +27,7 @@ class UserStatusController extends Controller
     }
 
     /**
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */
@@ -37,7 +37,7 @@ class UserStatusController extends Controller
     }
 
     /**
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */
@@ -49,7 +49,7 @@ class UserStatusController extends Controller
     /**
      * @param User $user
      * @param $status
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */

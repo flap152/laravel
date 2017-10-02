@@ -11,12 +11,21 @@ namespace App\Traqc\modules;
 
 use App\Traqc\ModuleTile;
 
+/**
+ * Class TimeSheetModuleTile
+ * @package App\Traqc\modules
+ */
 class TimeSheetModuleTile extends ModuleTile
 {
+    /**
+     * TimeSheetModuleTile constructor.
+     */
     public function __construct()
     {
-        $this->title = 'Feuille de temps';
-        $this->description = "À venir";
         parent::__construct();
+        $this->title = 'Feuille de temps';
+        $this->icon = 'fa fa-tasks';
+        $this->link = '/timesheet';
+        $this->description = "À venir";
     }
 }

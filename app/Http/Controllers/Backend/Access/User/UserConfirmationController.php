@@ -28,7 +28,7 @@ class UserConfirmationController extends Controller
 
     /**
      * @param User              $user
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */
@@ -46,7 +46,7 @@ class UserConfirmationController extends Controller
 
     /**
      * @param User              $user
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */
@@ -59,7 +59,7 @@ class UserConfirmationController extends Controller
 
     /**
      * @param User              $user
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */

@@ -134,22 +134,28 @@ return [
     'biblio' => [
         'vehicules' => [
             'list_title' => 'Liste des véhicules',
-            'name' => 'Nom Véhicule',
-            'id' => 'ID'
+            'id' => 'ID',
+            'name' => 'Nom véhicule',
         ],
         'documents' => [
-            'list_title' => 'Liste des rapports C-TPAT',
+            'list_title' => 'Biblio',
             'id' => 'ID',
             'title' => 'Titre',
             'user' => 'Utilisateur',
             'document_date' => 'Date',
-            'attachment' => 'Pièce jointe'
-        ]
+            'doc_valid' => 'Doc valide',
+            'attachment' => 'Pièce jointe',
+        ],
+        'link' => 'Lien'
+    ],
+
+    'biblio_mgmt' => [
+        'docs' => [],
+        'files' => []
     ],
 
     'copyrights' => [
-        'all_right_reserved' => '&copy; Tous droits réservés',
-        'powered_by' => 'conception ',
-        'disclaimer' => ''
+        'all_rights_reserved' => '&copy; Tous droits réservés',
+        'powered_by' => 'Conception par Processoft',
     ],
 ];

@@ -13,6 +13,9 @@ use App\Traqc\ModuleTile;
 
 class RollOffModuleTile extends ModuleTile
 {
+    /**
+     * RollOffModuleTile constructor.
+     */
     public function __construct()
     {
         parent::__construct();

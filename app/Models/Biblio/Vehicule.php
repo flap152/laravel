@@ -2,7 +2,6 @@
 namespace App\Models\Biblio;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Biblio\Document;
 
 class Vehicule extends Model
 {
@@ -13,11 +12,11 @@ class Vehicule extends Model
      */
     protected $fillable = ['name'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function documents(){
 
         return $this->hasMany(Document::class);
     }
-    /**
-     * @param array $attributes
-     */
 }

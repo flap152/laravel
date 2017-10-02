@@ -6,7 +6,7 @@ use App\Http\Requests\Request;
 
 /**
  * Class BarelyManageUserRequest.
- * Will allow uers with view-backend and confirm-users permissions. Should be used for user management actions except
+ * Will allow users with view-backend and confirm-users permissions. Should be used for user management actions except
  * create and delete.
  */
 class BarelyManageUserRequest extends Request
@@ -18,7 +18,7 @@ class BarelyManageUserRequest extends Request
      */
     public function authorize()
     {
-        return access()->hasPermissions(['confirm-users','view-backend'],true);
+        return access()->hasPermissions(['authorize-users','view-backend']);
     }
 
     /**

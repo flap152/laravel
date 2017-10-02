@@ -9,10 +9,10 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 col-md-push-8 col-sm-4 col-sm-push-8">
+                        <div class="col-md-4 col-md-push-8">
                             <ul class="media-list">
                                 <li class="media">
-                                    <!--<div class="media-left">
+                                <!--<div class="media-left">
                                         <img class="media-object profile-picture" src="{{ $logged_in_user->picture }}" alt="Profile picture">
                                     </div>-->
                                     <div class="media-body">
@@ -37,7 +37,6 @@
                                 </div><!--panel-heading-->
                                 <div class="panel-body">
                                     <canvas id="chart" width="500" height="250"></canvas>
-                                    À venir
                                 </div><!--panel-body-->
                             </div><!--panel-->
                             <div class="panel panel-default">
@@ -49,11 +48,11 @@
                                 </div><!--panel-body-->
                             </div><!--panel-->
                         </div>
-                        <div class="col-md-8 col-md-pull-4 col-sm-8 col-sm-pull-4">
+                        <div class="col-md-8 col-md-pull-4">
                             <div class="row">
-                                @foreach($moduletile as $module)
+                                @foreach($moduleTile as $module)
                                     <div class="col-lg-6 col-sm-6">
-                                        @include('frontend.tile', ['tile_title' => $module->title, 'lien' => $module->link, 'icon' => $module->icon, 'texte' => $module->description])
+                                        @include('frontend.tile', ['module' => $module])
                                     </div>
                                 @endforeach
                             </div>
@@ -65,20 +64,24 @@
     </div>
 @endsection
 @section('after-scripts')
-<script>
-    $(document).ready(function(){
-        var ctx = document.getElementById('chart');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["L", 'Ma', 'Me', 'J', 'V', 'S', 'D'],
-                datasets: [{
-                    label: '# of documents',
-                    data: [1,5,10,10,4,8,19,2],
-                    backgroundColor: "#0085A1"
-                }]
-            }
+    <script>
+        $(document).ready(function(){
+            var ctx = document.getElementById('chart');
+
+            var data = {!! json_encode(array_values($docs)) !!};
+            var labels = {!! json_encode($keys) !!};
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '# of documents',
+                        data: data,
+                        backgroundColor: "#0085A1"
+                    }]
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endsection

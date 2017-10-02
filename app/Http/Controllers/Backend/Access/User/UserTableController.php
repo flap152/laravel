@@ -27,7 +27,7 @@ class UserTableController extends Controller
     }
 
     /**
-     * @param ManageUserRequest $request
+     * @param BarelyManageUserRequest $request
      *
      * @return mixed
      */

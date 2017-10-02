@@ -10,15 +10,22 @@ namespace App\Traqc\modules;
 
 use App\Traqc\ModuleTile;
 
+/**
+ * Class WorkOrderModuleTile
+ * @package App\Traqc\modules
+ */
 class WorkOrderModuleTile extends ModuleTile
 {
+    /**
+     * WorkOrderModuleTile constructor.
+     */
     public function __construct()
     {
         parent::__construct();
 
         $this->title = 'Bon de travail';
         $this->icon = 'fa fa-list-alt';
-        $this->link = '/workorder-projet';
+        $this->link = '/workorder';
         $this->description = 'À venir';
     }
 }

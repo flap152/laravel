@@ -41,6 +41,7 @@ class LoggedInFormTest extends BrowserKitTestCase
      */
     public function testUpdateProfileForm()
     {
+        //TODO: Vérifier pourquoi le teste ne passe pas
         $rand = rand();
 
         if (config('access.users.change_email')) {

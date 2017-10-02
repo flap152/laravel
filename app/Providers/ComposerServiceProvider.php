@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Composers\Frontend\DashboardComposer;
+use App\Http\Composers\Frontend\TableComposer;
 use Illuminate\Support\Facades\View;
 use App\Http\Composers\GlobalComposer;
 use Illuminate\Support\ServiceProvider;
@@ -31,6 +32,7 @@ class ComposerServiceProvider extends ServiceProvider
         /*
          * Frontend
          */
+        View::composer('frontend.layouts.dashboard', DashboardComposer::class);
 
         /*
          * Backend
@@ -39,7 +41,6 @@ class ComposerServiceProvider extends ServiceProvider
             // This binds items like number of users pending approval when account approval is set to true
             'backend.includes.sidebar', SidebarComposer::class
         );
-        View::composer('frontend.layouts.dashboard', DashboardComposer::class);
     }
 
     /**

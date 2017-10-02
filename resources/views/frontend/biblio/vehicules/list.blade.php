@@ -14,6 +14,7 @@
                             <th style="width: 85px;">{{trans('strings.biblio.vehicules.id')}}</th>
                             @endif
                             <th>{{trans('strings.biblio.vehicules.name')}}</th>
+                            <th>{{trans('strings.biblio.link')}}</th>
                         </tr>
                         @foreach($vehicules as $vehicule)
                             <tr>
@@ -22,9 +23,11 @@
                                 @endif
                                 <td>{{$vehicule->name}}</td>
                                 <input type="hidden" name="documentRow" value="vehicules/{{$vehicule->id}}/documents"/>
+                                <td><a href="/vehicules/{{$vehicule->id}}/documents">{{trans('strings.biblio.link')}}</a></td>
                             </tr>
                         @endforeach
                     </table>
+                    {{$vehicules->render()}}
                 </div>
             </div>
         </div>

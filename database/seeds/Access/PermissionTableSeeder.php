@@ -71,6 +71,14 @@ class PermissionTableSeeder extends Seeder
         $viewBackend->updated_at = Carbon::now();
         $viewBackend->save();
 
+        $permission_model = config('access.permission');
+        $viewBackend = new $permission_model();
+        $viewBackend->name = 'authorize-users';
+        $viewBackend->display_name = 'Authorize Users';
+        $viewBackend->created_at = Carbon::now();
+        $viewBackend->updated_at = Carbon::now();
+        $viewBackend->save();
+
 
         $this->enableForeignKeys();
     }

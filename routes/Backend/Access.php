@@ -89,7 +89,7 @@ Route::group([
 */
     if (1===1) {
         Route::group([
-            'middleware' => 'access.routeNeedsPermission:confirm-users', //TODO:replace with confirm-user
+            'middleware' => 'access.routeNeedsPermission:authorize-users',
         ], function () {
             Route::group(['namespace' => 'User'], function () {
                 /*

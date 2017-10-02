@@ -134,17 +134,29 @@ return [
     ],
     'biblio' => [
         'vehicules' => [
-            'list_title' => 'Vehicules List',
-            'name' => 'Vehicule Name',
-            'id' => 'ID'
+            'list_title' => 'Vehicle List',
+            'id' => 'ID',
+            'name' => 'Name vehicle',
         ],
         'documents' => [
-            'list_title' => 'Reports list C-TPAT',
+            'list_title' => 'Biblio',
             'id' => 'ID',
             'title' => 'Title',
             'user' => 'User',
             'document_date' => 'Date',
-            'attachment' => 'Attachment'
-        ]
+            'doc_valid' => 'Doc valid',
+            'attachment' => 'Attachment',
+        ],
+        'link' => 'Link'
+    ],
+
+    'biblio_mgmt' => [
+        'docs' => [],
+        'files' => []
+    ],
+
+    'copyrights' => [
+        'all_rights_reserved' => '&copy; All rights reserved ',
+        'powered_by' => 'Powered by Processoft',
     ],
 ];

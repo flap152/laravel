@@ -2,6 +2,10 @@
 namespace App;
 Class SendgridParse {
 
+    /**
+     * @param $raw
+     * @return array
+     */
     private function parseEmailAddress($raw) {
         $name = "";
         $email = trim($raw, " '\"");
@@ -17,6 +21,10 @@ Class SendgridParse {
         );
     }
 
+    /**
+     * @param $raw
+     * @return array
+     */
     private function parseEmailAddresses($raw) {
         $arr = array();
         foreach(explode(",", $raw) as $email)
@@ -24,6 +32,11 @@ Class SendgridParse {
         return $arr;
     }
 
+    /**
+     * SendgridParse constructor.
+     * @param null $post
+     * @param null $files
+     */
     function __construct($post = NULL, $files = NULL) {
         if (!@$post)
             $post = $_POST;
@@ -57,6 +70,5 @@ Class SendgridParse {
         foreach ($files as $key=>$value)
             $this->attachments[] = $value;
     }
-
 }
 ?>

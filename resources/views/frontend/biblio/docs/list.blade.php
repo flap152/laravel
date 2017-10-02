@@ -15,6 +15,7 @@
                         <th>{{trans('strings.biblio.documents.title')}}</th>
                         <th>{{trans('strings.biblio.vehicules.name')}}</th>
                         <th>{{trans('strings.biblio.documents.document_date')}}</th>
+                        <th>{{trans('strings.biblio.link')}}</th>
                         @foreach($documents as $doc)
                             <tr>
                                 @debug
@@ -23,10 +24,12 @@
                                 <td>{{$doc->title}}</td>
                                 <td>{{$doc->vehicule->name}}</td>
                                 <td>{{$doc->document_date}}</td>
+                                <td><a href="/documents/{{$doc->id}}">{{trans('strings.biblio.link')}}</a></td>
                                 <input type="hidden" name="documentRow" value="/documents/{{$doc->id}}"/>
                             </tr>
                         @endforeach
                     </table>
+                    {{$documents->render()}}
                 </div>
             </div>
         </div>

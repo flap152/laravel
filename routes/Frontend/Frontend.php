@@ -45,7 +45,7 @@ Route::group(['middleware'=>'api'],function() {
             $doc->document_type()->associate($docType);
             $doc->vehicule()->associate($camion);
             $doc->title = $docName;
-            $doc->document_date = Carbon\Carbon::now();
+            $doc->document_date = \Carbon\Carbon::now();
 
             Log::info('received email pa    rse b:' . serialize($attachment));//. $_REQUEST);
             Log::info('received email doc:' . serialize($doc));//. $_REQUEST);
@@ -92,9 +92,16 @@ Route::group(['middleware' => 'auth'], function () {
          */
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
     });
-    Route::get('/vehicules', 'VehiculeController@index');
-    Route::get('/documents', 'DocumentController@index');
-    Route::get('/vehicules/{id}/documents','DocumentController@listVehiculeDocuments');
-    Route::get('/documents/{id}', 'DocumentController@show');
-    Route::get('/pj/{id}', 'DocumentController@showAttachment');
+
+    Route::get('/vehicules','Biblio\VehiculeController@index');
+    Route::get('/documents', 'Biblio\DocumentController@index');
+    Route::get('/vehicules/{id}/documents','Biblio\DocumentController@listVehiculeDocuments');
+    Route::get('documents/{id}', 'Biblio\DocumentController@show');
+    Route::get('/pj/{id}', 'Biblio\DocumentController@showAttachment');
+    Route::get('/workorder', 'WorkOrder\WorkorderController@index');
+    Route::get('/timesheet', 'TimeSheet\TimeSheetController@index');
+
+    //Biblio Mgmt
+    Route::get('/biblio-mgmt/docs', 'BiblioMgmt\DocumentMgmtController@index');
+    Route::get('/biblio-mgmt/files', 'BiblioMgmt\FilesMgmtController@index');
 });

@@ -8,15 +8,34 @@
 
 namespace App\Traqc;
 
+/**
+ * Class ModuleTile
+ * @package App\Traqc
+ */
 class ModuleTile
 {
     //Description des tuiles - Base pour les classes des modules
+    /**
+     * @var string
+     */
     public $title;
+    /**
+     * @var string
+     */
     public $icon;
+    /**
+     * @var string
+     */
     public $description;
+    /**
+     * @var string
+     */
     public $link;
 
 
+    /**
+     * ModuleTile constructor.
+     */
     public function __construct()
     {
         $this->title = "Titre du module";
