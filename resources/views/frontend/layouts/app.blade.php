@@ -127,7 +127,7 @@
         @include('includes.partials.messages')
         @ include  ('includes.partials.swh')
         @yield('content')
-        <footer class="main-footer text-center navbar-fixed-bottom">
+        <footer class="main-footer text-center">
             <a href="https://processoft.com/"><img src="/img/frontend/processoftgris.jpg"></a>
             <p>{{date('Y')}} {{trans('strings.copyrights.all_rights_reserved')}}</p>
             <p><a href="https://processoft.com/">{{trans('strings.copyrights.powered_by')}}</a></p>
