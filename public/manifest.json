@@ -1,14 +1,14 @@
 {
-  "short_name": "boilerplate",
-  "name": "boilerplate",
+  "short_name": "traqc",
+  "name": "processoft traqc",
   "icons": [
     {
       "src": "tile.png",
-      "sizes": "558x558",
+      "sizes": "200x200",
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/dashboard",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#cb1a38"

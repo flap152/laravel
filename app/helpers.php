@@ -103,11 +103,9 @@ if (! function_exists('homeRoute')) {
      */
     function homeRoute()
     {
-      if (auth()->check()) {
-        return 'frontend.user.dashboard';
-      }
-      else{
-          return 'frontend.index';
-      }
+    if (auth()->check()) {
+            return 'frontend.user.dashboard';
+        }
+        return 'frontend.index';
     };
 }
