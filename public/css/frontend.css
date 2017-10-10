@@ -24,17 +24,3 @@
     background-color: lightgreen;
     border: 1px solid black;
 }*/
-footer{
-    color: #fff;
-}
-footer a{
-    color: #fff;
-}
-footer a:hover{
-    color: #cecece;
-    text-decoration: none;
-}
-.logo{
-    max-width: 50%;
-    max-height: 50%;
-}

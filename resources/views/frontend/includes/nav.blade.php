@@ -54,11 +54,11 @@
         </div><!--navbar-collapse-->
         <div class="row">
             <div class="col-md-3 col-sm-4">
-                <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="center-block logo"/></a>
+                <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="center-block logo hidden-xs"/></a>
             </div>
             @if($logged_in_user)
             <div class="col-md-3 col-sm-4 col-md-push-1 col-sm-push-1">
-                <img src="/img/frontend/projetdemolition.png" class="center-block logo"/>
+                <img src="/img/frontend/projetdemolition.png" class="center-block logo hidden-xs"/>
             </div>
             @endif
         </div>

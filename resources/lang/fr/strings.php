@@ -150,8 +150,16 @@ return [
     ],
 
     'biblio_mgmt' => [
-        'docs' => [],
-        'files' => []
+        'docs' => [
+            'ID' => 'ID',
+            'title' => 'Titre',
+            'vehicle_name' => 'Nom Véhicule',
+            'document_date' => 'Date',
+            'is_doc_valid' => 'Doc Valide'
+        ],
+        'files' => [
+            'ID' => 'ID',
+        ]
     ],
 
     'copyrights' => [

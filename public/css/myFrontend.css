@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Handel Gothic BT Regular';
+    src: url('../fonts/frontend/HandelGo.eot');
+    src: url('../fonts/frontend/HandelGo.woff2') format('woff2'),
+    url('../fonts/frontend/HandelGothicBT-Regular.woff') format('woff'),
+    url('../fonts/frontend/HANDGOTN.TTF')  format('truetype'),
+    url('../fonts/frontend/HandelGothicBT-Regular.svg') format('svg');
+}
+body{
+    background-color: #717075;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+}
+.title{
+    font-family: "Handel Gothic BT Regular",sans-serif;
+    font-size: 15px;
+}
+.panel-heading{
+    text-align: center;
+}
+footer{
+    color: #fff;
+}
+footer a{
+    color: #fff;
+}
+footer a:hover{
+    color: #cecece;
+    text-decoration: none;
+}
+.col-padding{
+    padding: 0 5px 0 5px;
+}

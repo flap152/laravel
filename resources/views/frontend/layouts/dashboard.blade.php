@@ -9,7 +9,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 col-md-push-8">
+                        <div class="col-lg-4 col-lg-push-8">
                             <ul class="media-list">
                                 <li class="media">
                                 <!--<div class="media-left">
@@ -24,9 +24,8 @@
                                             </small>
                                         </h4>
                                         {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'btn btn-info btn-xs']) }}
-
                                         @permission('view-backend')
-                                        {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
+                                            {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
                                         @endauth
                                     </div>
                                 </li>
@@ -36,23 +35,19 @@
                                     <h4>Dashboard</h4>
                                 </div><!--panel-heading-->
                                 <div class="panel-body">
-                                    <canvas id="chart" width="500" height="250"></canvas>
-                                </div><!--panel-body-->
-                            </div><!--panel-->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4>Item à venir</h4>
-                                </div><!--panel-heading-->
-                                <div class="panel-body">
-                                    À venir
-                                </div><!--panel-body-->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <canvas id="chart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
                             </div><!--panel-->
                         </div>
-                        <div class="col-md-8 col-md-pull-4">
+                        <div class="col-lg-8 col-lg-pull-4">
                             <div class="row">
                                 @foreach($moduleTile as $module)
-                                    <div class="col-lg-6 col-sm-6">
-                                        @include('frontend.tile', ['module' => $module])
+                                    <div class="col-lg-4 col-padding">
+                                        @include('frontend.tile',['module' => $module])
                                     </div>
                                 @endforeach
                             </div>
@@ -68,7 +63,7 @@
         $(document).ready(function(){
             var ctx = document.getElementById('chart');
 
-            var data = {!! json_encode(array_values($docs)) !!};
+            //var data = {!! json_encode(array_values($docs)) !!};
             var labels = {!! json_encode($keys) !!};
 
             var myChart = new Chart(ctx, {
@@ -77,9 +72,20 @@
                     labels: labels,
                     datasets: [{
                         label: '# of documents',
-                        data: data,
+                        data: [1,5,4,8,7,3,2],
                         backgroundColor: "#0085A1"
                     }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
                 }
             });
         });

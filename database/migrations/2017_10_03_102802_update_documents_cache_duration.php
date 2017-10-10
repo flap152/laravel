@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateDocumentsIsDocsValid extends Migration
+class UpdateDocumentsCacheDuration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateDocumentsIsDocsValid extends Migration
      */
     public function up()
     {
-        Schema::table('documents', function(Blueprint $table){
-            $table->boolean('is_doc_valid')->nullable();
+        Schema::table('document_types', function(Blueprint $table){
+            $table->integer('cache_duration')->default(0)->unsigned();
         });
     }
 
@@ -25,8 +25,9 @@ class UpdateDocumentsIsDocsValid extends Migration
      */
     public function down()
     {
-        Schema::table('documents', function(Blueprint $table){
-            $table->dropColumn('is_doc_valid')->nullable(false);
+        Schema::table('document_types', function(Blueprint $table){
+
+            $table->dropColumn('cache_duration');
         });
     }
 }

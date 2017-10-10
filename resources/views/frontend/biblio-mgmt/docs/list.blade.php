@@ -12,20 +12,23 @@
                         <tr>
                             <th>
                                 @debug
-                                    {{trans('strings.biblio.documents.id')}}
+                                    {{trans('strings.biblio_mgmt.docs.ID')}}
                                 @endif
                             </th>
                             <th>
-                                {{trans('strings.biblio.documents.title')}}
+                                {{trans('strings.biblio_mgmt.docs.title')}}
                             </th>
                             <th>
-                                {{trans('strings.biblio.vehicules.name')}}
+                                {{trans('strings.biblio_mgmt.docs.vehicle_name')}}
                             </th>
                             <th>
-                                {{trans('strings.biblio.documents.document_date')}}
+                                {{trans('strings.biblio_mgmt.docs.document_date')}}
                             </th>
                             <th>
-                                {{trans('strings.biblio.documents.doc_valid')}}
+                                {{trans('strings.biblio_mgmt.docs.is_doc_valid')}}
+                            </th>
+                            <th>
+                                {{trans('labels.general.actions')}}
                             </th>
                         </tr>
                         @foreach($docs as $doc)
@@ -52,6 +55,9 @@
                                     @elseif($doc->is_doc_valid != 0 && $doc->is_doc_valid != 1)
                                         <i class="fa fa-times-circle" style="color: red;"></i>
                                     @endif
+                                </td>
+                                <td>
+                                    Actions
                                 </td>
                             </tr>
                         @endforeach

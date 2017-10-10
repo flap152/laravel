@@ -21,12 +21,12 @@
 
 <!-- Check if the language is set to RTL, so apply the RTL layouts -->
     <!-- Otherwise apply the normal LTR layouts -->
-    @langRTL
-{{ Html::style(getRtlCss(mix('css/frontend.css'))) }}
+@langRTL
+    {{ Html::style(getRtlCss(mix('css/frontend.css'))) }}
 @else
     {{ Html::style(mix('css/frontend.css')) }}
 @endif
-
+{{Html::style('css/myFrontend.css')}}
 @yield('after-styles')
 <!-- Scripts -->
     <!--script src="/myapp.js"></script FFLLAAPP maybe it shoud be here   -->
@@ -54,7 +54,9 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
+    {!! Html::script('/js/biblio/script.js') !!}
 
     <div id="id01"></div>
     <script>
@@ -125,7 +127,7 @@
     @include('frontend.includes.nav')
     <div class="container">
         @include('includes.partials.messages')
-        @ include  ('includes.partials.swh')
+        {{--@include('includes.partials.swh')--}}
         @yield('content')
         <footer class="main-footer text-center">
             <a href="https://processoft.com/"><img src="/img/frontend/processoftgris.jpg"></a>
@@ -135,10 +137,8 @@
     </div><!--container-->
 </div><!--app-->
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 @yield('before-scripts')
 {!! Html::script(mix('js/frontend.js')) !!}
-{!! Html::script('/js/biblio/script.js') !!}
 @yield('after-scripts')
 @include('includes.partials.ga')
 </body>
