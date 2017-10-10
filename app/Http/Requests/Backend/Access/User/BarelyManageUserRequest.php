@@ -18,7 +18,7 @@ class BarelyManageUserRequest extends Request
      */
     public function authorize()
     {
-        return access()->hasPermissions(['authorize-users','view-backend']);
+        return access()->hasPermissions(['authorize-users','view-backend', true]);
     }
 
     /**

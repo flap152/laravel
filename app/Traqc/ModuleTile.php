@@ -23,6 +23,11 @@ class ModuleTile
      * @var string
      */
     public $icon;
+
+    /**
+     * @var string
+     */
+    public $icon_type;
     /**
      * @var string
      */
@@ -40,7 +45,7 @@ class ModuleTile
     {
         $this->title = "Titre du module";
         $this->icon = "L'icone du module";
-        $this->description = "Description du module";
+        $this->description = "";
         $this->link = "Lien vers module";
     }
 }

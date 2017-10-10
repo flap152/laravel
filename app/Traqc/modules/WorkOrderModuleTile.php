@@ -25,7 +25,7 @@ class WorkOrderModuleTile extends ModuleTile
 
         $this->title = 'Bon de travail';
         $this->icon = 'fa fa-list-alt';
+        $this->icon_type = "fa";
         $this->link = '/workorder';
-        $this->description = 'À venir';
     }
 }

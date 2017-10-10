@@ -25,7 +25,7 @@ class TimeSheetModuleTile extends ModuleTile
         parent::__construct();
         $this->title = 'Feuille de temps';
         $this->icon = 'fa fa-tasks';
+        $this->icon_type = "fa";
         $this->link = '/timesheet';
-        $this->description = "À venir";
     }
 }

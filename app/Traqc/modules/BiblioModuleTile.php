@@ -29,6 +29,7 @@ class BiblioModuleTile extends ModuleTile
 
         $this->title = trans('strings.biblio.documents.list_title');
         $this->icon = 'fa fa-file-pdf-o';
+        $this->icon_type = "fa";
         $this->link = '/vehicules';
         $this->description = $this->getLatest5Documents();
     }
@@ -63,7 +64,7 @@ class BiblioModuleTile extends ModuleTile
 
         //Date à comparer
         $today = date('Y-m-d 23:00:00');
-        $daysInterval = date('Y-m-d 00:00:00', strtotime('-7 days'));
+        $daysInterval = date('Y-m-d 00:00:00', strtotime('-6 days'));
 
         $documents = Document::select(DB::raw('DATE(document_date) as document_date'), DB::raw('COUNT(id) as doc_count'))
             ->whereBetween(DB::raw('DATE(document_date)'), array($daysInterval,$today))

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Frontend\WorkOrder;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
@@ -15,6 +15,6 @@ class WorkorderController extends Controller
      */
     public function index(){
 
-        return view('frontend.workorder-projet.workorder');
+        return view('frontend.workorder.workorder');
     }
 }

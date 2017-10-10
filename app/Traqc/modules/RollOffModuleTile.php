@@ -19,9 +19,9 @@ class RollOffModuleTile extends ModuleTile
     public function __construct()
     {
         parent::__construct();
-        $this->title = 'Prise de commande roll-off';
+        $this->title = 'Prise de commande';
+        $this->icon_type = "fa";
         $this->icon = 'fa fa-list-alt';
-        $this->description = 'À venir';
         $this->link = 'http://pro-jet.processoft.com';
     }
 }
