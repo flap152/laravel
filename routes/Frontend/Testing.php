@@ -26,11 +26,14 @@ Route::post('/flap2', function () {
     // Ajouter la ligne dans
     // On retourne succès, j'imagine
 
-    return response()->isOk();
-    //return view('frontend/flap2');
+    //return response()->isOk();
+    return view('frontend/flap2');
 });
 
 
 
 
 Route::get('/flap3/{id}', 'DocumentController@showThisDocument');
+Route::get('/flap3', function () {
+    return view('frontend/flap3');
+});

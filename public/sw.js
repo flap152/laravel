@@ -1,7 +1,7 @@
 importScripts('workbox-sw.prod.v2.0.1.js');
 
 // Put this at the top of your SW file.
-self.workbox.logLevel = self.workbox.LOG_LEVEL.verbose;
+//self.workbox.logLevel = self.workbox.LOG_LEVEL.verbose;
 
 /**
  * DO NOT EDIT THE FILE MANIFEST ENTRY
@@ -151,7 +151,7 @@ workboxSW.precache(fileManifest);
 // );
 //
 
-
+/*
 workboxSW.router.registerRoute(
     '/pj/(.*)',
     workboxSW.strategies.cacheFirst({
@@ -166,7 +166,7 @@ workboxSW.router.registerRoute(
 workboxSW.router.registerRoute(
     '/documents/(.*)',
     workboxSW.strategies.cacheFirst({
-        cacheName: 'pjs',
+        cacheName: 'docs',
         cacheExpiration: {
             maxEntries: 150,
         },
@@ -174,14 +174,26 @@ workboxSW.router.registerRoute(
     })
 );
 
+
 workboxSW.router.registerRoute(
-    '/login',
+    '/vehicules/(.*)',
+    workboxSW.strategies.cacheFirst({
+        cacheName: 'vehs',
+        cacheExpiration: {
+            maxEntries: 15,
+        },
+        cacheableResponse: {statuses: [0, 200]},
+    })
+);
+
+workboxSW.router.registerRoute(
+    '/loginddd',
     workboxSW.strategies.networkOnly({
   })
 );
 
 workboxSW.router.registerRoute(
-    '/abbbabba(.*)',
+    '/dashboard',
     workboxSW.strategies.cacheFirst({
         cacheName: 'all',
         cacheExpiration: {
@@ -190,12 +202,7 @@ workboxSW.router.registerRoute(
         cacheableResponse: {statuses: [0, 200]},
     })
 );
+*/
 
-
-workboxSW.router.registerRoute(
-    '/login',
-    workboxSW.strategies.networkOnly({
-    })
-);
 
 

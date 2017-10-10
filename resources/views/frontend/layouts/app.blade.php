@@ -4,7 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#CB1A38">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- This is iOS mpbile app header data --}}
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="200x200" href="/tile.png">
+    <link rel="apple-touch-startup-image" href="/apple-launch.png">
+    <meta name="apple-mobile-web-app-title" content="Processoft traqc">
 
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -12,8 +19,8 @@
     <title>@yield('title', app_name())</title>
 
     <!-- Meta -->
-    <meta name="description" content="@yield('meta_description', 'Laravel 5 Boilerplate')">
-    <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
+    <meta name="description" content="@yield('meta_description', 'traqc mobile application')">
+    <meta name="author" content="@yield('meta_author', 'Processoft')">
 @yield('meta')
 
 <!-- Styles -->
@@ -35,6 +42,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
 
+        @if(true)
         // PWA service worker support - taken from https://justmegareth.com/2017-07-15-progressive-web-app-in-laravel/
         if ('serviceWorker' in navigator && 'PushManager' in window) {
             window.addEventListener('load', function() {
@@ -49,6 +57,7 @@
                 });
             });
         }
+        @endif
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -57,67 +66,7 @@
 
 
     <div id="id01"></div>
-    <script>
-        var xmlhttp = new XMLHttpRequest();
-        var url2 = "api/cacheddocs";
 
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log('1st call'+this.responseText);
-                var myArr = JSON.parse(this.responseText);
-                myFunction(myArr);
-            }
-        };
-        xmlhttp.open("GET", url2, true);
-        xmlhttp.send();
-
-        function myFunction(arr) {
-            var out = "";
-            var i;
-            for(i = 0; i < arr.length; i++) {
-                out += arr[i] + '<br>';
-            }
-            document.getElementById("id01").innerHTML = out;
-        }
-    </script>
-    <script>
-        const fetchAndLog = async (url) => {
-            console.log('info', `Requesting ${url}...`);
-            try {
-                const response = await fetch(url);
-                const text = await response.text();
-                console.log('info', `...the response for ${url} is :` + text.substr(0,125) );
-            } catch(error) {
-                console.log(`...fetch failed due to '${error}'.`);
-            }
-        };
-
-        document.addEventListener("DOMContentLoaded", function(event) {
-            //do work
-
-        //This gets the list of documents to cache, and caches it...
-        //const url = 'https://randomuser.me/api/?results=10';
-        const url = 'https://laravel.dev/api/cacheddocs';
-        fetch(url2)
-            .then((resp) => resp.json())
-            .then(function(data) {
-                let documentlist = data.results;
-                documentlist.forEach(function(document) {
-                        console.log('we should load document id:'+document);
-
-                        fetchAndLog( '{{config('app.url')}}' + '/pj/'+document);
-                        fetchAndLog('{{config('app.url')}}' +'/documents/'+document);
-
-                    }
-                );
-                return "ww";
-            })
-            .catch(function(error) {
-                console.log(JSON.stringify(error));
-            });
-
-        });
-    </script>
 </head>
 <body id="app-layout">
 <div id="app">
@@ -125,9 +74,9 @@
     @include('frontend.includes.nav')
     <div class="container">
         @include('includes.partials.messages')
-        @ include  ('includes.partials.swh')
+        {{-- @include ('includes.partials.swh') --}}
         @yield('content')
-        <footer class="main-footer text-center navbar-fixed-bottom">
+        <footer class="main-footer text-center ">
             <a href="https://processoft.com/"><img src="/img/frontend/processoftgris.jpg"></a>
             <p>{{date('Y')}} {{trans('strings.copyrights.all_rights_reserved')}}</p>
             <p><a href="https://processoft.com/">{{trans('strings.copyrights.powered_by')}}</a></p>

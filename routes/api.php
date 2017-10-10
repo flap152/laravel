@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent;
 
 //Route::middleware('web')->get('/cacheddocs', function (Request $request) {
 Route::middleware('api')->get('/cacheddocs', function (Request $request) {
-    $dd = Document::whereNotNull('localpath')->whereDate('created_at','>','2017-08-25')->get(['id']);
+    $dd = Document::whereNotNull('localpath')->whereDate('created_at','>',\Carbon\Carbon::today()->subDays(15))->limit(90)->get(['id']);
     return response()->json(['status'=>'ok', 'results'=>$dd->pluck('id')]);
-   // return response()->json(['status'=>'ok', 'results'=>[55,53,49,23,51,47,48,61,60,59,58,57,56]]);
 });
