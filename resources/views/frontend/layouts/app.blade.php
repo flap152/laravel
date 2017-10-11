@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#CB1A38">
+    <meta name="theme-color" content="#717075">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- This is iOS mpbile app header data --}}
     <meta name="mobile-web-app-capable" content="yes">
@@ -36,7 +36,7 @@
 {{Html::style('css/myFrontend.css')}}
 @yield('after-styles')
 <!-- Scripts -->
-    <!--script src="/myapp.js"></script FFLLAAPP maybe it shoud be here   -->
+    <script src="/myapp.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -66,9 +66,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
     {!! Html::script('/js/biblio/script.js') !!}
-
-    <div id="id01"></div>
-        xmlhttp.onreadystatechange = function() {
 </head>
 <body id="app-layout">
 <div id="app">

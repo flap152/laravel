@@ -8,6 +8,9 @@
 
 $myWidth = 35;
 $myHeight = 20;
+$contremaitre = 1;
+
+$fakeInput = 0;
 
 ?>
 
@@ -24,7 +27,7 @@ $myHeight = 20;
         }
 
         table.outer {
-            border: 1px solid blue;
+            border: 0px solid black;
             border-spacing: 0px;
             padding: 0;
         }
@@ -32,13 +35,13 @@ $myHeight = 20;
         table.outer td {
             text-align: center;
             padding: 0px;
-            border: 1px solid red;
+            border: 1px solid black;
             border-spacing: 0px;
             color: saddlebrown;
         }
 
         table.inner, table.inner tr, table.inner-small {
-            border: 1px solid black;
+            border: 0px solid black;
             border-spacing: 0px;
         }
 
@@ -54,7 +57,7 @@ $myHeight = 20;
             border: 1px solid black;
             border-right: 0px;
             border-bottom: 0px;
- */           overflow: hidden;
+            overflow: hidden;
         }
 
         table.inner-small td {
@@ -83,8 +86,11 @@ $myHeight = 20;
 
 setlocale(LC_TIME, 'fr');
 $start = Carbon\Carbon::getWeekStartsAt();
-$days = range($start, $start + 6);
-$employees = array('Jean-Jacques Joubert-Janvier', 'Guy Cyr');
+if ($contremaitre) {
+$days = range($start, $start + 0);
+}else {
+$days = range($start, $start + 6);}
+$employees = array('Jean-Jacques Joubert-Janvier', 'Guy Cyr', 'Robert Dubois');
 
 ?>
 
@@ -100,10 +106,12 @@ $employees = array('Jean-Jacques Joubert-Janvier', 'Guy Cyr');
 
             </td>
         @endforeach
+        @if(!$contremaitre)
         <td>
             @include('frontend._weekTotalHeader')
 
         </td>
+        @endif
     </tr>
 
     @foreach($employees as $employee)
@@ -112,7 +120,7 @@ $employees = array('Jean-Jacques Joubert-Janvier', 'Guy Cyr');
         @endphp
         <tr>
             <td>
-                {{$employee}} {{$employeeid}}
+                {{$employee}} {{-- - {{$employeeid}} --}}
             </td>
             <td>
                 <table class="inner-small">
@@ -144,9 +152,11 @@ $employees = array('Jean-Jacques Joubert-Janvier', 'Guy Cyr');
 
                 </td>
             @endforeach
+            @if(!$contremaitre)
             <td>
                 @include('frontend.timeSheetUnit')
             </td>
+            @endif
         </tr>
     @endforeach
 </table>

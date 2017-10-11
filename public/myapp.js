@@ -1,9 +1,21 @@
 const fetchAndLog = async (url) => {
     console.log('info', `Requesting ${url}...`);
     try {
-        const response = await fetch(url);
+        const myHeaders = new Headers();
+
+        const myInit = {
+        // method: 'GET',
+        //    headers: {
+        //        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        //    },
+            credentials: 'include'
+        //    credentials: 'include',
+        //    cache: 'default'
+            };
+
+        const response = await fetch(url,myInit);
         const text = await response.text();
-        console.log('info', `...the response for ${url} is :` + text.substr(0,1250) );
+        console.log('info', `...the response for ${url} is :` + text.substr(0,50) );
     } catch(error) {
         log('warn', `...fetch failed due to '${error}'.`);
     }

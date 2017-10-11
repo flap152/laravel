@@ -1,7 +1,7 @@
 importScripts('workbox-sw.prod.v2.0.1.js');
 
 // Put this at the top of your SW file.
-//self.workbox.logLevel = self.workbox.LOG_LEVEL.verbose;
+self.workbox.logLevel = self.workbox.LOG_LEVEL.verbose;
 
 /**
  * DO NOT EDIT THE FILE MANIFEST ENTRY
@@ -114,17 +114,41 @@ workboxSW.precache(fileManifest);
  * be "opaque", and have a status code of 0. When using a cache-first strategy,
  * we need to explicitly opt-in to caching responses with a status of 0.
  */
-// workboxSW.router.registerRoute(
-//     '/img/(.*)',
-//     workboxSW.strategies.cacheFirst({
-//         cacheName: 'images',
-//         cacheExpiration: {
-//             maxEntries: 5,
-//             maxAgeSeconds: 7 * 24 * 60 * 60,
-//         },
-//         cacheableResponse: {statuses: [0, 200]},
-//     })
-// );
+ workboxSW.router.registerRoute(
+     '/css/(.*)',
+     workboxSW.strategies.cacheFirst({
+         cacheName: 'images',
+         cacheExpiration: {
+             maxEntries: 10,
+             maxAgeSeconds: 7 * 24 * 60 * 60,
+         },
+         cacheableResponse: {statuses: [0, 200]},
+     })
+ );
+
+ workboxSW.router.registerRoute(
+     '/biblio/js/script.js',
+     workboxSW.strategies.cacheFirst({
+         cacheName: 'images',
+         cacheExpiration: {
+             maxEntries: 10,
+             maxAgeSeconds: 7 * 24 * 60 * 60,
+         },
+         cacheableResponse: {statuses: [0, 200]},
+     })
+ );
+
+ workboxSW.router.registerRoute(
+     '/myapp.js',
+     workboxSW.strategies.cacheFirst({
+         cacheName: 'images',
+         cacheExpiration: {
+             maxEntries: 10,
+             maxAgeSeconds: 7 * 24 * 60 * 60,
+         },
+         cacheableResponse: {statuses: [0, 200]},
+     })
+ );
 //
 //
 // workboxSW.router.registerRoute(
@@ -151,7 +175,7 @@ workboxSW.precache(fileManifest);
 // );
 //
 
-/*
+
 workboxSW.router.registerRoute(
     '/pj/(.*)',
     workboxSW.strategies.cacheFirst({
@@ -202,7 +226,7 @@ workboxSW.router.registerRoute(
         cacheableResponse: {statuses: [0, 200]},
     })
 );
-*/
+
 
 
 

@@ -1,6 +1,6 @@
 {
   "short_name": "traqc",
-  "name": "processoft traqc",
+  "name": "traqc",
   "icons": [
     {
       "src": "tile.png",
@@ -10,6 +10,6 @@
   ],
   "start_url": "/dashboard",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#cb1a38"
+  "background_color": "#717075",
+  "theme_color": "#717075"
 }

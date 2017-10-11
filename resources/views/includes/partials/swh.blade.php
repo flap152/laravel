@@ -16,7 +16,6 @@
 
             document.addEventListener("DOMContentLoaded", function(event) {
                 //do work
-
                 //This gets the list of documents to cache, and caches it...
                 //const url = 'https://randomuser.me/api/?results=10';
                 const url = 'https://laravel.dev/api/cacheddocs';

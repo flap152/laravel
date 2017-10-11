@@ -15,7 +15,7 @@
     </tr>
     <tr>
         <td COLSPAN="2">
-            @if(rand(0,rand(0,1))) {{rand(1500,1950) }} @endif
+            @if($fakeInput * rand (0,rand(0,1))) {{rand(1500,1950) }} @endif
         </td>
     </tr>
 </table>

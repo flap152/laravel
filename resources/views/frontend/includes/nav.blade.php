@@ -45,6 +45,8 @@
                             @endauth
                             <li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => active_class(Active::checkRoute('frontend.user.account')) ]) }}</li>
                             <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
+                            <li onclick="refreshPDFcache()"> <a> Refresh cache </a> </li>
+
                         </ul>
                     </li>
                 @endif
@@ -64,3 +66,49 @@
         </div>
     </div><!--container-->
 </nav>
+<script>
+    function refreshPDFcachea() {
+        console.info('Refreshing document cache');
+        var base_url = window.location.origin;
+        const url = base_url+'/api/cacheddocs';
+        const docum = 66;
+                        console.log('we should load document id:'+docum);
+                        fetchAndLog( base_url + '/pj/'+docum);
+                        //fetchAndLog( base_url +'/documents/'+docum);
+
+
+    }
+    function refreshPDFcache() {
+        console.info('Refreshing document cache');
+        var base_url = window.location.origin;
+        fetchAndLog( base_url +'/css/frontend.css');
+        fetchAndLog( base_url +'/css/myFrontend.css');
+        fetchAndLog( base_url +'/myapp.js');
+        fetchAndLog( base_url +'/img/frontend/traqclogo.png');
+        fetchAndLog( base_url +'/img/frontend/projetdemolition.png');
+        fetchAndLog( base_url +'/');
+        fetchAndLog( base_url +'/vehicules');
+        fetchAndLog( base_url +'/documents');
+
+        const url = base_url+'/api/cacheddocs';
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function(data) {
+                let documentlist = data.results;
+                documentlist.forEach(function(document) {
+                        console.log('we should load document id:'+document);
+
+                        fetchAndLog( base_url + '/pj/'+document);
+                        fetchAndLog( base_url +'/documents/'+document);
+
+                    }
+                );
+                return "ww";
+            })
+            .catch(function(error) {
+                console.log(JSON.stringify(error));
+            });
+
+    }
+
+</script>
