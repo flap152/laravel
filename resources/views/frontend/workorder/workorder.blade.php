@@ -45,26 +45,26 @@ $max = "";
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <p>
+                                                    160, boul. Industriel #200 Châteauguay, Qc, J6J 422<br/>
+                                                    Tél: (450) 961-9800<br/>
+                                                    Fax : (450) 691-9881<br/>
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-sm-6">
-                                                        <p class="form-control-static">160, boul. Industriel #200 Châteauguay, Qc, J6J 422</p>
-                                                        <p class="form-control-static">Tél: (450) 961-9800</p>
-                                                        <p class="form-control-static">Fax : (450) 691-9881</p>
+                                                        <p>
+                                                            Construction Gilles Lanthier inc<br/>
+                                                            Restaurant Saint-Hubert<br/>
+                                                            500 Rue Albanel, Boucherville
+                                                        </p>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6">
-                                                        <div class="row">
-                                                            <div class="col-lg-6 col-sm-6">
-                                                                <p class="form-control-static">Construction Gilles Lanthier inc</p>
-                                                                <p class="form-control-static">Restaurant Saint-Hubert</p>
-                                                                <p class="form-control-static">500 Rue Albanel, Boucherville</p>
-                                                            </div>
-                                                            <div class="col-lg-6 col-sm-6">
-                                                                <p class="form-control-static"><?php echo date('d/m/Y');?></p>
-                                                                <p class="form-control-static">C 17-013</p>
-                                                                <p class="form-control-static">Directive</p>
-                                                            </div>
-                                                        </div>
+                                                        {{date('d/m/Y')}}<br/>
+                                                        C 17-013<br/>
+                                                        Directive
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,35 +79,35 @@ $max = "";
                                                     <div class="panel panel-default" id="mainOeuvreR">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" href="#collapse1" data-parent="#accordion1">Main d'oeuvre (régulier)</a>
+                                                                <a data-toggle="collapse" href="#collapse1" data-parent="#accordion1" class="title-category">Main d'oeuvre (régulier)</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse1" class="panel-collapse collapse in">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive">
-                                                                    <?php for($i = 0; $i <= 5; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">A010</td>
-                                                                        <td>Contremaître décontamination (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A020</td>
-                                                                        <td>Main d'oeuvre Décontamination (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A030</td>
-                                                                        <td>Contremaître Démolition (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A040</td>
-                                                                        <td>Main d'oeuvre Démolition (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 5; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">A010</td>
+                                                                            <td>Contremaître décontamination (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A020</td>
+                                                                            <td>Main d'oeuvre Décontamination (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A030</td>
+                                                                            <td>Contremaître Démolition (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A040</td>
+                                                                            <td>Main d'oeuvre Démolition (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -115,20 +115,20 @@ $max = "";
                                                     <div class="panel panel-default" id="mainOeuvreD">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse2">Main d'oeuvre (temps double)</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse2" class="title-category">Main d'oeuvre (temps double)</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse2" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive">
-                                                                    <?php for($i = 0; $i <= 1; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">A010</td>
-                                                                        <td>Contremaître décontamination (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 1;$i++)
+                                                                        <tr>
+                                                                            <td class="code-width">A010</td>
+                                                                            <td>Contremaître décontamination (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -136,30 +136,30 @@ $max = "";
                                                     <div class="panel panel-default" id="serviceFrais">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse3">Service/Frais</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="title-category">Service/Frais</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse3" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive table-condensed">
-                                                                    <?php for($i = 0; $i <= 1; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">A010</td>
-                                                                        <td>Contremaître décontamination (Heure)</td>
-                                                                        <td class="unit-width"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A020</td>
-                                                                        <td>Main d'oeuvre Décontamination (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A030</td>
-                                                                        <td>Contremaître Démolition (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 1; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">A010</td>
+                                                                            <td>Contremaître décontamination (Heure)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A020</td>
+                                                                            <td>Main d'oeuvre Décontamination (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A030</td>
+                                                                            <td>Contremaître Démolition (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -167,30 +167,30 @@ $max = "";
                                                     <div class="panel panel-default" id="outils">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse4">Outils</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse4" class="title-category">Outils</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse4" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive table-condensed">
-                                                                    <?php for($i = 0; $i <= 1; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">A010</td>
-                                                                        <td>Contremaître décontamination (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A020</td>
-                                                                        <td>Main d'oeuvre Décontamination (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">A030</td>
-                                                                        <td>Contremaître Démolition (Heure)</td>
-                                                                        <td class="unit-width sorting"><input type="number" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" class="form-control" name="heure" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 1; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">A010</td>
+                                                                            <td>Contremaître décontamination (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A020</td>
+                                                                            <td>Main d'oeuvre Décontamination (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">A030</td>
+                                                                            <td>Contremaître Démolition (Heure)</td>
+                                                                            <td class="unit-width sorting"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="heure" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -202,43 +202,43 @@ $max = "";
                                                     <div class="panel panel-default" id="conteneurs">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse5">Conteneurs</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse5" class="title-category">Conteneurs</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse5" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive table-condensed">
-                                                                    <?php for($i = 0; $i <= 5; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">C010*</td>
-                                                                        <td>Conteneur 20 V béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C020*</td>
-                                                                        <td>Conteneur 40 V bloc béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C030*</td>
-                                                                        <td>Conteneur 20 V brique</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C040*</td>
-                                                                        <td>Conteneur 40 V démolition (8 tonnes)</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 5; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">C010*</td>
+                                                                            <td>Conteneur 20 V béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C020*</td>
+                                                                            <td>Conteneur 40 V bloc béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C030*</td>
+                                                                            <td>Conteneur 20 V brique</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C040*</td>
+                                                                            <td>Conteneur 40 V démolition (8 tonnes)</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -246,36 +246,36 @@ $max = "";
                                                     <div class="panel panel-default" id="equip">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse6">Équipements</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse6" class="title-category">Équipements</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse6" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive table-condensed">
-                                                                    <?php for($i = 0; $i <= 1; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">C010*</td>
-                                                                        <td>Conteneur 20 V béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C020*</td>
-                                                                        <td>Conteneur 40 V bloc béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C030*</td>
-                                                                        <td>Conteneur 20 V brique</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 1; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">C010*</td>
+                                                                            <td>Conteneur 20 V béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C020*</td>
+                                                                            <td>Conteneur 40 V bloc béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C030*</td>
+                                                                            <td>Conteneur 20 V brique</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -283,36 +283,36 @@ $max = "";
                                                     <div class="panel panel-default" id="itemDecon">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse7">Items de Décontamination</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse7" class="title-category">Items de Décontamination</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse7" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive table-condensed">
-                                                                    <?php for($i = 0; $i <= 1; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">C010*</td>
-                                                                        <td>Conteneur 20 V béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C020*</td>
-                                                                        <td>Conteneur 40 V bloc béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C030*</td>
-                                                                        <td>Conteneur 20 V brique</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 1; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">C010*</td>
+                                                                            <td>Conteneur 20 V béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C020*</td>
+                                                                            <td>Conteneur 40 V bloc béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C030*</td>
+                                                                            <td>Conteneur 20 V brique</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -320,36 +320,36 @@ $max = "";
                                                     <div class="panel panel-default" id="divers">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse8">Divers</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse8" class="title-category">Divers</a>
                                                                 <span class="badge pull-right">0</span>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse8" class="panel-collapse collapse">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive table-condensed">
-                                                                    <?php for($i = 0; $i <= 1; $i++){?>
-                                                                    <tr>
-                                                                        <td class="code-width">C010*</td>
-                                                                        <td>Conteneur 20 V béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" step="1" min="<?php echo $min;?>" max="<?php echo $max;?>" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C020*</td>
-                                                                        <td>Conteneur 40 V bloc béton</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="code-width">C030*</td>
-                                                                        <td>Conteneur 20 V brique</td>
-                                                                        <td>(Unité)</td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="quantite" value="0"/></td>
-                                                                        <td class="unit-width"><input type="number" class="form-control" min="<?php echo $min;?>" max="<?php echo $max;?>" step="1" name="unite" value="0"/></td>
-                                                                    </tr>
-                                                                    <?php }?>
+                                                                    @for($i = 0; $i <= 1; $i++)
+                                                                        <tr>
+                                                                            <td class="code-width">C010*</td>
+                                                                            <td>Conteneur 20 V béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C020*</td>
+                                                                            <td>Conteneur 40 V bloc béton</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="code-width">C030*</td>
+                                                                            <td>Conteneur 20 V brique</td>
+                                                                            <td>(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" value="0"/></td>
+                                                                            <td class="unit-width"><input type="number" step="1" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" value="0"/></td>
+                                                                        </tr>
+                                                                    @endfor
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -394,7 +394,7 @@ $max = "";
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="date">Date :</label>
-                                                            <input type="text" name="date" class="form-control" id="date" value="<?php echo date('d/m/Y');?>"/>
+                                                            <input type="text" name="date" class="form-control" id="date" value="{{date('d/m/Y')}}"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 margin-top">
@@ -413,7 +413,7 @@ $max = "";
                                         <div class="row">
                                             <div class="margin-top">
                                                 <div class="form-group">
-                                                    <input type="button" name="saveDraft" id="saveDraft" class="btn btn-primary center-block" value="Sauvegarder Brouillion"/>
+                                                    <input type="button" name="saveDraft" id="saveDraft" class="btn btn-primary center-block" value="Sauvegarder Brouillon"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="button" name="saveFinal" id="saveFinal" class="btn btn-primary center-block" value="Sauvegarder Final"/>

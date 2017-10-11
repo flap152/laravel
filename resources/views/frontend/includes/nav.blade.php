@@ -1,3 +1,7 @@
+<?php
+$showBeta = 1;
+?>
+
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -8,9 +12,7 @@
                 <span class="icon-bar"></span>
             </button>
         </div><!--navbar-header-->
-
         <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
-
             <ul class="nav navbar-nav navbar-right">
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
                     <li class="dropdown">
@@ -41,26 +43,36 @@
 
                         <ul class="dropdown-menu" role="menu">
                             @permission('view-backend')
-                                <li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) }}</li>
+                            <li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) }}</li>
                             @endauth
                             <li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => active_class(Active::checkRoute('frontend.user.account')) ]) }}</li>
                             <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
                         </ul>
                     </li>
                 @endif
-
                 <li>{{ link_to_route('frontend.contact', trans('navs.frontend.contact'), [], ['class' => active_class(Active::checkRoute('frontend.contact')) ]) }}</li>
             </ul>
         </div><!--navbar-collapse-->
         <div class="row">
-            <div class="col-md-3 col-sm-4">
-                <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="center-block logo hidden-xs"/></a>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="center-block logo hidden-xs"/></a>
+                    </div>
+                    @if($logged_in_user)
+                        <div class="col-md-4 col-sm-4">
+                            <img src="/img/frontend/projetdemolition.png" class="center-block logo hidden-xs"/>
+                        </div>
+                    @endif
+                    @if($showBeta)
+                        <div class="col-md-4 col-sm-4">
+                            <div id="beta">
+                                <img src="/img/frontend/beta.png" class="center-block"/>
+                            </div>
+                        </div>
+                    @endif
+                </div>
             </div>
-            @if($logged_in_user)
-            <div class="col-md-3 col-sm-4 col-md-push-1 col-sm-push-1">
-                <img src="/img/frontend/projetdemolition.png" class="center-block logo hidden-xs"/>
-            </div>
-            @endif
         </div>
-    </div><!--container-->
+    </div>
 </nav>
