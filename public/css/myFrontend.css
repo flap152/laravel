@@ -9,7 +9,7 @@
 body{
     background-color: #717075;
     font-family: "Trebuchet MS", sans-serif;
-    font-size: 14px;
+    font-size: 10px;
 }
 .title{
     font-family: "Handel Gothic BT Regular",sans-serif;
@@ -17,6 +17,9 @@ body{
 }
 .panel-heading{
     text-align: center;
+}
+.panel-title{
+    text-align: left;
 }
 footer{
     color: #fff;
@@ -31,3 +34,12 @@ footer a:hover{
 .col-padding{
     padding: 0 5px 0 5px;
 }
+
+#beta{
+    opacity: 0.2;
+}
+
+/*[class*="col-"]{
+
+    border: 1px solid black;
+}*/
