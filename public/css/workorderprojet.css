@@ -19,6 +19,8 @@
 
 td.unit-width.sorting input {
     padding : 2px;
+    width : 18%;
+    min-width: 34px;
 }
 .code-width{
     width: 20px;
