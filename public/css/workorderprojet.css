@@ -5,7 +5,15 @@
     margin-bottom: 15px;
 }
 
-.unit-width{
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance:textfield !important;
+}
+
+.unit-width {
+    width : 18%;
+    min-width: 30px;
 
 }
 .code-width{
@@ -37,4 +45,12 @@ h2{
 
 .margin-top{
     margin-top: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
