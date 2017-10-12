@@ -10,19 +10,7 @@ $(document).ready(function(){
     });
 
 
-    //Selon le bouton cliqué, afficher les rangers si c'est le brouillion ou cacher celles qui sont à 0 si c'est le final
-    $('#saveDraft').on('click',function(){
-        showHideEmptyEdits(true);
-        $('.panel-collapse').collapse('hide');
-        $('.panel-title').attr('data-toggle', 'collapse');
-    });
 
-    $('#saveFinal').on('click',function(){
-        showHideEmptyEdits(false);
-        $('.panel-collapse').collapse('show');
-        $('.panel-title').attr('data-toggle', '');
-        $('.panel-title').removeClass('collapse');
-    });
 
     function expandCollapses(){
         $('.panel-collapse').collapse('show');
@@ -60,6 +48,16 @@ $(document).ready(function(){
         setBadge(accordion, category, count);
     });
 
+    var active = true;
+
+    //$('#accordion1').on('show.bs.collapse', function () {
+      //  if (active) $('#accordion1 .in').collapse('hide');
+    //});
+
+    //$('#accordion2').on('show.bs.collapse', function () {
+      //  if (active) $('#accordion2 .in').collapse('hide');
+    //});
+
     //Pour chaque input du collapse qui a une valeur > 0
     function countValue(idCollapse){
         var count = 0;
@@ -76,4 +74,21 @@ $(document).ready(function(){
     function setBadge(accordion, idDiv, num){
         $("#" + accordion  + " #" + idDiv + " div.panel-heading h4.panel-title span.badge.pull-right").text(num);
     }
+
+    //Selon le bouton cliqué, afficher les rangers si c'est le brouillion ou cacher celles qui sont à 0 si c'est le final
+    $('#saveDraft').on('click',function(){
+        active =  true;
+        $('.panel-collapse').collapse('hide');
+        $('.panel-title a').attr('data-toggle', 'collapse');
+        showHideEmptyEdits(true);
+    });
+
+    $('#saveFinal').on('click',function(){
+        active = false;
+        $('.panel-title a').attr('data-toggle', 'false');
+        $('#accordion1 .panel-collapse:not(".in")').collapse('show');
+        $('#accordion2 .panel-collapse:not(".in")').collapse('show');
+        showHideEmptyEdits(false);
+    });
+
 });

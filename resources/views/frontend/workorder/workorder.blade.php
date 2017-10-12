@@ -78,15 +78,15 @@ $max = "";
                                                 <div id="accordion1" class="panel-group">
                                                     <div class="panel panel-default" id="mainOeuvreR">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" href="#collapse1" data-parent="#accordion1" class="title-category">Main d'oeuvre (régulier)
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse1" >Main d'oeuvre (régulier)
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse1" class="panel-collapse collapse in">
                                                             <div class="panel-body">
                                                                 <table class="table table-responsive">
-                                                                    @for($i = 0; $i <= 3; $i++)
+                                                                    @for($i = 0; $i <= 2; $i++)
                                                                         <tr>
                                                                             <td class="code-width">A01{{$i}}</td>
                                                                             <td>Contremaître décontamination (Heure)</td>
@@ -95,17 +95,17 @@ $max = "";
                                                                         <tr>
                                                                             <td class="code-width">A02{{$i}}</td>
                                                                             <td>Main d'oeuvre Décontamination (Heure)</td>
-                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="heure" {{-- value="0" --}}/></td>
+                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="heure" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="code-width">A03{{$i}}</td>
                                                                             <td>Contremaître Démolition (Heure)</td>
-                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="heure" {{-- value="0" --}}/></td>
+                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="heure" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="code-width">A04{{$i}}</td>
                                                                             <td>Main d'oeuvre Démolition (Heure)</td>
-                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="heure" {{-- value="0" --}}/></td>
+                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="heure" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
@@ -114,9 +114,9 @@ $max = "";
                                                     </div>
                                                     <div class="panel panel-default" id="mainOeuvreD">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion1" href="#collapse2" class="title-category">Main d'oeuvre (temps double)
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse2" >Main d'oeuvre (temps double)
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse2" class="panel-collapse collapse">
@@ -126,7 +126,7 @@ $max = "";
                                                                         <tr>
                                                                             <td class="code-width">A010</td>
                                                                             <td>Contremaître décontamination (Heure)</td>
-                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="heure" {{-- value="0" --}}/></td>
+                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="heure" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
@@ -135,9 +135,9 @@ $max = "";
                                                     </div>
                                                     <div class="panel panel-default" id="serviceFrais">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="title-category">Service/Frais
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse3" >Service/Frais
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse3" class="panel-collapse collapse">
@@ -156,9 +156,9 @@ $max = "";
                                                     </div>
                                                     <div class="panel panel-default" id="outils">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion1" href="#collapse4" class="title-category">Outils
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse4" >Outils
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse4" class="panel-collapse collapse">
@@ -181,9 +181,9 @@ $max = "";
                                                 <div id="accordion2" class="panel-group">
                                                     <div class="panel panel-default" id="conteneurs">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion2" href="#collapse5" class="title-category">Conteneurs
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}}data-target="#collapse5" >Conteneurs
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse5" class="panel-collapse collapse">
@@ -202,9 +202,9 @@ $max = "";
                                                     </div>
                                                     <div class="panel panel-default" id="equip">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion2" href="#collapse6" class="title-category">Équipements
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}} data-target="#collapse6" >Équipements
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse6" class="panel-collapse collapse">
@@ -223,9 +223,9 @@ $max = "";
                                                     </div>
                                                     <div class="panel panel-default" id="itemDecon">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion2" href="#collapse7" class="title-category">Items de Décontamination
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}} data-target="#collapse7" >Items de Décontamination
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse7" class="panel-collapse collapse">
@@ -244,9 +244,9 @@ $max = "";
                                                     </div>
                                                     <div class="panel panel-default" id="divers">
                                                         <div class="panel-heading">
-                                                            <h4 class="panel-title"
-                                                                data-toggle="collapse" data-parent="#accordion2" href="#collapse8" class="title-category">Divers
-                                                                <span class="badge pull-right">0</span>
+                                                            <h4 class="panel-title">
+                                                                <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}} data-target="#collapse8" >Divers
+                                                                <span class="badge pull-right">0</span></a>
                                                             </h4>
                                                         </div>
                                                         <div id="collapse8" class="panel-collapse collapse">
