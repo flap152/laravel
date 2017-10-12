@@ -147,7 +147,7 @@ $max = "";
                                                                         <tr>
                                                                             <td class="code-width">A01{{$i}}</td>
                                                                             <td>Service XXX{{$i}} (Heure)</td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="heure" {{-- value="0" --}}/></td>
+                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="heure" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
@@ -168,7 +168,7 @@ $max = "";
                                                                         <tr>
                                                                             <td class="code-width">M01{{$i}}</td>
                                                                             <td>Outil XXX{{$i}} (Heure)</td>
-                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="heure" {{-- value="0" --}}/></td>
+                                                                            <td class="unit-width sorting"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="heure" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
@@ -192,10 +192,8 @@ $max = "";
                                                                     @for($i = 1; $i <= 5; $i++)
                                                                         <tr>
                                                                             <td class="code-width">C01{{$i}}*</td>
-                                                                            <td>Conteneur {{$i}}0 V béton</td>
-                                                                            <td>(Unité)</td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" {{-- value="0" --}}/></td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="unite" {{-- value="0" --}}/></td>
+                                                                            <td>Conteneur {{$i}}0 V béton(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="quantite" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                         @endfor
                                                                 </table>
@@ -215,10 +213,8 @@ $max = "";
                                                                     @for($i = 0; $i <= 1; $i++)
                                                                         <tr>
                                                                             <td class="code-width">C01{{$i}}*</td>
-                                                                            <td>Équipement GGG{{$i}}</td>
-                                                                            <td>(Unité)</td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" {{-- value="0" --}}/></td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="unite" {{-- value="0" --}}/></td>
+                                                                            <td>Équipement GGG{{$i}}(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="quantite" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
@@ -238,10 +234,8 @@ $max = "";
                                                                     @for($i = 0; $i <= 1; $i++)
                                                                         <tr>
                                                                             <td class="code-width">D01{{$i}}*</td>
-                                                                            <td>Décontamination DD{{$i}}</td>
-                                                                            <td>(Unité)</td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" {{-- value="0" --}}/></td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="unite" {{-- value="0" --}}/></td>
+                                                                            <td>Décontamination DD{{$i}}(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="quantite" {{-- value="0" --}}/></td>
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
@@ -261,10 +255,9 @@ $max = "";
                                                                     @for($i = 0; $i <= 1; $i++)
                                                                         <tr>
                                                                             <td class="code-width">Z01{{$i}}</td>
-                                                                            <td>Divers matériel zzzz{{$i}}</td>
-                                                                            <td>(Unité)</td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="quantite" {{-- value="0" --}}/></td>
-                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control" name="unite" {{-- value="0" --}}/></td>
+                                                                            <td>Divers matériel zzzz{{$i}}(Unité)</td>
+                                                                            <td class="unit-width"><input type="number" {{-- step="1" --}} min="{{$min}}" max="{{$max}}" class="form-control no-spin" name="quantite" {{-- value="0" --}}/></td>
+                                                                            {{--<td class="unit-width"><input type="number" min="{{$min}}" max="{{$max}}" class="form-control" name="unite" /></td> --}}
                                                                         </tr>
                                                                     @endfor
                                                                 </table>
