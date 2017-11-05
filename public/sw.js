@@ -217,7 +217,7 @@ workboxSW.router.registerRoute(
 );
 
 workboxSW.router.registerRoute(
-    '/dashboard',
+    '/dashboardddd',
     workboxSW.strategies.cacheFirst({
         cacheName: 'all',
         cacheExpiration: {

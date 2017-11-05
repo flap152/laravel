@@ -1,0 +1,258 @@
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="0Euo0jamCdgQy5H1lCuSKxUiUAtkvixC300HiVcV">
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+    <title>traqc core app (misty-fern) | Login</title>
+
+    <!-- Meta -->
+    <meta name="description" content="Laravel 5 Boilerplate">
+    <meta name="author" content="Anthony Rappa">
+
+    <!-- Styles -->
+
+    <!-- Check if the language is set to RTL, so apply the RTL layouts -->
+    <!-- Otherwise apply the normal LTR layouts -->
+    <link media="all" type="text/css" rel="stylesheet" href="https://traqc.info/css/frontend.css?id=8c9be6a9c6b0ffb6b0ab.rtl.css">
+
+
+    <!-- Scripts -->
+    <!--script src="/myapp.js"></script FFLLAAPP maybe it shoud be here   -->
+    <script>
+        window.Laravel = {"csrfToken":"0Euo0jamCdgQy5H1lCuSKxUiUAtkvixC300HiVcV"}
+        // PWA service worker support - taken from https://justmegareth.com/2017-07-15-progressive-web-app-in-laravel/
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+            window.addEventListener('load', function() {
+                //navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                //FFLLAAPP migrating to workbox
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+
+
+    <div id="id01"></div>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url2 = "api/cacheddocs";
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('1st call'+this.responseText);
+                var myArr = JSON.parse(this.responseText);
+                myFunction(myArr);
+            }
+        };
+        xmlhttp.open("GET", url2, true);
+        xmlhttp.send();
+
+        function myFunction(arr) {
+            var out = "";
+            var i;
+            for(i = 0; i < arr.length; i++) {
+                out += arr[i] + '<br>';
+            }
+            document.getElementById("id01").innerHTML = out;
+        }
+    </script>
+    <script>
+        const fetchAndLog = async (url) => {
+            console.log('info', `Requesting ${url}...`);
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                console.log('info', `...the response for ${url} is :` + text.substr(0,125) );
+            } catch(error) {
+                console.log(`...fetch failed due to '${error}'.`);
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            //do work
+
+            //This gets the list of documents to cache, and caches it...
+            //const url = 'https://randomuser.me/api/?results=10';
+            const url = 'https://laravel.dev/api/cacheddocs';
+            fetch(url2)
+                .then((resp) => resp.json())
+                .then(function(data) {
+                    let documentlist = data.results;
+                    documentlist.forEach(function(document) {
+                            console.log('we should load document id:'+document);
+
+                            fetchAndLog( 'https://traqc.info' + '/pj/'+document);
+                            fetchAndLog('https://traqc.info' +'/documents/'+document);
+
+                        }
+                    );
+                    return "ww";
+                })
+                .catch(function(error) {
+                    console.log(JSON.stringify(error));
+                });
+
+        });
+    </script>
+</head>
+<body id="app-layout">
+<div id="app">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#frontend-navbar-collapse">
+                    <span class="sr-only">Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!--navbar-header-->
+
+            <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+
+                    <li><a href="https://traqc.info/login" class="active">Connexion</a></li>
+
+                    <li><a href="https://traqc.info/register" class="">S&#039;enregistrer</a></li>
+
+                    <li><a href="https://traqc.info/contact" class="">Contact</a></li>
+                </ul>
+            </div><!--navbar-collapse-->
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    <a href="https://traqc.info"><img src="/img/frontend/traqclogo.png" class="center-block logo"/></a>
+                </div>
+            </div>
+        </div><!--container-->
+    </nav>    <div class="container">
+    @ include  ('includes.partials.swh')
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Connexion</div>
+
+                <div class="panel-body">
+
+                    <form method="POST" action="https://traqc.info/login" accept-charset="UTF-8" class="form-horizontal"><input name="_token" type="hidden" value="0Euo0jamCdgQy5H1lCuSKxUiUAtkvixC300HiVcV">
+
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 control-label">Adresse email</label>
+                            <div class="col-md-6">
+                                <input class="form-control" maxlength="191" required="required" autofocus="autofocus" placeholder="Adresse email" name="email" type="email" id="email">
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <label for="password" class="col-md-4 control-label">Mot de passe</label>
+                            <div class="col-md-6">
+                                <input class="form-control" required="required" placeholder="Mot de passe" name="password" type="password" value="" id="password">
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="1"> Se souvenir de moi
+                                    </label>
+                                </div>
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input class="btn btn-primary" style="margin-right:15px" type="submit" value="Entrer">
+                                <a href="https://traqc.info/password/reset">Mot de passe oubli&eacute; ?</a>
+                                <a href="https://traqc.info/register">S&#039;enregistrer</a>
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                    </form>
+
+                    <div class="row text-center">
+                        Se connecter avec  <a href="https://traqc.info/login/facebook">Facebook <i class="fa fa-facebook fa-2x"></i></a>&nbsp;|&nbsp;<a href="https://traqc.info/login/google">Google <i class="fa fa-google fa-2x"></i></a>
+                    </div>
+                </div><!-- panel body -->
+
+            </div><!-- panel -->
+
+        </div><!-- col-md-8 -->
+
+    </div><!-- row -->
+
+    <footer class="fixed-bottom text-center">
+        <a href="https://processoft.com/"><img src="/img/frontend/processoftgris.jpg"></a>
+        <p>2017 &copy; Tous droits réservés</p>
+    </footer>
+</div><!--container-->
+</div><!--app-->
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script src="https://traqc.info/js/frontend.js?id=e8a35420c402601881cb"></script>
+
+<script src="https://traqc.info/js/biblio/script.js"></script>
+
+<link rel='stylesheet' type='text/css' property='stylesheet' href='//traqc.info/_debugbar/assets/stylesheets?v=1500638208'><script type='text/javascript' src='//traqc.info/_debugbar/assets/javascript?v=1500638208'></script><script type="text/javascript">jQuery.noConflict(true);</script>
+<script type="text/javascript">
+    var phpdebugbar = new PhpDebugBar.DebugBar();
+    phpdebugbar.addTab("messages", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Messages", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+    phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Request Duration"}), "right");
+    phpdebugbar.addTab("timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+    phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory Usage"}), "right");
+    phpdebugbar.addTab("exceptions", new PhpDebugBar.DebugBar.Tab({"icon":"bug","title":"Exceptions", "widget": new PhpDebugBar.Widgets.ExceptionsWidget()}));
+    phpdebugbar.addTab("views", new PhpDebugBar.DebugBar.Tab({"icon":"leaf","title":"Views", "widget": new PhpDebugBar.Widgets.TemplatesWidget()}));
+    phpdebugbar.addTab("route", new PhpDebugBar.DebugBar.Tab({"icon":"share","title":"Route", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+    phpdebugbar.addIndicator("currentroute", new PhpDebugBar.DebugBar.Indicator({"icon":"share","tooltip":"Route"}), "right");
+    phpdebugbar.addTab("queries", new PhpDebugBar.DebugBar.Tab({"icon":"database","title":"Queries", "widget": new PhpDebugBar.Widgets.LaravelSQLQueriesWidget()}));
+    phpdebugbar.addTab("emails", new PhpDebugBar.DebugBar.Tab({"icon":"inbox","title":"Mails", "widget": new PhpDebugBar.Widgets.MailsWidget()}));
+    phpdebugbar.addTab("auth", new PhpDebugBar.DebugBar.Tab({"icon":"lock","title":"Auth", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+    phpdebugbar.addIndicator("auth.name", new PhpDebugBar.DebugBar.Indicator({"icon":"user","tooltip":"Auth status"}), "right");
+    phpdebugbar.addTab("gate", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Gate", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+    phpdebugbar.addTab("session", new PhpDebugBar.DebugBar.Tab({"icon":"archive","title":"Session", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+    phpdebugbar.addTab("request", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Request", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+    phpdebugbar.setDataMap({
+        "messages": ["messages.messages", []],
+        "messages:badge": ["messages.count", null],
+        "time": ["time.duration_str", '0ms'],
+        "timeline": ["time", {}],
+        "memory": ["memory.peak_usage_str", '0B'],
+        "exceptions": ["exceptions.exceptions", []],
+        "exceptions:badge": ["exceptions.count", null],
+        "views": ["views", []],
+        "views:badge": ["views.nb_templates", 0],
+        "route": ["route", {}],
+        "currentroute": ["route.uri", ],
+        "queries": ["queries", []],
+        "queries:badge": ["queries.nb_statements", 0],
+        "emails": ["swiftmailer_mails.mails", []],
+        "emails:badge": ["swiftmailer_mails.count", null],
+        "auth": ["auth.guards", {}],
+        "auth.name": ["auth.names", ],
+        "gate": ["gate.messages", []],
+        "gate:badge": ["gate.count", null],
+        "session": ["session", {}],
+        "request": ["request", {}]
+    });
+    phpdebugbar.restoreState();
+    phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar);
+    phpdebugbar.ajaxHandler.bindToXHR();
+    phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({"url":"https:\/\/traqc.info\/_debugbar\/open"}));
