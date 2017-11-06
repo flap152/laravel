@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend\Access\User;
 
 use App\Http\Controllers\Controller;
-use Yajra\Datatables\Facades\Datatables;
+//use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Backend\Access\User\UserRepository;
 use App\Http\Requests\Backend\Access\User\BarelyManageUserRequest;
 use App\Http\Requests\Backend\Access\User\ManageUserRequest;
@@ -33,7 +33,7 @@ class UserTableController extends Controller
      */
     public function __invoke(BarelyManageUserRequest $request)
     {
-        return Datatables::of($this->users->getForDataTable($request->get('status'), $request->get('trashed')))
+        return DataTables::of($this->users->getForDataTable($request->get('status'), $request->get('trashed')))
         ->escapeColumns(['first_name', 'last_name', 'email'])
         ->editColumn('confirmed', function ($user) {
             return $user->confirmed_label;

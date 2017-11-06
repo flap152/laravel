@@ -260,6 +260,7 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

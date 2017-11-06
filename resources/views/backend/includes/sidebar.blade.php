@@ -35,6 +35,7 @@
                 </a>
             </li>
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
+            {{xdebug_break()}}
             @permissions('confirm-users')
                 <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                     <a href="#">
@@ -59,14 +60,14 @@
                                 @endif
                             </a>
                         </li>
-                        @permissions('manage-roles')
+                        @   permissions('manage-roles')
                             <li class="{{ active_class(Active::checkUriPattern('admin/access/role*')) }}">
                                 <a href="{{ route('admin.access.role.index') }}">
                                     <i class="fa fa-circle-o"></i>
                                     <span>{{ trans('labels.backend.access.roles.management') }}</span>
                                 </a>
                             </li>
-                        @endauth
+                        @  endauth
                     </ul>
                 </li>
             @endauth
