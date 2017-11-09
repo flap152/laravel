@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('after-styles')
-    {{Html::style('css/workorderprojet.css')}}
+    {{style('css/workorderprojet.css')}}
 @endsection
 <?php
 $min = "0";

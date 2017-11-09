@@ -62,7 +62,7 @@ return [
             'results'    => 'Search Results for :query',
         ],
 
-        'welcome' => '<p>Detta är AdminLTE temat som är skapat av <a href="https://almsaeedstudio.com/" target="_blank">https://almsaeedstudio.com/</a>.
+        'welcome' => '<p>Detta är CoreUI temat som är skapat av <a href="https://coreui.io/" target="_blank">creativeLabs</a>.
 Detta är en avskalad version med enbart de mest nödvändiga stilmallarna och skripten för att få det att fungera.
 Ladda ner den fulla versionen och börja lägg till de komponenter du behöver.</p>
 <p>Alla länkar/funktioner är här är bara exempel förutom <strong>Användare och rättigheter</strong> och <strong>Loggöversikten</strong> i sidomenyn
@@ -122,6 +122,10 @@ Denna boilerplate kommer med fullt funktionerande <em>Access Control Library</em
             'view_console_it_works'          => 'Kolla konsollen, du borde se \'it works!\' som skickas direkt från FrontendController@index',
             'you_can_see_because'            => 'Du kan se detta för att du har rollen \':role\'!',
             'you_can_see_because_permission' => 'Du kan se detta för att du har rättiheten \':permission\'!',
+        ],
+
+        'general' => [
+            'joined'        => 'Joined',
         ],
 
         'user' => [

@@ -8,6 +8,7 @@
 }
 body{
     background-color: #717075;
+    /*background-color: #ffffff;*/
     font-family: "Trebuchet MS", sans-serif;
     font-size: 14px;
 }
@@ -15,7 +16,7 @@ body{
     font-family: "Handel Gothic BT Regular",sans-serif;
     font-size: 15px;
 }
-.panel-heading{
+.card-heading{
     text-align: center;
 }
 .panel-title{

@@ -10,9 +10,10 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
+    |
     */
 
-    'name' => env('APP_NAME', 'Laravel 5 Boilerplate'),
+    'name' => env('APP_NAME', 'Laravel '.app()->version().' Boilerplate'),
 
     /*
     |--------------------------------------------------------------------------
@@ -185,20 +186,20 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
-        Yajra\Datatables\DatatablesServiceProvider::class,
+        //Yajra\Datatables\DatatablesServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AccessServiceProvider::class,
+        //App\Providers\AccessServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BladeServiceProvider::class,
         //App\Providers\BroadcastServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\HistoryServiceProvider::class,
-        App\Providers\MacroServiceProvider::class,
+        //App\Providers\HistoryServiceProvider::class,
+        //App\Providers\MacroServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],
@@ -251,7 +252,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
-         * Third Party Aliases
+         * Package Aliases
          */
         'Active'      => HieuLe\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
@@ -260,7 +261,7 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
-        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'DataTables'  => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

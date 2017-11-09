@@ -67,6 +67,8 @@ return [
                     'email'          => 'E-mail',
                     'id'             => 'ID',
                     'last_updated'   => 'Laatst Bijgewerkt',
+                    'first_name'     => 'Voornaam',
+                    'last_name'      => 'Achternaam',
                     'name'           => 'Naam',
                     'no_deactivated' => 'Geen gedeactiveerde Gebruikers',
                     'no_deleted'     => 'Geen Verwijderde Gebruikers',
@@ -121,32 +123,6 @@ return [
             'reset_password_box_title'        => 'Wachtwoord Resetten',
             'reset_password_button'           => 'Reset Wachtwoord',
             'send_password_reset_link_button' => 'Stuur Wachtwoord Reset Link',
-        ],
-
-        'macros' => [
-            'country' => [
-                'alpha'   => 'Land Alpha Codes',
-                'alpha2'  => 'Land Alpha 2 Codes',
-                'alpha3'  => 'Land Alpha 3 Codes',
-                'numeric' => 'Land Numerieke Codes',
-            ],
-
-            'macro_examples' => 'Macro Voorbeelden',
-
-            'state' => [
-                'mexico' => 'Mexico Staten Lijst',
-                'us'     => [
-                    'us'       => 'Verenigde Staten',
-                    'outlying' => 'VS afgelegen gebieden',
-                    'armed'    => 'VS Krijgsmacht',
-                ],
-            ],
-
-            'territories' => [
-                'canada' => 'Canada Provincies & Territories Lijst',
-            ],
-
-            'timezone' => 'Tijdzone',
         ],
 
         'user' => [

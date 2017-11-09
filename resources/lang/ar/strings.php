@@ -62,7 +62,7 @@ return [
             'results'    => 'Search Results for :query',
         ],
 
-        'welcome' => '<p>هذا هو ثيم AdminLTE المصمم من قبل <a href="https://almsaeedstudio.com/" target="_blank">https://almsaeedstudio.com/</a>. هذه مجرد نسخة جردت من الكثير من الأشياء وتركت فقط ال Styles وال Scripts التي تجعلها تعمل بأقل الإمكانيات. يجب عليك تحميل النسخة الكاملة حتى تستطيع إضافة المكونات للوحة تحكمك.
+        'welcome' => '<p>هذا هو ثيم CoreUI المصمم من قبل <a href="https://coreui.io/" target="_blank">creativeLabs</a>. هذه مجرد نسخة جردت من الكثير من الأشياء وتركت فقط ال Styles وال Scripts التي تجعلها تعمل بأقل الإمكانيات. يجب عليك تحميل النسخة الكاملة حتى تستطيع إضافة المكونات للوحة تحكمك.
 </p>
 <p>جميع الإمكانيات المتوافرة هنا هي للعرض فقط بإستثناء <strong>إدارة المستخدمين</strong> المتواجدة على اليمين و <strong>عارض السجلات</strong> الموجودة بالأسفل. هذا النمط يأتي مع مكتبة وظيفية بالكامل للتحكم في الوصول إلى إدارة المستخدمين / الأدوار / الصلاحيات.</p>
 <p>ضع في الإعتبار أن العمل لا يزال مستمراً وقد تتواجد بعض المشاكل أو الأخطاء التي لم تصادفنا. سأقوم بكل جهدي لإصلاحها حالما أتوصل إليها.</p>
@@ -122,6 +122,10 @@ return [
             'view_console_it_works'          => 'View console, you should see \'it works!\' which is coming from FrontendController@index',
             'you_can_see_because'            => 'أنت ترى هذا لأن لديك دور \':role\'!',
             'you_can_see_because_permission' => 'أنت ترى هذا لإن لديك صلاحية \':permission\'!',
+        ],
+
+        'general' => [
+            'joined'        => 'Joined',
         ],
 
         'user' => [

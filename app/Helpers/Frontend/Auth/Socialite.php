@@ -48,7 +48,7 @@ class Socialite
         }
 
         for ($i = 0; $i < count($socialite_enable); $i++) {
-            $socialite_links .= ($socialite_links != '' ? '&nbsp;|&nbsp;' : trans('labels.frontend.auth.login_with', ['social_media' => '']).' ').$socialite_enable[$i];
+            $socialite_links .= ($socialite_links != '' ? '&nbsp;|&nbsp;' : trans('labels.frontend.auth.login_with', ['social_media' => '']).'&nbsp;&nbsp;').$socialite_enable[$i];
         }
 
         return $socialite_links;

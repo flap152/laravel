@@ -28,7 +28,7 @@ return [
 
             'users' => [
                 'already_confirmed'    => 'Cet utilisateur est déjà confirmé.',
-                'cant_confirm' => 'Il y a eu un problème lors de la confirmation du compte utilisateur.',
+                'cant_confirm' => 'Un problème est survenu lors de la confirmation du compte utilisateur.',
                 'cant_deactivate_self'  => 'Vous ne pouvez pas vous désactiver vous-même.',
                 'cant_delete_admin'  => 'Vous ne pouvez pas supprimer le super administrateur.',
                 'cant_delete_self'      => 'Vous ne pouvez pas vous supprimer vous-même.',
@@ -47,7 +47,7 @@ return [
                 'role_needed_create'    => 'Vous devez sélectionner au moins un rôle.',
                 'role_needed'           => 'Vous devez sélectionner au moins un rôle.',
                 'session_wrong_driver'  => 'Votre pilote de session doit être configuré sur la base de données pour utiliser cette fonctionnalité.',
-                'social_delete_error' => "Une erreur est survenue lors de la suppression du compte social de l'utilisateur.",
+                'social_delete_error' => "Un problème est survenue lors de la suppression du compte social de l'utilisateur.",
                 'update_error'          => "Un problème est survenu lors de la mise à jour de l'utilisateur. Veuillez réessayer.",
                 'update_password_error' => "Un problème est survenu lors du changement du mot de passe de l'utilisateur. Veuillez réessayer.",
             ],

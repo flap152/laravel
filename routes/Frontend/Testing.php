@@ -37,3 +37,10 @@ Route::get('/flap3/{id}', 'DocumentController@showThisDocument');
 Route::get('/flap3', function () {
     return view('frontend/flap3');
 });
+Route::get('/flap4', function () {
+    xdebug_break();
+    $exitCode = Artisan::call('migrate:rollback'//,
+        //['user' => 1, '--queue' => 'default']
+    );
+
+});

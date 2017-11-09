@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'lifetime' => 3600,
+    'lifetime' => env('SESSION_LIFETIME', 3600),
 
     'expire_on_close' => false,
 
@@ -122,7 +122,10 @@ return [
     |
     */
 
-    'cookie' => 'laravel_session',
+    'cookie' => env(
+        'SESSION_COOKIE',
+        str_slug(env('APP_NAME', 'laravel'), '_').'_session'
+    ),
 
     /*
     |--------------------------------------------------------------------------
@@ -187,5 +190,18 @@ return [
     */
     'timeout_status' => env('SESSION_TIMEOUT_STATUS', true),
     'timeout'        => env('SESSION_TIMEOUT', 3600),
+    /*
+    |--------------------------------------------------------------------------
+    | Same-Site Cookies
+    |--------------------------------------------------------------------------
+    |
+    | This option determines how your cookies behave when cross-site requests
+    | take place, and can be used to mitigate CSRF attacks. By default, we
+    | do not enable this as other CSRF protection services are in place.
+    |
+    | Supported: "lax", "strict"
+    |
+    */
 
+    'same_site' => null,
 ];

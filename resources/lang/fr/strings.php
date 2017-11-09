@@ -29,10 +29,11 @@ return [
 
         'general' => [
             'all_rights_reserved' => 'Tous droits réservés.',
-            'are_you_sure'        => 'Etes-vous sûr?',
+            'are_you_sure'        => 'Êtes-vous sûr ?',
             'boilerplate_link'    => 'Laravel 5 Boilerplate',
             'continue'            => 'Continuer',
-            'minutes'             => ' minutes',
+            'member_since'        => 'Membre depuis',
+            'minutes'             => ' minutes.',
             'search_placeholder'  => 'Rechercher...',
             'timeout'             => 'Vous avez été automatiquement déconnecté pour cause d\'inactivité pendant ',
 
@@ -61,7 +62,7 @@ return [
             'results'    => 'Résultats de la recherche :query',
         ],
 
-        'welcome' => '<p>Le thème AdminLTE est créé par <a href="https://almsaeedstudio.com/" target="_blank">https://almsaeedstudio.com/</a>. Ceci est une version allégée avec seulement les styles et les scripts nécessaires pour le faire fonctionner. Téléchargez la version complète pour commencer à ajouter des composants à votre tableau de bord.</p>
+        'welcome' => '<p>Le thème CoreUI est créé par <a href="https://coreui.io/" target="_blank">creativeLabs</a>. Ceci est une version allégée avec seulement les styles et les scripts nécessaires pour le faire fonctionner. Téléchargez la version complète pour commencer à ajouter des composants à votre tableau de bord.</p>
 <p>Toutes les fonctionnalités sont dédiées à l\'affichage, à l\'exception de la <strong>Gestion des utilisateurs</strong> à gauche. Ce projet boilerplate est livré avec une bibliothèque de contrôle d\'accès entièrement fonctionnelle pour gérer les utilisateurs / rôles / permmissions.</p>
 <p>Gardez à l\'esprit que c\'est un travail en cours et qu\'il peut subsister quelques anomalies ou bugs qui n\'ont pas été corrigés. Je ferai de mon mieux pour y remédier.</p>
 <p>J\'espère que vous apprécierez le travail que j\'ai mis dans ce projet. Visitez la page <a href="https://github.com/rappasoft/laravel-5-boilerplate" target="_blank">GitHub</a> pour plus d\'informations et enregistrez les <a href="https://github.com/rappasoft/Laravel-5-Boilerplate/issues" target="_blank">anomalies ici</a>.</p>
@@ -119,6 +120,10 @@ return [
             'view_console_it_works'          => 'Sur la console du navigateur, vous devriez voir  \'it works!\', ce qui est produit depuis le FrontendController@index',
             'you_can_see_because'            => 'Vous voyez ce message car vous disposez du rôle \':role\'!',
             'you_can_see_because_permission' => 'Vous voyez ce message car vous disposez de la permission \':permission\'!',
+        ],
+
+        'general' => [
+            'joined'        => 'Membre depuis',
         ],
 
         'user' => [

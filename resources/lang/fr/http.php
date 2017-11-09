@@ -27,5 +27,4 @@ return [
         'title'       => 'Bientôt de retour.',
         'description' => 'Bientôt de retour.',
     ],
-
 ];

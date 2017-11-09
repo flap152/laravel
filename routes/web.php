@@ -8,29 +8,26 @@
 // Switch between the included languages
 Route::get('lang/{lang}', 'LanguageController@swap');
 
-/* ----------------------------------------------------------------------- */
-
 /*
  * Frontend Routes
  * Namespaces indicate folder structure
  */
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
-    includeRouteFiles(__DIR__.'/Frontend/');
+    include_route_files(__DIR__.'/frontend/');
 });
-
-/* ----------------------------------------------------------------------- */
 
 /*
  * Backend Routes
  * Namespaces indicate folder structure
  */
-Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['access.routeNeedsPermission:authorize-users']], function () {
+Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['permission:authorize users']], function () {
     /*
      * These routes need view-backend permission
      * (good if you want to allow more than one group in the backend,
      * then limit the backend features by different roles or permissions)
      *
      * Note: Administrator has all permissions so you do not have to specify the administrator role everywhere.
+     * These routes can not be hit if the password is expired
      */
-    includeRouteFiles(__DIR__.'/Backend/');
+    include_route_files(__DIR__.'/backend/');
 });

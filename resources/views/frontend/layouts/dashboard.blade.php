@@ -3,11 +3,11 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="card card-default">
+                <div class="card-header">
                     <h4>{{trans('navs.frontend.dashboard')}}</h4>
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-lg-4 col-lg-push-8">
                             <ul class="media-list">
@@ -24,17 +24,17 @@
                                             </small>
                                         </h4>
                                         {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'btn btn-info btn-xs']) }}
-                                        @permission('view-backend')
+                                        @can('view backend')
                                             {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
-                                        @endauth
+                                        @endcan
                                     </div>
                                 </li>
                             </ul>
-                            <div class="panel panel-default">
+                            <div class="card card-default">
                                 <div class="panel-heading">
                                     <h4>Dashboard</h4>
-                                </div><!--panel-heading-->
-                                <div class="panel-body">
+                                </div>
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <canvas id="chart"></canvas>

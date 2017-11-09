@@ -12,17 +12,21 @@
     "build": "workbox generate:sw"
   },
   "devDependencies": {
-    "axios": "^0.16.2",
-    "bootstrap-sass": "^3.3.7",
+    "axios": "^0.17.0",
+    "bootstrap": "^4.0.0-beta.2",
     "cross-env": "^5.1.1",
     "eslint": "^4.5.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.1.1",
-    "laravel-mix": "^1.5.1",
+    "jquery": "^3.2",
+    "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
+    "pace": "github:HubSpot/pace#v1.0.2",
+    "popper.js": "^1.12.4",
+    "simple-line-icons": "^2.4.1",
     "sw-precache-webpack-plugin": "^0.11.4",
-    "vue": "^2.5.3",
-    "webpack-rtl-plugin": "^1.5.0"
+    "sweetalert": "^2.0.3",
+    "tether": "^1.4.0",
+    "vue": "^2.1.10"
   },
   "globalDependecies": {
     "cross-env": "^4.5.0"

@@ -30,6 +30,6 @@ return [
          * Index 2 of sub-array is whether or not to use RTL (right-to-left) css for this language
          */
         'en'    => ['en', 'en_US', false],
-        'fr'    => ['fr', 'fr_FR', true],
+        'fr'    => ['fr', 'fr_FR', false],
     ],
 ];

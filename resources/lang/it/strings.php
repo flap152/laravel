@@ -62,7 +62,7 @@ return [
             'results'    => 'Search Results for :query',
         ],
 
-        'welcome' => '<p>Quello che vedi è il tema AdminLTE sviluppato da <a href="https://almsaeedstudio.com/" target="_blank">https://almsaeedstudio.com/</a>.
+        'welcome' => '<p>Quello che vedi è il tema CoreUI sviluppato da <a href="https://coreui.io/" target="_blank">creativeLabs</a>.
     Si tratta di una versione ridotta al minimo che include solo gli stili e gli script necessari per il funzionamento.
     Scarica la versione completa per aggiungere componenti alla dashboard.</p>
 <p>Tutte le funzioni che vedi sono simulate, ad eccezione della <strong>Gestione utenti</strong> sulla sinistra.
@@ -126,6 +126,10 @@ return [
             'view_console_it_works'          => 'Apri la console Javascript del browser, dovresti vedere \'it works!\' generato da FrontendController@index',
             'you_can_see_because'            => 'Puoi vedere questo perché il tuo ruolo è \':role\'!',
             'you_can_see_because_permission' => 'Puoi vedere questo perché hai il permesso \':permission\'!',
+        ],
+
+        'general' => [
+            'joined'        => 'Joined',
         ],
 
         'user' => [

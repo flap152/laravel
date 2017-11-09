@@ -22,10 +22,10 @@ return [
                 'confirm'             => 'Confirmer',
                 'deactivate'         => 'Désactiver',
                 'delete_permanently' => 'Supprimer définitivement',
-                'login_as'           => 'Se connecter avec :user',
+                'login_as'           => 'Se connecter an tant que :user',
                 'resend_email'       => 'Renvoyer le mail de confirmation',
                 'restore_user'       => "Réactiver l'utilisateur",
-                'unconfirm'             => 'Ne pas confirmer',
+                'unconfirm'             => 'Infirmer',
                 'unlink' => 'Dissocier',
             ],
         ],
@@ -40,7 +40,7 @@ return [
 
     'general' => [
         'cancel' => 'Annuler',
-        'continue' => 'Continue',
+        'continue' => 'Continuer',
 
         'crud' => [
             'create' => 'Créer',

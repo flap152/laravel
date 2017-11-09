@@ -30,7 +30,7 @@ return [
             'restored'                 => "L'utilisateur a été ré-activé.",
             'session_cleared'          => "La session de l'utilisateur a été effacée avec succès.",
             'social_deleted'           => 'Compte social supprimé avec succès.',
-            'unconfirmed'              => "L'utilisateur n'est pas confirmé avec succès.",
+            'unconfirmed'              => "Le compte de l'utilisateur a été infirmé avec succès.",
             'updated'                  => 'Utilisateur mis à jour avec succès.',
             'updated_password'         => 'Le mot de passe utilisateur a été mis à jour avec succès.',
         ],
@@ -38,7 +38,7 @@ return [
 
     'frontend' => [
         'contact' => [
-            'sent' => 'Vos informations ont été envoyées avec succès. Nous répondrons à ce courriel dès que possible.',
+            'sent' => "Votre message a été envoyé avec succès. Nous répondrons à l'adresse email que vous nous avez fourni dès que nous le pourrons.",
         ],
     ],
 ];

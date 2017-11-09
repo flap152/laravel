@@ -4,3 +4,11 @@ Based off Laravel 5.4 Boilerplate (http://laravel-boilerplate.com)
 - Added keys tu use Socialite Logins (Google, Twitter, Facebook, LinkedIn) 
 These are in the .env file, so look for them in a "safe place" and not in the Git Repositories
 - Added Behat, Mink, phpspec and their laravel extensions
+
+### TODOS
+## Specific to the 5.5 laravel/boilerplate merge
+# Style look related
+- search for myXXX.js or myYYY.css and reconcile / encapsulate
+## PWAs
+- re-enable SW
+## 
