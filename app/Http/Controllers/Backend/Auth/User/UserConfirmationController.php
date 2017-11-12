@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Access\User;
+namespace App\Http\Controllers\Backend\Auth\User;
 
 use App\Models\Auth\User;
 use App\Http\Controllers\Controller;
@@ -54,7 +54,7 @@ class UserConfirmationController extends Controller
     {
         $this->users->confirm($user);
 
-        return redirect()->route('admin.access.user.index')->withFlashSuccess(trans('alerts.backend.users.confirmed'));
+        return redirect()->route('admin.auth.user.index')->withFlashSuccess(trans('alerts.backend.users.confirmed'));
     }
 
     /**
@@ -67,6 +67,6 @@ class UserConfirmationController extends Controller
     {
         $this->users->unconfirm($user);
 
-        return redirect()->route('admin.access.user.index')->withFlashSuccess(trans('alerts.backend.users.unconfirmed'));
+        return redirect()->route('admin.auth.user.index')->withFlashSuccess(trans('alerts.backend.users.unconfirmed'));
     }
 }

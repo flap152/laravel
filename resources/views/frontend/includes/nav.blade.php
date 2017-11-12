@@ -2,82 +2,16 @@
 $showBeta = 1;
 ?>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#frontend-navbar-collapse">
-                <span class="sr-only">{{ trans('labels.general.toggle_navigation') }}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div><!--navbar-header-->
-        <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                @if (config('locale.status') && count(config('locale.languages')) > 1)
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ trans('menus.language-picker.language') }}
-                            <span class="caret"></span>
-                        </a>
+    <a href="{{ route('frontend.index') }}" class="navbar-brand">{{ app_name() }}</a>
 
-                        @include('includes.partials.lang')
-                    </li>
-                @endif
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('labels.general.toggle_navigation') }}">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-                @if ($logged_in_user)
-                    <li>{{ link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard'), [], ['class' => active_class(Active::checkRoute('frontend.user.dashboard')) ]) }}</li>
-                @endif
+@if(false)
 
-                @if (! $logged_in_user)
-                    <li>{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
-
-                    @if (config('access.users.registration'))
-                        <li>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>
-                    @endif
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ $logged_in_user->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            @permission('view-backend')
-                            <li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) }}</li>
-                            @endauth
-                            <li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => active_class(Active::checkRoute('frontend.user.account')) ]) }}</li>
-                            <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
-                            <li onclick="refreshPDFcache()"> <a> Refresh cache </a> </li>
-
-                        </ul>
-                    </li>
-                @endif
-                <li>{{ link_to_route('frontend.contact', trans('navs.frontend.contact'), [], ['class' => active_class(Active::checkRoute('frontend.contact')) ]) }}</li>
-            </ul>
-        </div><!--navbar-collapse-->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="center-block logo hidden-xs"/></a>
-                    </div>
-                    @if($logged_in_user)
-                        <div class="col-md-4 col-sm-4">
-                            <img src="/img/frontend/projetdemolition.png" class="center-block logo hidden-xs"/>
-                        </div>
-                    @endif
-                    @if($showBeta)
-                        <div class="col-md-4 col-sm-4">
-                            <div id="beta">
-                                <img src="/img/frontend/beta.png" class="center-block"/>
-                            </div>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
 <script>
     function refreshPDFcachea() {
         console.info('Refreshing document cache');
@@ -124,3 +58,70 @@ $showBeta = 1;
     }
 
 </script>
+@endif
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            @if (config('locale.status') && count(config('locale.languages')) > 1)
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownLanguageLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">{{ __('menus.language-picker.language') }} ({{ strtoupper(app()->getLocale()) }})</a>
+
+                    @include('includes.partials.lang')
+                </li>
+            @endif
+
+            @auth
+                <li class="nav-item"><a href="{{route('frontend.user.dashboard')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.user.dashboard')) }}">{{ __('navs.frontend.dashboard') }}</a></li>
+            @endauth
+
+            @if(!auth())
+                <li class="nav-item"><a href="{{route('frontend.auth.login')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.login')) }}">{{ __('navs.frontend.login') }}</a></li>
+
+                @if (config('access.registration'))
+                    <li class="nav-item"><a href="{{route('frontend.auth.register')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.register')) }}">{{ __('navs.frontend.register') }}</a></li>
+                @endif
+            @else
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">{{ $logged_in_user->name }}</a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+                        @can('view backend')
+                            <a href="{{ route('admin.dashboard') }}" class="dropdown-item">{{ __('navs.frontend.user.administration') }}</a>
+                        @endcan
+
+                        <a href="{{ route('frontend.user.account') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.user.account')) }}">{{ __('navs.frontend.user.account') }}</a>
+                        <a href="{{ route('frontend.auth.logout') }}" class="dropdown-item">{{ __('navs.general.logout') }}</a>
+                    </div>
+                </li>
+            @endif
+
+            <li class="nav-item"><a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">{{ __('navs.frontend.contact') }}</a></li>
+        </ul>
+
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="center-block logo hidden-xs"/></a>
+                </div>
+                @if($logged_in_user)
+                    <div class="col-md-4 col-sm-4">
+                        <img src="/img/frontend/projetdemolition.png" class="center-block logo hidden-xs"/>
+                    </div>
+                @endif
+                @if($showBeta)
+                    <div class="col-md-4 col-sm-4">
+                        <div id="beta">
+                            <img src="/img/frontend/beta.png" class="center-block"/>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</nav>
+
+
