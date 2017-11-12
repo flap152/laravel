@@ -8,6 +8,7 @@ use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use App\Events\Frontend\Auth\UserConfirmed;
 use App\Events\Backend\Auth\User\UserCreated;
+use App\Events\Backend\Auth\User\UserUpdated;
 use App\Events\Backend\Auth\User\UserRestored;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Events\Backend\Auth\User\UserDeactivated;
@@ -51,6 +52,7 @@ class UserRepository extends BaseRepository
     public function getActivePaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
     {
         return $this->model
+            ->with('providers')
             ->active()
             ->orderBy($orderBy, $sort)
             ->paginate($paged);
@@ -66,6 +68,7 @@ class UserRepository extends BaseRepository
     public function getInactivePaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
     {
         return $this->model
+            ->with('providers')
             ->active(false)
             ->orderBy($orderBy, $sort)
             ->paginate($paged);
@@ -81,6 +84,7 @@ class UserRepository extends BaseRepository
     public function getDeletedPaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
     {
         return $this->model
+            ->with('providers')
             ->onlyTrashed()
             ->orderBy($orderBy, $sort)
             ->paginate($paged);
@@ -159,6 +163,8 @@ class UserRepository extends BaseRepository
                 // Add selected roles/permissions
                 $user->syncRoles($data['roles']);
                 $user->syncPermissions($data['permissions']);
+
+                event(new UserUpdated($user));
 
                 return $user;
             }

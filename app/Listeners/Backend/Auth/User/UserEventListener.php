@@ -18,6 +18,14 @@ class UserEventListener
     /**
      * @param $event
      */
+    public function onUpdated($event)
+    {
+        \Log::info('User Updated');
+    }
+
+    /**
+     * @param $event
+     */
     public function onConfirmed($event)
     {
         \Log::info('User Confirmed');
@@ -89,6 +97,11 @@ class UserEventListener
         $events->listen(
             \App\Events\Backend\Auth\User\UserCreated::class,
             'App\Listeners\Backend\Auth\User\UserEventListener@onCreated'
+        );
+
+        $events->listen(
+            \App\Events\Backend\Auth\User\UserUpdated::class,
+            'App\Listeners\Backend\Auth\User\UserEventListener@onUpdated'
         );
 
         $events->listen(

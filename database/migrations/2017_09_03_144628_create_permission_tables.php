@@ -79,7 +79,6 @@ class CreatePermissionTables extends Migration
     {
 
         $cfgTableNames = config('permission.table_names');
-        var_dump($cfgTableNames);
         $tableNames = array(
             'role_has_permissions',
             'model_has_roles',
@@ -87,7 +86,6 @@ class CreatePermissionTables extends Migration
             'roles',
             'permissions');
         //$tableNames = array_intersect_key($tableNames, $cfgTableNames);
-        var_dump($tableNames);
         foreach ($tableNames as $tableName) {
             if ($tableName) {
                 Schema::dropIfExists($tableName);

@@ -5,7 +5,7 @@
         @if(isset($message))
             <h4 class="text-center">{{$message}}</h4>
         @endif
-        @include('frontend.auth.login', ['socialite_links' => (new \App\Helpers\Frontend\Auth\Socialite)->getSocialLinks()/*$socialite_links*/])
+        @include('frontend.auth.login', ['socialiteLinks' => (new \App\Helpers\Frontend\Auth\Socialite)->getSocialLinks()/*$socialite_links*/])
     @endif
     @if(1===2)
 
