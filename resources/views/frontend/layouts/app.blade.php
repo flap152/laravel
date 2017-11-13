@@ -28,17 +28,17 @@
         <!-- Otherwise apply the normal LTR layouts -->
         {{ style(mix('css/frontend.css')) }}
         {{-- TODO:reviewALL myFrontend.css uses --}}
-        {{style('css/myFrontend.css')}}
+        {{style('css/_myFrontend.css')}}
         @stack('after-styles')
 
-        <script src="/myapp.js"></script>
+        <script src="/_myapp.js"></script>
         <!-- Scripts @TODO: Review this CSRF insertion  -->
         @if(false)
             <script>
             window.Laravel = @json(['csrfToken'=> csrf_token()])
             </script>
         @endif
-        @if(true)
+        @if(false)
         <!--  @TODO: enable again for SW PWA -->
             <script>
                 // PWA service worker support - taken from https://justmegareth.com/2017-07-15-progressive-web-app-in-laravel/
@@ -57,6 +57,7 @@
             }
         </script>
        @endif
+	   @if (false)
         {{-- For libcharts apparently TODO:Review jquery insertion postion --}}
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -65,14 +66,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
         {!! script('/js/biblio/script.js') !!}
-
+@endif
 
     </head>
-    <body id="app-layout">
+    <!-- body id="app-layout" -->
+	<body style="background-color: #717075; ">
         <div id="app">
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
-            <div class="container">
+            <div class="container doit" style="background-color: white">
                 @include('includes.partials.messages')
                 {{--@include('includes.partials.swh')--}}
                 @yield('content')

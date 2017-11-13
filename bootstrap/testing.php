@@ -1,6 +1,7 @@
 <?php
 
-$testEnvironment = 'testinggghhg';
+$testEnvironment = 'testing';
+dd('dans' . __FILE__);
 
 $config = require(__DIR__ . "/../config/$testEnvironment/database.php");
 
