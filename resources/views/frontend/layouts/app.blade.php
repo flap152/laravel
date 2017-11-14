@@ -28,10 +28,10 @@
         <!-- Otherwise apply the normal LTR layouts -->
         {{ style(mix('css/frontend.css')) }}
         {{-- TODO:reviewALL myFrontend.css uses --}}
-        {{style('css/_myFrontend.css')}}
+        {{style('css/myFrontend.css')}}
         @stack('after-styles')
 
-        <script src="/_myapp.js"></script>
+        <script src="/myapp.js"></script>
         <!-- Scripts @TODO: Review this CSRF insertion  -->
         @if(false)
             <script>
@@ -74,7 +74,7 @@
         <div id="app">
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
-            <div class="container doit" style="background-color: white">
+            <div class="container doit">
                 @include('includes.partials.messages')
                 {{--@include('includes.partials.swh')--}}
                 @yield('content')

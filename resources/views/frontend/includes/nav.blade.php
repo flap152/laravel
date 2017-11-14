@@ -3,7 +3,7 @@ $showBeta = 1;
 ?>
 <div class="container bg-light" style="max-width: 100%">
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 col-12 navbar-expand-md">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light col-12 navbar-expand-md">
 
             <a href="{{ route('frontend.index') }}" class="navbar-brand">{{ app_name() }}</a>
 

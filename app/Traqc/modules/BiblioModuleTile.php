@@ -44,7 +44,7 @@ class BiblioModuleTile extends ModuleTile
         $vehicules = Vehicule::with('documents')
             ->select('vehicules.id','vehicules.name', DB::raw('max(document_date) as document_date'))
             ->join('documents', 'vehicules.id', '=', 'documents.vehicule_id')
-            ->groupBy('vehicules.id')
+            ->groupBy('vehicules.id','vehicules.name')
             ->orderByDesc('document_date')
             ->limit(5)
             ->get();

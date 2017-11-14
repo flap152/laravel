@@ -1,6 +1,6 @@
-<div class="card card-default">
+<div class="card justify-content-center mb-2">
     <div class="card-heading">
-        <h5 class="card-title text-nowrap">{{$module->title}}</h5>
+        <div class="card-title text-nowrap">{{$module->title}}</div>
         @if($module->icon_type === 'img')
             <a href="{{$module->link}}"><img src="/img/frontend/{{$module->icon}}" class="logo-tile"/></a>
         @else
