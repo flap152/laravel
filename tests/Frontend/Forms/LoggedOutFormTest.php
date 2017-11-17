@@ -5,6 +5,7 @@ use Tests\BrowserKitTestCase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Database\Eloquent\Model;
 use App\Events\Frontend\Auth\UserLoggedIn;
 use App\Mail\Frontend\Contact\SendContact;
 use App\Events\Frontend\Auth\UserRegistered;
@@ -34,8 +35,11 @@ class LoggedOutFormTest extends BrowserKitTestCase
 
     public function testRegistrationForm()
     {
+        // Hacky workaround for this issue (https://github.com/laravel/framework/issues/18066)
         // Make sure our events are fired
+        $initialDispatcher = Event::getFacadeRoot();
         Event::fake();
+        Model::setEventDispatcher($initialDispatcher);
 
         config(['access.users.confirm_email' => false]);
         config(['access.users.requires_approval' => false]);
@@ -55,7 +59,7 @@ class LoggedOutFormTest extends BrowserKitTestCase
              ->type($password, 'password_confirmation')
              ->press('Register')
              ->see('Dashboard')
-             ->seePageIs('/')
+             ->seePageIs('/dashboard')
              ->seeInDatabase(config('access.table_names.users'),
                  [
                      'email' => $email,
@@ -70,7 +74,12 @@ class LoggedOutFormTest extends BrowserKitTestCase
 
     public function testRegistrationFormConfirmationRequired()
     {
+        // Hacky workaround for this issue (https://github.com/laravel/framework/issues/18066)
+        // Make sure our events are fired
+        $initialDispatcher = Event::getFacadeRoot();
         Event::fake();
+        Model::setEventDispatcher($initialDispatcher);
+
         Notification::fake();
 
         config(['access.users.confirm_email' => true]);
@@ -110,7 +119,12 @@ class LoggedOutFormTest extends BrowserKitTestCase
 
     public function testRegistrationFormPendingApproval()
     {
+        // Hacky workaround for this issue (https://github.com/laravel/framework/issues/18066)
+        // Make sure our events are fired
+        $initialDispatcher = Event::getFacadeRoot();
         Event::fake();
+        Model::setEventDispatcher($initialDispatcher);
+
         Notification::fake();
 
         // Set registration to pending approval
