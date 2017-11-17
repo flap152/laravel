@@ -181,6 +181,7 @@ class LoggedOutFormTest extends BrowserKitTestCase
              ->type($this->admin->email, 'email')
              ->type('1234', 'password')
              ->press('Login')
+             ->visit('/admin/dashboard')
              ->seePageIs('/admin/dashboard')
              ->see($this->admin->name)
              ->see('Access Management');

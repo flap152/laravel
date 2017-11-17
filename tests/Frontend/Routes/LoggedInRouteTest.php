@@ -25,7 +25,7 @@ class LoggedInRouteTest extends BrowserKitTestCase
         $this->actingAs($this->user)
              ->visit('/dashboard')
              ->see($this->user->email)
-             ->see('Joined')
+             ->see('Latest connection')
              ->dontSee('Administration');
     }
 

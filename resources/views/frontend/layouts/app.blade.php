@@ -24,8 +24,6 @@
         {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
         @stack('before-styles')
 
-        <!-- Check if the language is set to RTL, so apply the RTL layouts -->
-        <!-- Otherwise apply the normal LTR layouts -->
         {{ style(mix('css/frontend.css')) }}
         {{-- TODO:reviewALL myFrontend.css uses --}}
         {{style('css/myFrontend.css')}}
@@ -57,7 +55,7 @@
             }
         </script>
        @endif
-	   @if (false)
+	   @if (true)
         {{-- For libcharts apparently TODO:Review jquery insertion postion --}}
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -74,7 +72,7 @@
         <div id="app">
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
-            <div class="container doit">
+            <div class="container doit mt-sm-3">
                 @include('includes.partials.messages')
                 {{--@include('includes.partials.swh')--}}
                 @yield('content')
