@@ -55,3 +55,20 @@ $factory->state(User::class, 'unconfirmed', function () {
         'confirmed' => 0,
     ];
 });
+
+/*
+ * Roles
+ */
+$factory->define(Role::class, function (Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'all'  => 0,
+        'sort' => $faker->numberBetween(1, 100),
+    ];
+});
+
+$factory->state(Role::class, 'admin', function () {
+    return [
+        'all' => 1,
+    ];
+});

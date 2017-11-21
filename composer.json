@@ -1,20 +1,16 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": [
-        "framework",
-        "laravel",
-        "boilerplate"
-    ],
+    "name": "rappasoft/laravel-5-boilerplate",
+    "description": "The Laravel Boilerplate Project.",
+    "keywords": ["framework", "laravel", "boilerplate"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "appstract/laravel-blade-directives": "^0.4.4",
-        "arcanedev/log-viewer": "^4.4",
-        "arcanedev/no-captcha": "^5.0",
+        "arcanedev/log-viewer": "~4.0",
+        "arcanedev/no-captcha": "~3.0",
         "creativeorange/gravatar": "~1.0",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "davejamesmiller/laravel-breadcrumbs": "^4.1",
+        "fideloper/proxy": "~3.3",
         "doctrine/dbal": "^2.6",
         "fideloper/proxy": "~3.3",
         "google/apiclient": "^2.2",
@@ -23,11 +19,9 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.5.*",
-        "renatomarinho/laravel-page-speed": "^1.8",
         "spatie/laravel-html": "^2.4",
         "spatie/laravel-permission": "^2.5",
-        "webpatser/laravel-uuid": "^3.0",
-        "yajra/laravel-datatables-oracle": "^8.0"
+        "webpatser/laravel-uuid": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.0",
@@ -72,17 +66,24 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
-        "clear-all": [
-            "composer dumpautoload -o",
-            "@php artisan optimize",
-            "@php artisan clear-compiled",
-            "@php artisan cache:clear",
-            "@php artisan route:clear",
-            "@php artisan view:clear",
-            "@php artisan config:clear"
+      "clear-all": [
+        "composer dumpautoload -o",
+        "@php artisan optimize",
+        "@php artisan clear-compiled",
+        "@php artisan cache:clear",
+        "@php artisan route:clear",
+        "@php artisan view:clear",
+        "@php artisan config:clear"
+      ],
+      "phpunit": [
+        "phpunit > output.txt -d memory_limit=2048M"
+      ]      ,
+      "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
         ],
-        "phpunit": [
-            "phpunit > output.txt -d memory_limit=2048M"
+        "test" : [
+            "vendor/bin/phpunit > phpunit.txt"
         ]
     },
     "config": {

@@ -2,8 +2,7 @@
     <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#717075">
 
@@ -21,8 +20,8 @@
         <meta name="author" content="@yield('meta_author', 'Processoft')">
         @yield('meta')
 
-        {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
-        @stack('before-styles')
+        <!-- Styles -->
+        @yield('before-styles')
 
         {{ style(mix('css/frontend.css')) }}
         {{-- TODO:reviewALL myFrontend.css uses --}}
@@ -82,7 +81,7 @@
                 <p><a href="https://processoft.com/">{{trans('strings.copyrights.powered_by')}}</a></p>
             </footer>
             </div><!-- container -->
-        </div><!--#app-->
+        </div><!-- #app -->
 
         <!-- Scripts -->
         @stack('before-scripts')

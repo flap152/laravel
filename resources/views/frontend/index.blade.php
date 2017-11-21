@@ -7,10 +7,9 @@
         @endif
         @include('frontend.auth.login', ['socialiteLinks' => (new \App\Helpers\Frontend\Auth\Socialite)->getSocialLinks()/*$socialite_links*/])
     @endif
-    @if(1===2)
+    @if(true)
 
     <div class="row mb-4">
-        <example></example>
         <div class="col">
             <div class="card">
                 <div class="card-header">

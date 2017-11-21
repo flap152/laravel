@@ -186,7 +186,7 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
-        //Yajra\Datatables\DatatablesServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -195,7 +195,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BladeServiceProvider::class,
-        //App\Providers\BroadcastServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         //App\Providers\HistoryServiceProvider::class,
@@ -254,13 +254,10 @@ return [
         /*
          * Package Aliases
          */
-        'Active'      => HieuLe\Active\Facades\Active::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-        'Captcha'     => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
-        'Form'        => Collective\Html\FormFacade::class,
-        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
-        'Html'        => Collective\Html\HtmlFacade::class,
-        'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'Active' => HieuLe\Active\Facades\Active::class,
+        'Captcha' => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'DataTables'  => Yajra\DataTables\Facades\DataTables::class,
 
     ],

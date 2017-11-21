@@ -64,7 +64,7 @@ return [
                 'table' => [
                     'confirmed'      => 'Confirmé',
                     'created'        => 'Création',
-                    'email'          => 'Email',
+                    'email'          => 'Adresse email',
                     'id'             => 'ID',
                     'last_updated'   => 'Mise à jour',
                     'last_logged_in' => 'Dernière connexion',
@@ -74,7 +74,7 @@ return [
                     'no_deactivated' => "Pas d'utilisateurs désactivés",
                     'no_deleted'     => "Pas d'utilisateurs supprimés",
                     'roles'          => 'Rôles',
-                    'social' => 'Social',
+                    'social' => 'Réseau social',
                     'total'          => 'utilisateur total|utilisateurs total',
                 ],
 
@@ -90,7 +90,7 @@ return [
                             'confirmed'    => 'Confirmé',
                             'created_at'   => 'Créé le',
                             'deleted_at'   => 'Supprimé le',
-                            'email'        => 'E-mail',
+                            'email'        => 'Adresse email',
                             'last_updated' => 'Mise à jour',
                             'name'         => 'Nom complet',
                             'first_name'   => 'Prénom',
@@ -122,36 +122,16 @@ return [
         ],
 
         'passwords' => [
-            'forgot_password'                 => 'Mot de passe oublié ?',
+            'forgot_password'                 => 'Mot de passe oublié?',
             'reset_password_box_title'        => 'Réinitialisation du mot de passe',
             'reset_password_button'           => 'Réinitialiser le mot de passe',
             'send_password_reset_link_button' => 'Envoyer le lien de réinitialisation',
         ],
 
         'macros' => [
-            'country' => [
-                'alpha'   => 'Pays Alpha Codes',
-                'alpha2'  => 'Pays Alpha 2 Codes',
-                'alpha3'  => 'Pays Alpha 3 Codes',
-                'numeric' => 'Pays Numéros Codes',
-            ],
 
-            'macro_examples' => 'Exemples de macros',
 
-            'state' => [
-                'mexico' => 'Mexico State List',
-                'us'     => [
-                    'us'       => 'US States',
-                    'outlying' => 'US Outlying Territories',
-                    'armed'    => 'US Armed Forces',
-                ],
-            ],
-
-            'territories' => [
-                'canada' => 'Canada Province & Territories List',
-            ],
-
-            'timezone' => 'Fuseau horaire',
+            'timezone' => 'Fuseaux horaires',
         ],
 
         'user' => [
@@ -163,7 +143,7 @@ return [
                 'avatar'             => 'Avatar',
                 'created_at'         => 'Date de création',
                 'edit_information'   => 'Éditer les informations',
-                'email'              => 'Email',
+                'email'              => 'Adresse email',
                 'last_updated'       => 'Date de mise à jour',
                 'name'               => 'Nom complet',
                 'first_name'         => 'Prénom',
