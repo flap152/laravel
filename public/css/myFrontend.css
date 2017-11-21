@@ -45,6 +45,7 @@ footer a:hover{
 }
 .card,  .card-heading{
     text-align: center;
+    font-size: 0.875rem;
 /*    font-family: "Handel Gothic BT Regular",sans-serif;
     font-size: 12px;
 */
@@ -52,6 +53,7 @@ footer a:hover{
 .card-default, .card-body{
     border-top: 1px solid rgba(0, 0, 0, 1);
     text-align: center;
+    font-size: 0.875rem;
 }
 #u-profile {
     text-align: left;

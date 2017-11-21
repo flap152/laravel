@@ -1,22 +1,23 @@
 @extends('frontend.layouts.app')
 
 @section('after-styles')
-    {{style('css/workorderprojet.css')}}
+
 @endsection
 <?php
 $min = "0";
 $max = "";
 ?>
 @section('content')
-    <div class="row">
+    {{style('/css/workorderprojet.css')}}
+    <div class="row bg-light">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="panel-title">
+            <div class="card card-default">
+                <div class="card-header-heading">
+                    <div class="card-title">
                         <h4>Bon de travail</h4>
                     </div>
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-lg-12" id="workorder">
                             <form method="post" name="workorderForm">
@@ -31,10 +32,10 @@ $max = "";
                                             <div class="col-lg-6 col-sm-6">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-sm-6 text-nowrap">
-                                                        <h1>BON DE TRAVAIL</h1>
+                                                        <h3>BON DE TRAVAIL</h3>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 text-nowrap">
-                                                        <h2>6957</h2>
+                                                        <h3>6957</h3>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -76,15 +77,15 @@ $max = "";
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <div id="accordion1" class="panel-group">
-                                                    <div class="panel panel-default" id="mainOeuvreR">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="mainOeuvreR">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse1" >Main d'oeuvre (régulier)
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse1" class="panel-collapse collapse in">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive">
                                                                     @for($i = 0; $i <= 2; $i++)
                                                                         <tr>
@@ -112,15 +113,15 @@ $max = "";
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default" id="mainOeuvreD">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="mainOeuvreD">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse2" >Main d'oeuvre (temps double)
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse2" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive">
                                                                     @for($i = 0; $i <= 1;$i++)
                                                                         <tr>
@@ -133,15 +134,15 @@ $max = "";
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default" id="serviceFrais">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="serviceFrais">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse3" >Service/Frais
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse3" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive table-condensed">
                                                                     @for($i = 0; $i <= 3; $i++)
                                                                         <tr>
@@ -154,15 +155,15 @@ $max = "";
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default" id="outils">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="outils">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion1" --}} data-target="#collapse4" >Outils
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse4" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive table-condensed">
                                                                     @for($i = 0; $i <= 4; $i++)
                                                                         <tr>
@@ -179,15 +180,15 @@ $max = "";
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <div id="accordion2" class="panel-group">
-                                                    <div class="panel panel-default" id="conteneurs">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="conteneurs">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}}data-target="#collapse5" >Conteneurs
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse5" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive table-condensed">
                                                                     @for($i = 1; $i <= 5; $i++)
                                                                         <tr>
@@ -200,15 +201,15 @@ $max = "";
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default" id="equip">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="equip">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}} data-target="#collapse6" >Équipements
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse6" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive table-condensed">
                                                                     @for($i = 0; $i <= 1; $i++)
                                                                         <tr>
@@ -221,15 +222,15 @@ $max = "";
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default" id="itemDecon">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="itemDecon">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}} data-target="#collapse7" >Items de Décontamination
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse7" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive table-condensed">
                                                                     @for($i = 0; $i <= 1; $i++)
                                                                         <tr>
@@ -242,15 +243,15 @@ $max = "";
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default" id="divers">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
+                                                    <div class="card card-default" id="divers">
+                                                        <div class="card-heading">
+                                                            <h6 class="card-title">
                                                                 <a class="title-category" data-toggle="collapse" {{-- data-parent="#accordion2" --}} data-target="#collapse8" >Divers
                                                                 <span class="badge pull-right">0</span></a>
-                                                            </h4>
+                                                            </h6>
                                                         </div>
                                                         <div id="collapse8" class="panel-collapse collapse">
-                                                            <div class="panel-body">
+                                                            <div class="card-body">
                                                                 <table class="table table-responsive table-condensed">
                                                                     @for($i = 0; $i <= 1; $i++)
                                                                         <tr>

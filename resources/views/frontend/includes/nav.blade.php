@@ -97,20 +97,6 @@ $showBeta = 1;
                                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser"
                                    data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">{{ $logged_in_user->name }}</a>
-            @auth
-                <li class="nav-item"><a href="{{route('frontend.user.dashboard')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.user.dashboard')) }}">{{ __('navs.frontend.dashboard') }}</a></li>
-            @endauth
-
-            @guest
-                <li class="nav-item"><a href="{{route('frontend.auth.login')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.login')) }}">{{ __('navs.frontend.login') }}</a></li>
-
-                @if (config('access.registration'))
-                    <li class="nav-item"><a href="{{route('frontend.auth.register')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.register')) }}">{{ __('navs.frontend.register') }}</a></li>
-                @endif
-            @else
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">{{ $logged_in_user->name }}</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
                         @can('view backend')
@@ -123,31 +109,9 @@ $showBeta = 1;
                 </li>
             @endguest
 
-                <li>{{ link_to_route('frontend.contact', trans('navs.frontend.contact'), [], ['class' => active_class(Active::checkRoute('frontend.contact')) ]) }}</li>
-            </ul>
-        </div><!--navbar-collapse-->
-        </nav>
+            <li class="nav-item"><a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">{{ __('navs.frontend.contact') }}</a></li>
+        </ul>
     </div>
-
-
-
-    <div class="row bg-light justify-content-between" style="text-align: center;">
-        <div class="col d-none d-md-block">
-            <a href="{{url('/')}}"><img src="/img/frontend/traqclogo.png" class="logo  mx-auto"/></a>
-        </div>
-        @if($logged_in_user)
-            <div class="col d-none d-lg-block">
-                <img src="/img/frontend/projetdemolition.png" class="center-block logo mx-auto"/>
-            </div>
-        @endif
-        @if($showBeta)
-            <div class="col d-none d-lg-block" id="beta">
-                <img src="/img/frontend/beta.png" class="mx-auto"/>
-            </div>
-        @endif
-
+</nav>
     </div>
-
-</div>
-
 </div>

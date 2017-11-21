@@ -17,10 +17,33 @@
 
 }
 
+.card-default, .card{
+    text-align: inherit;
+}
+.card,  .card-heading{
+    text-align: inherit;
+}
+
+.card-body{
+    text-align: inherit;
+}
+
+/*
+#collapse1 > div > table > tbody > tr:nth-child(1) > td.unit-width.sorting > input
+#collapse1 > div > table > tbody > tr:nth-child(1) > td.unit-width.sorting > input
+<input type="number" name="heure" class="form-control no-spin" style="padding: 2px;">*/
+
+.no-spin {
+    width : 10%;
+    min-width:34px;
+}
+
+
 td.unit-width.sorting input {
     padding : 2px;
-    width : 18%;
-    min-width: 34px;
+    width : 20%;
+    min-width: 40px;
+    font-size: 0.875rem;
 }
 .code-width{
     width: 20px;
