@@ -249,7 +249,7 @@ class FmroorderController extends Controller
      * @internal Fmroorder $fmroorder
      * @internal Fmroorders[] $fmroorder
      */
-    public function getallfmstatuses()
+    public function getallfmstatuses2()
     {
         $fmroorders = Fmroorder::with('orderResult')->get();
         foreach ($fmroorders as $fmroorder) {
