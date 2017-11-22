@@ -43,7 +43,7 @@ class FmroorderController extends Controller
             $fmroorderresult = $fmroorder->orderResult;
             if ( ($fmroorder->isInFM) & (! is_null($fmroorderresult))) {
                 if ($fmroorderresult->OrderStatusId < 4) {
-                $this->getfmstatus($fmroorder->id);
+                $this->_getfmstatus($fmroorder->id);
                 }
             }
 
@@ -260,12 +260,12 @@ class FmroorderController extends Controller
 
     /**
      * @param $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return integer
      * @internal Fmroorder $fmroorder
      * @internal Fmroorderresult $fmroorderresult
      * @internal string $ordernumber
      */
-    public function getfmstatus($id)
+    private function _getfmstatus($id)
     {
         $fmroorder = Fmroorder::findOrFail($id);
         $ordernumber = $fmroorder->OrderNumber;
@@ -289,24 +289,30 @@ class FmroorderController extends Controller
         );
         $myRes = json_decode($this->getIt($fields, $ch) );
         $fmroorder->status = $myRes->status;
-
-
         $fmroorder->save();
-
         if ($myRes->status == "0") {
-            Session::flash('message', 'Success getting status from FleetMapper! '. json_encode($myRes-> result[0]));
-            // var_dump( (array) $myRes->result[0] );
-            $fmroorderresult =  Fmroorderresult::updateOrCreate(['OrderNumber'=>$ordernumber], (array)($myRes-> result[0]));
-            $fmroorderresult->updated_at=Carbon::now();
-            //$fmroorderresult =  Fmroorderresult::updateOrCreate(['OrderNumber'=>$ordernumber], ['updated_at'=>Carbon::now()]);
-            //$fmroorderresult =  new Fmroorderresult((array)($myRes-> result[0]));
-            //$fmroorderresult->OrderNumber = $fmroorder->OrderNumber;
-            //$fmroorderresult->save();
-            //$fmroorder->orderResult->associate($fmroorderresult);
+            $fmroorderresult = Fmroorderresult::updateOrCreate(['OrderNumber' => $ordernumber], (array)($myRes->result[0]));
+            $fmroorderresult->updated_at = Carbon::now();
             $fmroorderresult->save();
+        }
+        return $myRes;
+    }
+
+   /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @internal Fmroorder $fmroorder
+     * @internal Fmroorderresult $fmroorderresult
+     * @internal string $ordernumber
+     */
+    public function getfmstatus($id)
+    {
+        $res = $this->_getfmstatus($id);
+        if ($res->status == "0") {
+            Session::flash('message', 'Success getting status from FleetMapper! '. json_encode($res-> result[0]));
             return Redirect::to('fmroorders');
         } else {
-            Session::flash('message', 'Error getting status from FleetMapper!:'.$myRes->status);
+            Session::flash('message', 'Error getting status from FleetMapper!:'.$res->status);
             return Redirect::to('fmroorders');
         }
     }

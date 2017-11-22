@@ -34,10 +34,10 @@ class FmroorderRequest extends FormRequest
             'CustomerContactLastName'=> 'required',
             'CustomerContactPhoneNumber'=> 'required',
 
-            'SizeOfTheContainerToBeDelivered' => 'required_if:OperationType,1,3,4,5 |numeric|min:1',
-            'SizeOfTheContainerToBePickedUp' => 'required_if:OperationType,2,3,4,5 |numeric|min:1',
+            'SizeOfTheContainerToBeDelivered' => 'required_if:OperationType,1,3,4,5 ',
+            'SizeOfTheContainerToBePickedUp' => 'required_if:OperationType,2,3,4,5 ',
             'NameOfTheContainerToBePickedUp'=> 'required_if:OperationType,2,3,4,5',
-            'OperationType'=> 'required',
+            'OperationType'=> 'required |numeric|min:1',
             'RequestedFromTime'=> 'date|required|after:today',
             'RequestedToTime'=> 'date|required|after:RequestedFromTime',
 
