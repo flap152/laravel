@@ -43,7 +43,25 @@
                     </ul>
                 </li>
             @endcan
-
+            {{-- From Laravel Backpack --}}
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="{{  backpack_url('elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="{{  backpack_url('language') }}"><i class="fa fa-flag-o"></i> <span>Languages</span></a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="{{ backpack_url( 'language/texts') }}"><i class="fa fa-language"></i> <span>Language Files</span></a>
+            </li>
+            <li  class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle"  href="{{ url(config('backpack.base.route_prefix', 'admin') . '/setting') }}"><i class="fa fa-cog"></i> <span>Settings</span></a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="{{ url(config('backpack.base.route_prefix').'/page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="{{ url('admin/menu-item') }}"><i class="fa fa-list"></i> <span>Menu</span></a>
+            </li>
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="icon-list"></i> {{ __('menus.backend.log-viewer.main') }}

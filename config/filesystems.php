@@ -68,6 +68,12 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        //from backpack, for uploads
+        'uploads' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+        ],
+
     ],
 
 ];

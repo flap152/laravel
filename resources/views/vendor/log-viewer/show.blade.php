@@ -212,7 +212,7 @@
                 return false;
             });
 
-            @unless (empty(log_styler()->toHighlight()))
+            @unless (empty(log_styler()-> toHighlight()))
                 $('.stack-content').each(function() {
                     var $this = $(this);
                     var html = $this.html().trim()
